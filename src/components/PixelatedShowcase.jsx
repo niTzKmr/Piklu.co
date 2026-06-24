@@ -3,9 +3,6 @@ import { useState } from 'react';
 export default function PixelatedShowcase({ products, onViewDetails }) {
   const [loadedImages, setLoadedImages] = useState({});
   const pixelatedItems = products.filter(p => p.collection === 'pixelated');
-  console.log('ALL PRODUCTS:', products);
-  console.log('PIXELATED:', pixelatedItems);
-
   if (pixelatedItems.length === 0) return null;
 
   return (
