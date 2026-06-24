@@ -3,29 +3,46 @@ import mascotSeal from '../assets/Piklu.png';
 import pixelatedFrame4x6 from '../assets/pixelated-frame-4x6.png';
 
 export default function ProductDetailModal({ product, isOpen, onClose, onAddToCart, allProducts }) {
-  const [customText, setCustomText] = useState('');
+  const [customValues, setCustomValues] = useState({});
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
   const [activeProduct, setActiveProduct] = useState(product);
-  const [selectedSize, setSelectedSize] = useState('4x4');
+  const [selectedVariety, setSelectedVariety] = useState(null);
+  const [errors, setErrors] = useState({});
 
   // Sync active product when the modal is opened/swapped
   useEffect(() => {
     if (product) {
       setActiveProduct(product);
-      setCustomText('');
+      setCustomValues({});
+      setErrors({});
       setActiveSlide(0);
-      setSelectedSize('4x4'); // Reset to default 4x4
+      const defaultVar = product.varieties?.options?.find(opt => opt.isDefault) || product.varieties?.options?.[0] || null;
+      setSelectedVariety(defaultVar);
       // Scroll to top of modal overlay when product opens
       document.getElementById('modal-overlay-viewport')?.scrollTo({ top: 0 });
     }
   }, [product]);
 
+  // Sync active product changes (when clicking recommendations inside the modal)
+  useEffect(() => {
+    if (activeProduct) {
+      const defaultVar = activeProduct.varieties?.options?.find(opt => opt.isDefault) || activeProduct.varieties?.options?.[0] || null;
+      setSelectedVariety(defaultVar);
+      setCustomValues({});
+      setErrors({});
+    }
+  }, [activeProduct]);
+
   if (!isOpen || !activeProduct) return null;
 
-  // Get active image based on product and selected size variety
+  // Get active image based on product and selected variety
   const getProductImage = () => {
-    if (activeProduct.id === 'pixelated-frame' && selectedSize === '4x6') {
+    if (selectedVariety && selectedVariety.image) {
+      return selectedVariety.image;
+    }
+    // Backward compatibility for existing hardcoded frame image swap
+    if (activeProduct.id === 'pixelated-frame' && selectedVariety && selectedVariety.id === '4x6') {
       return pixelatedFrame4x6;
     }
     return activeProduct.image;
@@ -46,16 +63,62 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
     setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  const handleAdd = () => {
-    let finalCustomText = customText;
-    let finalProduct = { ...activeProduct };
-    if (activeProduct.id === 'pixelated-frame') {
-      finalCustomText = `[Size: ${selectedSize}]${customText ? ' ' + customText : ''}`;
-      finalProduct.price = selectedSize === '4x6' ? 349 : 249;
-      finalProduct.name = `${activeProduct.name} (${selectedSize})`;
+  const handleInputChange = (fieldId, val) => {
+    setCustomValues(prev => ({ ...prev, [fieldId]: val }));
+    if (errors[fieldId]) {
+      setErrors(prev => ({ ...prev, [fieldId]: '' }));
     }
+  };
+
+  const handleAdd = () => {
+    // Check required fields
+    const newErrors = {};
+    if (activeProduct.customFields) {
+      activeProduct.customFields.forEach(field => {
+        if (field.required && (!customValues[field.id] || !customValues[field.id].trim())) {
+          newErrors[field.id] = `${field.label} is required`;
+        }
+      });
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      // Scroll to custom fields
+      return;
+    }
+
+    setErrors({});
+    let parts = [];
+    let finalProduct = { ...activeProduct };
+
+    if (selectedVariety) {
+      parts.push(`[${activeProduct.varieties.label || 'Option'}: ${selectedVariety.name}]`);
+      finalProduct.price = selectedVariety.price;
+      finalProduct.name = `${activeProduct.name} (${selectedVariety.name})`;
+    }
+
+    if (activeProduct.customFields) {
+      activeProduct.customFields.forEach(field => {
+        if (field.type !== 'note') {
+          const val = customValues[field.id];
+          if (val && val.trim() !== '') {
+            parts.push(`${field.label}: "${val.trim()}"`);
+          }
+        }
+      });
+    }
+
+    const finalCustomText = parts.join(' ');
     onAddToCart(finalProduct, finalCustomText);
-    setCustomText('');
+    
+    // Reset inputs
+    const resetValues = {};
+    if (activeProduct.customFields) {
+      activeProduct.customFields.forEach(field => {
+        resetValues[field.id] = '';
+      });
+    }
+    setCustomValues(resetValues);
     setIsAdded(true);
     setTimeout(() => {
       setIsAdded(false);
@@ -77,7 +140,6 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
 
   const handleSelectRecommendation = (newProd) => {
     setActiveProduct(newProd);
-    setCustomText('');
     setActiveSlide(0);
     document.getElementById('modal-overlay-viewport')?.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -141,7 +203,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
               <span className="modal-category-badge neo-badge">{activeProduct.category}</span>
               <h1 className="modal-product-title">{activeProduct.name}</h1>
               <div className="modal-price-tag">
-                ₹{activeProduct.id === 'pixelated-frame' && selectedSize === '4x6' ? 349 : activeProduct.price}
+                ₹{selectedVariety ? selectedVariety.price : activeProduct.price}
               </div>
             </div>
 
@@ -150,54 +212,118 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
               <p className="modal-product-desc">{activeProduct.description}</p>
             </div>
 
-            {activeProduct.id === 'pixelated-frame' && (
+            {/* Dynamic Variety Selection */}
+            {activeProduct.varieties && (
               <div className="modal-variety-section neo-card">
-                <label className="modal-custom-label">Select Size Variety</label>
-                <div className="variety-buttons">
-                  <button 
-                    onClick={() => setSelectedSize('4x4')}
-                    className={`variety-btn neo-btn ${selectedSize === '4x4' ? 'active-variety' : 'neo-btn-pink'}`}
-                  >
-                    <span>4x4 Size (₹249)</span>
-                  </button>
-                  <button 
-                    onClick={() => setSelectedSize('4x6')}
-                    className={`variety-btn neo-btn ${selectedSize === '4x6' ? 'active-variety' : 'neo-btn-pink'}`}
-                  >
-                    <span>4x6 Size (₹349)</span>
-                  </button>
+                <label className="modal-custom-label">{activeProduct.varieties.label || 'Select Option'}</label>
+                <div className="variety-buttons" style={{ flexWrap: 'wrap', gap: '0.75rem' }}>
+                  {activeProduct.varieties.options.map((opt) => (
+                    <button 
+                      key={opt.id}
+                      onClick={() => setSelectedVariety(opt)}
+                      className={`variety-btn neo-btn ${selectedVariety?.id === opt.id ? 'active-variety' : 'neo-btn-pink'}`}
+                      style={{ flex: 'unset' }}
+                    >
+                      <span>{opt.name} (₹{opt.price})</span>
+                    </button>
+                  ))}
                 </div>
               </div>
             )}
 
-            <div className="modal-customization-section neo-card">
-              <label className="modal-custom-label" htmlFor="modal-custom-input">
-                💡 {activeProduct.customizationLabel} <span className="optional-text">(Optional)</span>
-              </label>
-              <input
-                id="modal-custom-input"
-                type="text"
-                className="neo-input"
-                placeholder={activeProduct.placeholder}
-                value={customText}
-                onChange={(e) => setCustomText(e.target.value)}
-              />
-            </div>
+            {/* Dynamic Customization Fields */}
+            {activeProduct.customFields && activeProduct.customFields.length > 0 && (
+              <div className="modal-customization-section neo-card">
+                <h4 style={{ fontSize: '1rem', marginBottom: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Customize your Gift 💡
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  {activeProduct.customFields.map((field) => {
+                    if (field.type === 'note') {
+                      return (
+                        <div key={field.id} className="field-group" style={{ backgroundColor: 'var(--bg-cream)', padding: '0.75rem 1rem', border: '1px dashed var(--bg-dark)', borderRadius: '12px' }}>
+                          <label className="modal-custom-label" style={{ marginBottom: '4px', fontSize: '0.8rem', color: 'var(--bg-orange)' }}>
+                            {field.label}
+                          </label>
+                          <p style={{ fontSize: '0.85rem', color: '#555', fontWeight: 600 }}>{field.placeholder}</p>
+                        </div>
+                      );
+                    }
+                    return (
+                      <div key={field.id} className="field-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                        <label className="modal-custom-label" htmlFor={`custom-input-${field.id}`} style={{ marginBottom: 0 }}>
+                          {field.label} {field.required ? <span style={{ color: 'var(--bg-orange)' }}>*</span> : <span className="optional-text">(Optional)</span>}
+                        </label>
+                        {field.type === 'textarea' ? (
+                          <textarea
+                            id={`custom-input-${field.id}`}
+                            className={`neo-input ${errors[field.id] ? 'input-error' : ''}`}
+                            placeholder={field.placeholder}
+                            value={customValues[field.id] || ''}
+                            onChange={(e) => handleInputChange(field.id, e.target.value)}
+                            rows={3}
+                            style={{ resize: 'vertical', minHeight: '80px' }}
+                          />
+                        ) : field.type === 'select' ? (
+                          <select
+                            id={`custom-input-${field.id}`}
+                            className={`neo-input ${errors[field.id] ? 'input-error' : ''}`}
+                            value={customValues[field.id] || ''}
+                            onChange={(e) => handleInputChange(field.id, e.target.value)}
+                            style={{ cursor: 'pointer', height: '46px' }}
+                          >
+                            <option value="">-- Choose Option --</option>
+                            {field.options.map(opt => (
+                              <option key={opt} value={opt}>{opt}</option>
+                            ))}
+                          </select>
+                        ) : (
+                          <input
+                            id={`custom-input-${field.id}`}
+                            type="text"
+                            className={`neo-input ${errors[field.id] ? 'input-error' : ''}`}
+                            placeholder={field.placeholder}
+                            value={customValues[field.id] || ''}
+                            onChange={(e) => handleInputChange(field.id, e.target.value)}
+                          />
+                        )}
+                        {errors[field.id] && (
+                          <span style={{ fontSize: '0.75rem', color: 'var(--bg-orange)', fontWeight: 700 }}>
+                            {errors[field.id]}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
-            {activeProduct.id === 'pixelated-frame' && (
+            {/* Dynamic Specifications */}
+            {activeProduct.specifications && activeProduct.specifications.length > 0 && (
               <div className="modal-highlights-card neo-card">
                 <h4>Product Highlights ✨</h4>
                 <div className="highlights-grid">
-                  <div className="highlight-item"><strong>Color:</strong> <span>White</span></div>
-                  <div className="highlight-item"><strong>Product Length:</strong> <span>8 Inch</span></div>
-                  <div className="highlight-item"><strong>Product Breadth:</strong> <span>0.5 Inch</span></div>
-                  <div className="highlight-item"><strong>Product Height:</strong> <span>12 Inch</span></div>
-                  <div className="highlight-item"><strong>Weight:</strong> <span>100 g</span></div>
-                  <div className="highlight-item"><strong>Material:</strong> <span>Plastic</span></div>
-                  <div className="highlight-item"><strong>Type:</strong> <span>Digital Photo Frame</span></div>
-                  <div className="highlight-item"><strong>Generic Name:</strong> <span>Photo Frames</span></div>
-                  <div className="highlight-item"><strong>Country of Origin:</strong> <span>India</span></div>
-                  <div className="highlight-item"><strong>Net Quantity (N):</strong> <span>1</span></div>
+                  {activeProduct.specifications.map((spec, i) => (
+                    <div key={i} className="highlight-item">
+                      <strong>{spec.name}:</strong> <span>{spec.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Dynamic FAQs */}
+            {activeProduct.faqs && activeProduct.faqs.length > 0 && (
+              <div className="modal-highlights-card neo-card" style={{ marginTop: '0.5rem' }}>
+                <h4 style={{ marginBottom: '1.25rem' }}>Product FAQs ❓</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  {activeProduct.faqs.map((faq, i) => (
+                    <div key={i} style={{ borderBottom: i < activeProduct.faqs.length - 1 ? '1px dashed #ddd' : 'none', paddingBottom: '0.75rem' }}>
+                      <h5 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.35rem' }}>Q: {faq.q}</h5>
+                      <p style={{ fontSize: '0.85rem', color: '#555', lineHeight: 1.4 }}>A: {faq.a}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
