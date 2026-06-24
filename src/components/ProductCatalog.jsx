@@ -36,11 +36,11 @@ export default function ProductCatalog({ products, onAddToCart, onViewDetails, a
     : products;
 
   // Then apply category filtering
-  const filteredProducts = activeCategory === 'Recommended'
-    ? (searchQuery.trim() !== '' 
-        ? searchedProducts 
-        : (products.some(p => p.recommended) ? products.filter(p => p.recommended) : products))
-    : searchedProducts.filter(p => p.category === activeCategory);
+  const filteredProducts = searchQuery.trim() !== ''
+    ? searchedProducts
+    : (activeCategory === 'Recommended'
+        ? (products.some(p => p.recommended) ? products.filter(p => p.recommended) : products)
+        : products.filter(p => p.category === activeCategory));
 
   return (
     <section className="catalog-section" id="catalog">
