@@ -15,7 +15,6 @@ export default function ProductPage({ products, onAddToCart, cartCount, onCartCl
 
   return (
     <ProductDetailModal
-      key={product.id}
       product={product}
       isOpen={true}
       onClose={() => navigate('/')}

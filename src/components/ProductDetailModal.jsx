@@ -9,6 +9,15 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
   const [slideLoaded, setSlideLoaded] = useState({});
   const activeProduct = product;
 
+  // Reset slide and variety when product changes (during render)
+  const [prevProductId, setPrevProductId] = useState(product?.id);
+  if (product?.id !== prevProductId) {
+    setPrevProductId(product?.id);
+    setActiveSlide(0);
+    setSlideLoaded({});
+    setSelectedVariety(defaultVariety);
+  }
+
   if (!isOpen || !activeProduct) return null;
 
   // Get base images for the product (fall back to activeProduct.image)
