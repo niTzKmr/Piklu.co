@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function PixelatedShowcase({ products, onViewDetails }) {
+  const [loadedImages, setLoadedImages] = useState({});
   const pixelatedItems = products.filter(p => p.collection === 'pixelated');
 
   if (pixelatedItems.length === 0) return null;
@@ -41,7 +42,13 @@ export default function PixelatedShowcase({ products, onViewDetails }) {
                 style={{ cursor: 'pointer' }}
               >
                 <div className="pixel-card-img-container">
-                  <img src={item.image} alt={item.name} className="pixel-card-img" />
+                  <img 
+                    src={item.image} 
+                    alt={item.name} 
+                    className={`pixel-card-img ${loadedImages[item.id] ? 'loaded' : ''}`} 
+                    loading="lazy"
+                    onLoad={() => setLoadedImages(prev => ({ ...prev, [item.id]: true }))}
+                  />
                 </div>
                 <div className="pixel-card-body">
                   <h3 className="pixel-card-title">{item.name}</h3>

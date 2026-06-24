@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 export default function ProductCard({ product, onAddToCart, onViewDetails }) {
+  const [loaded, setLoaded] = useState(false);
   const [customText, setCustomText] = useState('');
   const [isAdded, setIsAdded] = useState(false);
 
@@ -24,7 +25,13 @@ export default function ProductCard({ product, onAddToCart, onViewDetails }) {
   return (
     <article className="neo-card product-card" onClick={() => onViewDetails(product)} style={{ cursor: 'pointer' }}>
       <div className="product-image-container">
-        <img src={product.image} alt={product.name} className="product-image" />
+        <img 
+          src={product.image} 
+          alt={product.name} 
+          className={`product-image ${loaded ? 'loaded' : ''}`} 
+          loading="lazy"
+          onLoad={() => setLoaded(true)}
+        />
       </div>
       
       <div className="product-body">
@@ -73,10 +80,15 @@ export default function ProductCard({ product, onAddToCart, onViewDetails }) {
           height: 100%;
           object-fit: contain;
           background-color: var(--bg-cream);
-          transition: transform 0.5s ease;
+          opacity: 0;
+          transition: opacity 0.4s ease-out, transform 0.5s ease;
         }
 
-        .product-card:hover .product-image {
+        .product-image.loaded {
+          opacity: 1;
+        }
+
+        .product-card:hover .product-image.loaded {
           transform: scale(1.05);
         }
 

@@ -9,6 +9,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
   const [activeProduct, setActiveProduct] = useState(product);
   const [selectedVariety, setSelectedVariety] = useState(null);
   const [errors, setErrors] = useState({});
+  const [slideLoaded, setSlideLoaded] = useState({});
 
   // Sync active product when the modal is opened/swapped
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
       setCustomValues({});
       setErrors({});
       setActiveSlide(0);
+      setSlideLoaded({});
       const defaultVar = product.varieties?.options?.find(opt => opt.isDefault) || product.varieties?.options?.[0] || null;
       setSelectedVariety(defaultVar);
       // Scroll to top of modal overlay when product opens
@@ -31,6 +33,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
       setSelectedVariety(defaultVar);
       setCustomValues({});
       setErrors({});
+      setSlideLoaded({});
     }
   }, [activeProduct]);
 
@@ -128,7 +131,12 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                     className={`carousel-slide ${index === activeSlide ? 'active' : ''}`}
                   >
                     <div className={`slide-img-container ${slide.zoom ? 'macro-zoom' : ''}`}>
-                      <img src={slide.image} alt={slide.label} className="slide-image" />
+                      <img 
+                        src={slide.image} 
+                        alt={slide.label} 
+                        className={`slide-image ${slideLoaded[index] ? 'loaded' : ''}`} 
+                        onLoad={() => setSlideLoaded(prev => ({ ...prev, [index]: true }))}
+                      />
                     </div>
                     <span className="slide-label neo-badge">{slide.label}</span>
                   </div>
@@ -247,7 +255,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                   onClick={() => handleSelectRecommendation(rec)}
                   className="neo-card rec-mini-card"
                 >
-                  <img src={rec.image} alt={rec.name} className="rec-mini-img" />
+                  <img src={rec.image} alt={rec.name} className="rec-mini-img" loading="lazy" />
                   <div className="rec-mini-details">
                     <h4 className="rec-mini-title">{rec.name}</h4>
                     <span className="rec-mini-price">₹{rec.price}</span>
@@ -380,6 +388,12 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           height: 100%;
           object-fit: contain;
           background-color: var(--bg-cream);
+          opacity: 0;
+          transition: opacity 0.3s ease-out;
+        }
+
+        .slide-image.loaded {
+          opacity: 1;
         }
 
         .macro-zoom .slide-image {
