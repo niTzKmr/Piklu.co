@@ -142,9 +142,10 @@ export const products = [
     "price": 149,
     "category": "Keychain",
     "description": "A dual-sided custom keychain featuring your Instagram/Facebook page or payment UPI QR code on one side, and a custom design or text on the other. Extremely handy for creators and business owners!",
-    "image": "/Products/Keychain/Double Side QR/Front.png",
+    "image": "/Products/Double-side-qr-keychain/Back.png",
     "images": [
-      "/Products/Keychain/Double Side QR/Front.png"
+      "/Products/Double-side-qr-keychain/Back.png",
+      "/Products/Double-side-qr-keychain/Front.png"
     ],
     "recommended": false,
     "collection": "",
@@ -277,9 +278,9 @@ export const products = [
     "price": 199,
     "category": "Keychain",
     "description": "An incredibly soft, hand-stitched mini plushie keychain. Choose your favorite animal buddy and add a personalized custom label tag!",
-    "image": "/Products/Keychain/Plushie Keychain/Plushie_keychain.png",
+    "image": "/Products/Plushie-keychain/Plushie_keychain.png",
     "images": [
-      "/Products/Keychain/Plushie Keychain/Plushie_keychain.png"
+      "/Products/Plushie-keychain/Plushie_keychain.png"
     ],
     "recommended": false,
     "collection": "",
@@ -400,5 +401,421 @@ export const products = [
         "a": "Yes, during WhatsApp confirmation you can specify your preference for gold-plated or silver-plated rings and charms!"
       }
     ]
+  },
+  {
+    "id": "101-why-i-love-you",
+    "slug": "101-why-i-love-you",
+    "name": "101 Why I Love You",
+    "price": 99,
+    "category": "Unique Gifts",
+    "description": "A beautiful handcrafted 101 why i love you.",
+    "image": "/Products/101-Why-I-Love-You/image1.png",
+    "images": [
+      "/Products/101-Why-I-Love-You/image1.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "gifts"
+    ],
+    "sku": "101-why-i-love-you",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "101 Why I Love You",
+    "meta_description": "A beautiful handcrafted 101 why i love you.",
+    "instagram_url": ""
+  },
+  {
+    "id": "ceramic-bubble-cup-saucer",
+    "slug": "ceramic-bubble-cup-saucer",
+    "name": "Ceramic Bubble Cup Saucer",
+    "price": 99,
+    "category": "Unique Gifts",
+    "description": "A beautiful handcrafted ceramic bubble cup saucer.",
+    "image": "/Products/Ceramic-Bubble-Cup-Saucer/ceramic cup with sausage set.png",
+    "images": [
+      "/Products/Ceramic-Bubble-Cup-Saucer/ceramic cup with sausage set.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "gifts"
+    ],
+    "sku": "ceramic-bubble-cup-saucer",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Ceramic Bubble Cup Saucer",
+    "meta_description": "A beautiful handcrafted ceramic bubble cup saucer.",
+    "instagram_url": ""
+  },
+  {
+    "id": "ceramic-coffee-mug-bow",
+    "slug": "ceramic-coffee-mug-bow",
+    "name": "Ceramic Coffee Mug Bow",
+    "price": 99,
+    "category": "Unique Gifts",
+    "description": "A beautiful handcrafted ceramic coffee mug bow.",
+    "image": "/Products/Ceramic-Coffee-Mug-Bow/bow mug.png",
+    "images": [
+      "/Products/Ceramic-Coffee-Mug-Bow/bow mug.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "gifts"
+    ],
+    "sku": "ceramic-coffee-mug-bow",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Ceramic Coffee Mug Bow",
+    "meta_description": "A beautiful handcrafted ceramic coffee mug bow.",
+    "instagram_url": ""
+  },
+  {
+    "id": "ceramic-heart-mug",
+    "slug": "ceramic-heart-mug",
+    "name": "Ceramic Heart Mug",
+    "price": 99,
+    "category": "Mug",
+    "description": "A beautiful handcrafted ceramic heart mug.",
+    "image": "/Products/Ceramic-Heart-Mug/heart mug.png",
+    "images": [
+      "/Products/Ceramic-Heart-Mug/heart mug.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "mugs"
+    ],
+    "sku": "ceramic-heart-mug",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Ceramic Heart Mug",
+    "meta_description": "A beautiful handcrafted ceramic heart mug.",
+    "instagram_url": ""
+  },
+  {
+    "id": "collage-3d-cutout-frame",
+    "slug": "collage-3d-cutout-frame",
+    "name": "Collage 3D Cutout Frame",
+    "price": 99,
+    "category": "Frame",
+    "description": "A beautiful handcrafted collage 3d cutout frame.",
+    "image": "/Products/Collage-3D-Cutout-Frame/image.png",
+    "images": [
+      "/Products/Collage-3D-Cutout-Frame/image.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "frames"
+    ],
+    "sku": "collage-3d-cutout-frame",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Collage 3D Cutout Frame",
+    "meta_description": "A beautiful handcrafted collage 3d cutout frame.",
+    "instagram_url": ""
+  },
+  {
+    "id": "crochet-sunflower-keychain",
+    "slug": "crochet-sunflower-keychain",
+    "name": "Crochet Sunflower Keychain",
+    "price": 99,
+    "category": "Keychain",
+    "description": "A beautiful handcrafted crochet sunflower keychain.",
+    "image": "/Products/Crochet-Sunflower-Keychain/image.jpg",
+    "images": [
+      "/Products/Crochet-Sunflower-Keychain/image.jpg"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "keychains"
+    ],
+    "sku": "crochet-sunflower-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Crochet Sunflower Keychain",
+    "meta_description": "A beautiful handcrafted crochet sunflower keychain.",
+    "instagram_url": ""
+  },
+  {
+    "id": "customized-8-photo-frame",
+    "slug": "customized-8-photo-frame",
+    "name": "Customized 8 Photo Frame",
+    "price": 99,
+    "category": "Frame",
+    "description": "A beautiful handcrafted customized 8 photo frame.",
+    "image": "/Products/Customized-8-Photo-Frame/image.png",
+    "images": [
+      "/Products/Customized-8-Photo-Frame/image.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "frames"
+    ],
+    "sku": "customized-8-photo-frame",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Customized 8 Photo Frame",
+    "meta_description": "A beautiful handcrafted customized 8 photo frame.",
+    "instagram_url": ""
+  },
+  {
+    "id": "diy-pearl-necklace-set",
+    "slug": "diy-pearl-necklace-set",
+    "name": "DIY Pearl Necklace Set",
+    "price": 99,
+    "category": "Unique Gifts",
+    "description": "A beautiful handcrafted diy pearl necklace set.",
+    "image": "/Products/DIY-Pearl-Necklace-Set/image.png",
+    "images": [
+      "/Products/DIY-Pearl-Necklace-Set/image.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "gifts"
+    ],
+    "sku": "diy-pearl-necklace-set",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "DIY Pearl Necklace Set",
+    "meta_description": "A beautiful handcrafted diy pearl necklace set.",
+    "instagram_url": ""
+  },
+  {
+    "id": "duck-themed-mug",
+    "slug": "duck-themed-mug",
+    "name": "Duck Themed Mug",
+    "price": 99,
+    "category": "Mug",
+    "description": "A beautiful handcrafted duck themed mug.",
+    "image": "/Products/Duck-Themed-Mug/image.png",
+    "images": [
+      "/Products/Duck-Themed-Mug/image.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "mugs"
+    ],
+    "sku": "duck-themed-mug",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Duck Themed Mug",
+    "meta_description": "A beautiful handcrafted duck themed mug.",
+    "instagram_url": ""
+  },
+  {
+    "id": "gift-box-combo",
+    "slug": "gift-box-combo",
+    "name": "Gift Box Combo",
+    "price": 99,
+    "category": "Unique Gifts",
+    "description": "A beautiful handcrafted gift box combo.",
+    "image": "/Products/Gift-Box-Combo/image.png",
+    "images": [
+      "/Products/Gift-Box-Combo/image.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "gifts"
+    ],
+    "sku": "gift-box-combo",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Gift Box Combo",
+    "meta_description": "A beautiful handcrafted gift box combo.",
+    "instagram_url": ""
+  },
+  {
+    "id": "hollow-knight-keychain",
+    "slug": "hollow-knight-keychain",
+    "name": "Hollow Knight Keychain",
+    "price": 99,
+    "category": "Keychain",
+    "description": "A beautiful handcrafted hollow knight keychain.",
+    "image": "/Products/Hollow-knight-keychain/Hollow knight.png",
+    "images": [
+      "/Products/Hollow-knight-keychain/Hollow knight.png",
+      "/Products/Hollow-knight-keychain/Hollow Knight 2.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "keychains"
+    ],
+    "sku": "hollow-knight-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Hollow Knight Keychain",
+    "meta_description": "A beautiful handcrafted hollow knight keychain.",
+    "instagram_url": ""
+  },
+  {
+    "id": "pixel-cutom-keychain",
+    "slug": "pixel-cutom-keychain",
+    "name": "Pixel Cutom Keychain",
+    "price": 99,
+    "category": "Keychain",
+    "description": "A beautiful handcrafted pixel cutom keychain.",
+    "image": "/Products/Pixel-cutom-keychain/Keychain.png",
+    "images": [
+      "/Products/Pixel-cutom-keychain/Keychain.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "keychains"
+    ],
+    "sku": "pixel-cutom-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Pixel Cutom Keychain",
+    "meta_description": "A beautiful handcrafted pixel cutom keychain.",
+    "instagram_url": ""
+  },
+  {
+    "id": "pixel-frame-4x4",
+    "slug": "pixel-frame-4x4",
+    "name": "Pixel Frame 4x4",
+    "price": 99,
+    "category": "Unique Gifts",
+    "description": "A beautiful handcrafted pixel frame 4x4.",
+    "image": "/Products/Pixel-Frame-4x4/Frame4x4.png",
+    "images": [
+      "/Products/Pixel-Frame-4x4/Frame4x4.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "gifts"
+    ],
+    "sku": "pixel-frame-4x4",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Pixel Frame 4x4",
+    "meta_description": "A beautiful handcrafted pixel frame 4x4.",
+    "instagram_url": ""
+  },
+  {
+    "id": "pixel-frame-4x4-stand",
+    "slug": "pixel-frame-4x4-stand",
+    "name": "Pixel Frame 4x4 Stand",
+    "price": 99,
+    "category": "Unique Gifts",
+    "description": "A beautiful handcrafted pixel frame 4x4 stand.",
+    "image": "/Products/Pixel-Frame-4x4-Stand/image.png",
+    "images": [
+      "/Products/Pixel-Frame-4x4-Stand/image.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "gifts"
+    ],
+    "sku": "pixel-frame-4x4-stand",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Pixel Frame 4x4 Stand",
+    "meta_description": "A beautiful handcrafted pixel frame 4x4 stand.",
+    "instagram_url": ""
+  },
+  {
+    "id": "pixel-frame-6x4",
+    "slug": "pixel-frame-6x4",
+    "name": "Pixel Frame 6x4",
+    "price": 99,
+    "category": "Unique Gifts",
+    "description": "A beautiful handcrafted pixel frame 6x4.",
+    "image": "/Products/Pixel-Frame-6x4/Frame4x6.png",
+    "images": [
+      "/Products/Pixel-Frame-6x4/Frame4x6.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "gifts"
+    ],
+    "sku": "pixel-frame-6x4",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Pixel Frame 6x4",
+    "meta_description": "A beautiful handcrafted pixel frame 6x4.",
+    "instagram_url": ""
+  },
+  {
+    "id": "shinchan-messi-keychain",
+    "slug": "shinchan-messi-keychain",
+    "name": "Shinchan Messi Keychain",
+    "price": 99,
+    "category": "Keychain",
+    "description": "A beautiful handcrafted shinchan messi keychain.",
+    "image": "/Products/Shinchan-Messi-Keychain/image 1.png",
+    "images": [
+      "/Products/Shinchan-Messi-Keychain/image 1.png",
+      "/Products/Shinchan-Messi-Keychain/image 2.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "keychains"
+    ],
+    "sku": "shinchan-messi-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Shinchan Messi Keychain",
+    "meta_description": "A beautiful handcrafted shinchan messi keychain.",
+    "instagram_url": ""
+  },
+  {
+    "id": "strawberry-bee-keychain",
+    "slug": "strawberry-bee-keychain",
+    "name": "Strawberry Bee Keychain",
+    "price": 99,
+    "category": "Keychain",
+    "description": "A beautiful handcrafted strawberry bee keychain.",
+    "image": "/Products/Strawberry-Bee-Keychain/strawberry_keychain.png",
+    "images": [
+      "/Products/Strawberry-Bee-Keychain/strawberry_keychain.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "keychains"
+    ],
+    "sku": "strawberry-bee-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Strawberry Bee Keychain",
+    "meta_description": "A beautiful handcrafted strawberry bee keychain.",
+    "instagram_url": ""
+  },
+  {
+    "id": "trendy-cutout-5-photo-frame",
+    "slug": "trendy-cutout-5-photo-frame",
+    "name": "Trendy Cutout 5 Photo Frame",
+    "price": 99,
+    "category": "Frame",
+    "description": "A beautiful handcrafted trendy cutout 5 photo frame.",
+    "image": "/Products/Trendy-Cutout-5-Photo-Frame/image.png",
+    "images": [
+      "/Products/Trendy-Cutout-5-Photo-Frame/image.png"
+    ],
+    "recommended": false,
+    "collection": "",
+    "tags": [
+      "frames"
+    ],
+    "sku": "trendy-cutout-5-photo-frame",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Trendy Cutout 5 Photo Frame",
+    "meta_description": "A beautiful handcrafted trendy cutout 5 photo frame.",
+    "instagram_url": ""
   }
 ];
