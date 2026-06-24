@@ -641,7 +641,7 @@ export const products = [
       "/Products/Pixel-Frame-6x4/Frame4x6.png"
     ],
     "recommended": false,
-    "collection": "pixelated",
+    "collection": "",
     "tags": [
       "frames"
     ],
