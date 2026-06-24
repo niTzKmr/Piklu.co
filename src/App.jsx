@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -117,7 +117,7 @@ export default function App() {
               <div className="container story-grid">
                 <div className="story-visual animate-float">
                   <div className="story-sticker neo-card">
-                    <img src={pikluMascot} alt="Piklu Mascot Mascot" className="story-img" />
+                    <img src={pikluMascot} alt="Piklu mascot" className="story-img" />
                     <div className="sticker-tag">100% Unique</div>
                   </div>
                 </div>

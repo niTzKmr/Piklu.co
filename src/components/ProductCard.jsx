@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function HighlightText({ text, query }) {
   if (!query || !query.trim()) return <span>{text}</span>;
@@ -6,7 +6,7 @@ function HighlightText({ text, query }) {
   const terms = query.trim().split(/\s+/).filter(Boolean);
   if (terms.length === 0) return <span>{text}</span>;
   
-  const escapedTerms = terms.map(term => term.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|');
+  const escapedTerms = terms.map(term => term.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&')).join('|');
   const regex = new RegExp(`(${escapedTerms})`, 'gi');
   
   const parts = text.split(regex);
@@ -34,16 +34,6 @@ export default function ProductCard({ product, onAddToCart, onViewDetails, searc
     setCustomText('');
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 1200);
-  };
-
-  // Determine category badge background class
-  const getCategoryClass = (cat) => {
-    switch (cat) {
-      case 'Curated Hampers': return 'badge-yellow';
-      case 'Custom Keychains': return 'badge-pink';
-      case 'Unique Gifts': return 'badge-teal';
-      default: return 'badge-orange';
-    }
   };
 
   return (

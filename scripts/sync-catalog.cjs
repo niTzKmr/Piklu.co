@@ -7,6 +7,13 @@ const productsDirPath = path.join(__dirname, '../public/Products');
 // Directories to explicitly ignore as they are legacy category folders
 const ignoreDirs = ['Frame', 'Hamper', 'Keychain', 'Mug', 'Pixellated collection'];
 
+// Map specific folders to existing catalog entry IDs (overriding standard lower-cased mapping)
+const folderToIdOverrides = {
+  'pixel-frame-4x4': 'pixelated-frame',
+  'pixel-frame-6x4': 'pixelated-frame',
+  'pixel-cutom-keychain': 'pixelated-keychain'
+};
+
 // Utility to parse a single CSV line into cells
 function parseCSVLine(line) {
   const result = [];
@@ -124,14 +131,28 @@ try {
     const imageStringValue = relativeImagePaths.join(' | ');
 
     // Generate slug and match with existing catalog entry
-    const slug = item.toLowerCase();
+    let slug = item.toLowerCase();
+    const folderSlug = slug;
+    if (folderToIdOverrides[slug]) {
+      slug = folderToIdOverrides[slug];
+    }
     const existingIndex = rows.findIndex(row => row.id.toLowerCase() === slug);
 
     if (existingIndex > -1) {
       // Catalog entry exists - UPDATE ONLY the image information
-      rows[existingIndex].image = imageStringValue;
+      if (folderToIdOverrides[folderSlug]) {
+        // For overridden folders, merge/append unique images rather than overwriting
+        const existingImages = rows[existingIndex].image ? rows[existingIndex].image.split(' | ').filter(Boolean) : [];
+        // Clean out legacy paths referencing 'Pixellated collection'
+        const cleanedExisting = existingImages.filter(img => !img.includes('Pixellated collection'));
+        const newImages = imageStringValue.split(' | ');
+        const combined = Array.from(new Set([...cleanedExisting, ...newImages]));
+        rows[existingIndex].image = combined.join(' | ');
+      } else {
+        rows[existingIndex].image = imageStringValue;
+      }
       productsUpdated++;
-      updatedDetails.push({ id: rows[existingIndex].id, imagesCount: images.length });
+      updatedDetails.push({ id: rows[existingIndex].id, imagesCount: rows[existingIndex].image.split(' | ').length });
     } else {
       // Catalog entry does NOT exist - CREATE a new row dynamically
       // Infer category from suffix

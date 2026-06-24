@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Fuse from 'fuse.js';
 import ProductCard from './ProductCard';
 
@@ -9,7 +9,7 @@ export default function ProductCatalog({ products, onAddToCart, onViewDetails, a
   const categories = ['Recommended', 'Frame', 'Hamper', 'Keychain', 'Mug', 'Bracelet'];
 
   // Initialize Fuse.js instance
-  const fuse = new Fuse(products, {
+  const fuse = useMemo(() => new Fuse(products, {
     keys: [
       { name: 'name', weight: 1.5 },
       { name: 'category', weight: 1.0 },
@@ -20,7 +20,7 @@ export default function ProductCatalog({ products, onAddToCart, onViewDetails, a
     ],
     threshold: 0.4,
     ignoreLocation: true
-  });
+  }), [products]);
 
   // Debounce search input value (250ms delay)
   useEffect(() => {

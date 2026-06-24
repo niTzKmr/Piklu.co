@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ProductDetailModal from './ProductDetailModal';
 import ProductNotFound from './ProductNotFound';
@@ -16,6 +15,7 @@ export default function ProductPage({ products, onAddToCart, cartCount, onCartCl
 
   return (
     <ProductDetailModal
+      key={product.id}
       product={product}
       isOpen={true}
       onClose={() => navigate('/')}

@@ -1,17 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import logoImg from '../assets/Piklu.png';
 
 export default function Header({ cartCount, onCartClick }) {
-  const [animateCart, setAnimateCart] = useState(false);
-
-  useEffect(() => {
-    if (cartCount > 0) {
-      setAnimateCart(true);
-      const timer = setTimeout(() => setAnimateCart(false), 300);
-      return () => clearTimeout(timer);
-    }
-  }, [cartCount]);
-
   return (
     <header className="header-container">
       <div className="header-bar container">
@@ -22,13 +11,14 @@ export default function Header({ cartCount, onCartClick }) {
         
         <nav className="nav-links">
           <a href="#catalog" className="nav-link">Catalog</a>
-          <a href="#about" className="nav-link">Our Story</a>
+          <a href="#story" className="nav-link">Our Story</a>
           <a href="#contact" className="nav-link">Contact</a>
         </nav>
 
         <button 
           onClick={onCartClick} 
-          className={`neo-btn neo-btn-pink cart-toggle-btn ${animateCart ? 'pop-effect' : ''}`}
+          key={cartCount}
+          className={`neo-btn neo-btn-pink cart-toggle-btn ${cartCount > 0 ? 'pop-effect' : ''}`}
           aria-label="Open Shopping Cart"
           id="cart-toggle-btn"
         >

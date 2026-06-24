@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import heroMascot from '../assets/Piklu.jpg';
 
+const shuffleItems = [
+  { text: 'Customize a Keychain 🔑', category: 'Keychain' },
+  { text: 'Customize a Frame 🖼️', category: 'Frame' },
+  { text: 'Customize a Hamper 🎁', category: 'Hamper' },
+  { text: 'Customize a Mug ☕', category: 'Mug' },
+  { text: 'Customize a Bracelet 📿', category: 'Bracelet' }
+];
+
 export default function Hero({ onSelectCategory }) {
-  const handleScrollToCatalog = (e) => {
-    e.preventDefault();
-    const catalogElement = document.getElementById('catalog');
-    if (catalogElement) {
-      catalogElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const shuffleItems = [
-    { text: 'Customize a Keychain 🔑', category: 'Keychain' },
-    { text: 'Customize a Frame 🖼️', category: 'Frame' },
-    { text: 'Customize a Hamper 🎁', category: 'Hamper' },
-    { text: 'Customize a Mug ☕', category: 'Mug' },
-    { text: 'Customize a Bracelet 📿', category: 'Bracelet' }
-  ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

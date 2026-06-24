@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // Configure the default merchant WhatsApp number here (Indian country code 91)
 const MERCHANT_PHONE = '916204314594'; 

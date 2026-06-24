@@ -7,9 +7,10 @@ export const products = [
     "price": 249,
     "category": "Frame",
     "description": "A blocky, 8-bit styled custom photo frame. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
-    "image": "/Products/Pixellated collection/Frame/Frame4x4.png",
+    "image": "/Products/Pixel-Frame-4x4/Frame4x4.png",
     "images": [
-      "/Products/Pixellated collection/Frame/Frame4x4.png"
+      "/Products/Pixel-Frame-4x4/Frame4x4.png",
+      "/Products/Pixel-Frame-6x4/Frame4x6.png"
     ],
     "recommended": true,
     "collection": "pixelated",
@@ -93,9 +94,9 @@ export const products = [
     "price": 99,
     "category": "Keychain",
     "description": "A custom dual-layered laser-cut acrylic keychain styled like a retro arcade name badge. Your name is engraved in a blocky 8-bit gaming font.",
-    "image": "/Products/Pixellated collection/Keychain/Keychain.png",
+    "image": "/Products/Pixel-cutom-keychain/Keychain.png",
     "images": [
-      "/Products/Pixellated collection/Keychain/Keychain.png"
+      "/Products/Pixel-cutom-keychain/Keychain.png"
     ],
     "recommended": true,
     "collection": "pixelated",
@@ -237,9 +238,9 @@ export const products = [
     "price": 149,
     "category": "Keychain",
     "description": "A stunning 3D Hollow Knight figurine keychain. Perfect for collectors and hollow knight fans who want a high-quality figurine charm by their side.",
-    "image": "/Products/Keychain/Hollow Knight/Hollow knight.png",
+    "image": "/Products/Hollow-knight-keychain/Hollow knight.png",
     "images": [
-      "/Products/Keychain/Hollow Knight/Hollow knight.png"
+      "/Products/Hollow-knight-keychain/Hollow knight.png"
     ],
     "recommended": false,
     "collection": "",
@@ -323,9 +324,9 @@ export const products = [
     "price": 119,
     "category": "Keychain",
     "description": "A funny and adorable Shinchan custom keychain in his iconic Action Mask superhero suit! Perfect for 90s kids and anime fans.",
-    "image": "/Products/Keychain/Shinchan/image 1.png",
+    "image": "/Products/Shinchan-Messi-Keychain/image 1.png",
     "images": [
-      "/Products/Keychain/Shinchan/image 1.png"
+      "/Products/Shinchan-Messi-Keychain/image 1.png"
     ],
     "recommended": false,
     "collection": "",
@@ -368,9 +369,9 @@ export const products = [
     "price": 99,
     "category": "Keychain",
     "description": "A sweet, summery custom keychain shaped like a strawberry. Add custom initials to the little metal leaf charm for a personal touch!",
-    "image": "/Products/Keychain/Strawberry/strawberry_keychain.png",
+    "image": "/Products/Strawberry-Bee-Keychain/strawberry_keychain.png",
     "images": [
-      "/Products/Keychain/Strawberry/strawberry_keychain.png"
+      "/Products/Strawberry-Bee-Keychain/strawberry_keychain.png"
     ],
     "recommended": false,
     "collection": "",
@@ -657,52 +658,6 @@ export const products = [
     "instagram_url": ""
   },
   {
-    "id": "pixel-cutom-keychain",
-    "slug": "pixel-cutom-keychain",
-    "name": "Pixel Cutom Keychain",
-    "price": 99,
-    "category": "Keychain",
-    "description": "A beautiful handcrafted pixel cutom keychain.",
-    "image": "/Products/Pixel-cutom-keychain/Keychain.png",
-    "images": [
-      "/Products/Pixel-cutom-keychain/Keychain.png"
-    ],
-    "recommended": false,
-    "collection": "",
-    "tags": [
-      "keychains"
-    ],
-    "sku": "pixel-cutom-keychain",
-    "stock": -1,
-    "weight": 0,
-    "meta_title": "Pixel Cutom Keychain",
-    "meta_description": "A beautiful handcrafted pixel cutom keychain.",
-    "instagram_url": ""
-  },
-  {
-    "id": "pixel-frame-4x4",
-    "slug": "pixel-frame-4x4",
-    "name": "Pixel Frame 4x4",
-    "price": 99,
-    "category": "Unique Gifts",
-    "description": "A beautiful handcrafted pixel frame 4x4.",
-    "image": "/Products/Pixel-Frame-4x4/Frame4x4.png",
-    "images": [
-      "/Products/Pixel-Frame-4x4/Frame4x4.png"
-    ],
-    "recommended": false,
-    "collection": "",
-    "tags": [
-      "gifts"
-    ],
-    "sku": "pixel-frame-4x4",
-    "stock": -1,
-    "weight": 0,
-    "meta_title": "Pixel Frame 4x4",
-    "meta_description": "A beautiful handcrafted pixel frame 4x4.",
-    "instagram_url": ""
-  },
-  {
     "id": "pixel-frame-4x4-stand",
     "slug": "pixel-frame-4x4-stand",
     "name": "Pixel Frame 4x4 Stand",
@@ -723,29 +678,6 @@ export const products = [
     "weight": 0,
     "meta_title": "Pixel Frame 4x4 Stand",
     "meta_description": "A beautiful handcrafted pixel frame 4x4 stand.",
-    "instagram_url": ""
-  },
-  {
-    "id": "pixel-frame-6x4",
-    "slug": "pixel-frame-6x4",
-    "name": "Pixel Frame 6x4",
-    "price": 99,
-    "category": "Unique Gifts",
-    "description": "A beautiful handcrafted pixel frame 6x4.",
-    "image": "/Products/Pixel-Frame-6x4/Frame4x6.png",
-    "images": [
-      "/Products/Pixel-Frame-6x4/Frame4x6.png"
-    ],
-    "recommended": false,
-    "collection": "",
-    "tags": [
-      "gifts"
-    ],
-    "sku": "pixel-frame-6x4",
-    "stock": -1,
-    "weight": 0,
-    "meta_title": "Pixel Frame 6x4",
-    "meta_description": "A beautiful handcrafted pixel frame 6x4.",
     "instagram_url": ""
   },
   {

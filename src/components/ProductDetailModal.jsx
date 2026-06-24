@@ -1,55 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import mascotSeal from '../assets/Piklu.png';
 import pixelatedFrame4x6 from '../assets/pixelated-frame-4x6.png';
 
 export default function ProductDetailModal({ product, isOpen, onClose, onAddToCart, allProducts, cartCount, onCartClick, onSelectProduct }) {
-  const [customValues, setCustomValues] = useState({});
+  const defaultVariety = product?.varieties?.options?.find(opt => opt.isDefault) || product?.varieties?.options?.[0] || null;
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
-  const [activeProduct, setActiveProduct] = useState(product);
-  const [selectedVariety, setSelectedVariety] = useState(null);
-  const [errors, setErrors] = useState({});
+  const [selectedVariety, setSelectedVariety] = useState(defaultVariety);
   const [slideLoaded, setSlideLoaded] = useState({});
-
-  // Sync active product when the modal is opened/swapped
-  useEffect(() => {
-    if (product) {
-      setActiveProduct(product);
-      setCustomValues({});
-      setErrors({});
-      setActiveSlide(0);
-      setSlideLoaded({});
-      const defaultVar = product.varieties?.options?.find(opt => opt.isDefault) || product.varieties?.options?.[0] || null;
-      setSelectedVariety(defaultVar);
-      // Scroll to top of modal overlay when product opens
-      document.getElementById('modal-overlay-viewport')?.scrollTo({ top: 0 });
-    }
-  }, [product]);
-
-  // Sync active product changes (when clicking recommendations inside the modal)
-  useEffect(() => {
-    if (activeProduct) {
-      const defaultVar = activeProduct.varieties?.options?.find(opt => opt.isDefault) || activeProduct.varieties?.options?.[0] || null;
-      setSelectedVariety(defaultVar);
-      setCustomValues({});
-      setErrors({});
-      setSlideLoaded({});
-    }
-  }, [activeProduct]);
+  const activeProduct = product;
 
   if (!isOpen || !activeProduct) return null;
-
-  // Get active image based on product and selected variety
-  const getProductImage = () => {
-    if (selectedVariety && selectedVariety.image) {
-      return selectedVariety.image;
-    }
-    // Backward compatibility for existing hardcoded frame image swap
-    if (activeProduct.id === 'pixelated-frame' && selectedVariety && selectedVariety.id === '4x6') {
-      return pixelatedFrame4x6;
-    }
-    return activeProduct.image;
-  };
 
   // Get base images for the product (fall back to activeProduct.image)
   const baseImages = activeProduct.images && activeProduct.images.length > 0
@@ -134,10 +95,6 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
   const handleSelectRecommendation = (newProd) => {
     if (onSelectProduct) {
       onSelectProduct(newProd);
-    } else {
-      setActiveProduct(newProd);
-      setActiveSlide(0);
-      document.getElementById('modal-overlay-viewport')?.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
