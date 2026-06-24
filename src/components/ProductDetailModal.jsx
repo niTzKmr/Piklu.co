@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import mascotSeal from '../assets/Piklu.png';
 
 export default function ProductDetailModal({ product, isOpen, onClose, onAddToCart, allProducts, cartCount, onCartClick, onSelectProduct }) {
@@ -8,6 +8,9 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
   const [selectedVariety, setSelectedVariety] = useState(defaultVariety);
   const [slideLoaded, setSlideLoaded] = useState({});
   const activeProduct = product;
+  
+  const pixelatedFrameIds = ['pixelated-frame', 'pixel-frame-4x4-stand', 'pixel-frame-6x4'];
+  const isPixelatedFrame = pixelatedFrameIds.includes(activeProduct.id);
 
   // Reset slide and variety when product changes (during render)
   const [prevProductId, setPrevProductId] = useState(product?.id);
@@ -17,6 +20,34 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
     setSlideLoaded({});
     setSelectedVariety(defaultVariety);
   }
+
+  // Preload carousel images and sibling pixelated frame images for instant switching
+  useEffect(() => {
+    // 1. Preload active product images
+    const baseImgs = activeProduct.images && activeProduct.images.length > 0
+      ? activeProduct.images
+      : [activeProduct.image];
+
+    baseImgs.forEach(src => {
+      if (src) {
+        const img = new Image();
+        img.src = src;
+      }
+    });
+
+    // 2. Preload sibling pixelated frame images for instant variety switching
+    if (isPixelatedFrame) {
+      const frameImages = [
+        '/Products/Pixel-Frame-4x4/Frame4x4.png',
+        '/Products/Pixel-Frame-4x4-Stand/image.png',
+        '/Products/Pixel-Frame-6x4/Frame4x6.png'
+      ];
+      frameImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+  }, [activeProduct.id, isPixelatedFrame, activeProduct.image, activeProduct.images]);
 
   if (!isOpen || !activeProduct) return null;
 
@@ -32,9 +63,6 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
       activeImages.unshift(selectedVariety.image);
     }
   }
-
-  const pixelatedFrameIds = ['pixelated-frame', 'pixel-frame-4x4-stand', 'pixel-frame-6x4'];
-  const isPixelatedFrame = pixelatedFrameIds.includes(activeProduct.id);
 
   // Build carousel slides dynamically
   const slides = activeImages.map((img, index) => ({
