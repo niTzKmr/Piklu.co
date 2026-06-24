@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import mascotSeal from '../assets/Piklu.png';
-import pixelatedFrame4x6 from '../assets/pixelated-frame-4x6.png';
 
 export default function ProductDetailModal({ product, isOpen, onClose, onAddToCart, allProducts, cartCount, onCartClick, onSelectProduct }) {
   const defaultVariety = product?.varieties?.options?.find(opt => opt.isDefault) || product?.varieties?.options?.[0] || null;
@@ -13,24 +12,9 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
   if (!isOpen || !activeProduct) return null;
 
   // Get base images for the product (fall back to activeProduct.image)
-  let baseImages = activeProduct.images && activeProduct.images.length > 0
-    ? [...activeProduct.images]
+  const baseImages = activeProduct.images && activeProduct.images.length > 0
+    ? activeProduct.images
     : [activeProduct.image];
-
-  // Map variety IDs to their respective image URLs
-  const varietyImageMap = {
-    '4x4-size': '/Products/Pixel-Frame-4x4/Frame4x4.png',
-    '4x4-with-stand-size': '/Products/Pixel-Frame-4x4-Stand/image.png',
-    '4x6-size': '/Products/Pixel-Frame-6x4/Frame4x6.png'
-  };
-
-  // For the pixelated frame, make sure all three images are in baseImages so they can be viewed in the carousel
-  if (activeProduct.id === 'pixelated-frame') {
-    const standImg = '/Products/Pixel-Frame-4x4-Stand/image.png';
-    if (!baseImages.includes(standImg)) {
-      baseImages.push(standImg);
-    }
-  }
 
   // Prepend selected variety image if available and not already in slides
   const activeImages = [...baseImages];
@@ -38,12 +22,10 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
     if (!activeImages.includes(selectedVariety.image)) {
       activeImages.unshift(selectedVariety.image);
     }
-  } else if (activeProduct.id === 'pixelated-frame' && selectedVariety && (selectedVariety.id === '4x6' || selectedVariety.id === '4x6-size')) {
-    // Backward compatibility for existing hardcoded frame image swap
-    if (!activeImages.includes(pixelatedFrame4x6)) {
-      activeImages.unshift(pixelatedFrame4x6);
-    }
   }
+
+  const pixelatedFrameIds = ['pixelated-frame', 'pixel-frame-4x4-stand', 'pixel-frame-6x4'];
+  const isPixelatedFrame = pixelatedFrameIds.includes(activeProduct.id);
 
   // Build carousel slides dynamically
   const slides = activeImages.map((img, index) => ({
@@ -241,7 +223,36 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
             )}
 
             {/* Dynamic Variety Selection */}
-            {activeProduct.varieties && (
+            {isPixelatedFrame ? (
+              <div className="modal-variety-section neo-card">
+                <label className="modal-custom-label">Select Size / Option</label>
+                <div className="variety-buttons" style={{ flexWrap: 'wrap', gap: '0.75rem' }}>
+                  {[
+                    { id: '4x4-size', name: '4x4 Size', prodId: 'pixelated-frame' },
+                    { id: '4x4-with-stand-size', name: '4x4 with stand Size', prodId: 'pixel-frame-4x4-stand' },
+                    { id: '4x6-size', name: '4x6 Size', prodId: 'pixel-frame-6x4' }
+                  ].map((opt) => {
+                    const optProduct = allProducts.find(p => p.id === opt.prodId);
+                    if (!optProduct) return null;
+                    const isActive = activeProduct.id === opt.prodId;
+                    return (
+                      <button 
+                        key={opt.id}
+                        onClick={() => {
+                          if (onSelectProduct) {
+                            onSelectProduct(optProduct);
+                          }
+                        }}
+                        className={`variety-btn neo-btn ${isActive ? 'active-variety' : 'neo-btn-pink'}`}
+                        style={{ flex: 'unset' }}
+                      >
+                        <span>{opt.name} (₹{optProduct.price})</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : activeProduct.varieties ? (
               <div className="modal-variety-section neo-card">
                 <label className="modal-custom-label">{activeProduct.varieties.label || 'Select Option'}</label>
                 <div className="variety-buttons" style={{ flexWrap: 'wrap', gap: '0.75rem' }}>
@@ -250,9 +261,8 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                       key={opt.id}
                       onClick={() => {
                         setSelectedVariety(opt);
-                        const targetImage = opt.image || varietyImageMap[opt.id];
-                        if (targetImage) {
-                          const slideIdx = slides.findIndex(s => s.image === targetImage);
+                        if (opt.image) {
+                          const slideIdx = slides.findIndex(s => s.image === opt.image);
                           if (slideIdx !== -1) {
                             setActiveSlide(slideIdx);
                           }
@@ -266,7 +276,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                   ))}
                 </div>
               </div>
-            )}
+            ) : null}
 
             {/* Customization Details Banner */}
             <div className="modal-customization-section neo-card" style={{ backgroundColor: 'var(--bg-yellow)', border: 'var(--border-thick)' }}>

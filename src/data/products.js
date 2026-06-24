@@ -628,5 +628,74 @@ export const products = [
     "meta_title": "Trendy Cutout 5 Photo Frame",
     "meta_description": "A beautiful handcrafted trendy cutout 5 photo frame.",
     "instagram_url": ""
+  },
+  {
+    "id": "pixel-frame-6x4",
+    "slug": "pixel-frame-6x4",
+    "name": "Retro Pixel Custom Frame 6x4",
+    "price": 179,
+    "category": "Frame",
+    "description": "A blocky, 8-bit styled custom photo frame in a larger 6x4 (4x6) size. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
+    "image": "/Products/Pixel-Frame-6x4/Frame4x6.png",
+    "images": [
+      "/Products/Pixel-Frame-6x4/Frame4x6.png"
+    ],
+    "recommended": false,
+    "collection": "pixelated",
+    "tags": [],
+    "sku": "frames",
+    "stock": null,
+    "weight": -1,
+    "meta_title": "0",
+    "meta_description": "Retro Pixel Custom Frame 6x4",
+    "instagram_url": "A blocky",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "White"
+      },
+      {
+        "name": "Product Length",
+        "value": "10 Inch"
+      },
+      {
+        "name": "Product Breadth",
+        "value": "0.5 Inch"
+      },
+      {
+        "name": "Product Height",
+        "value": "14 Inch"
+      },
+      {
+        "name": "Weight",
+        "value": "120 g"
+      },
+      {
+        "name": "Material",
+        "value": "Plastic"
+      },
+      {
+        "name": "Type",
+        "value": "Digital Photo Frame"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Photo Frames"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How do I send my photo?",
+        "a": "After checkout, you will be redirected to WhatsApp. Send your high-res photo to us directly in the chat, and we will send you a digital mockup for approval before printing!"
+      }
+    ]
   }
 ];
