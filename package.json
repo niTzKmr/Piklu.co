@@ -10,7 +10,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "sync": "node scripts/sync-catalog.cjs"
+    "sync": "node scripts/sync-catalog.cjs",
+    "pull": "node scripts/pull-catalog.cjs"
   },
   "dependencies": {
     "fuse.js": "^7.4.2",
