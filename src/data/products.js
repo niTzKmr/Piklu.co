@@ -4,7 +4,7 @@ export const products = [
     "id": "pixelated-frame",
     "slug": "pixelated-frame",
     "name": "Retro Pixel Custom Frame",
-    "price": 249,
+    "price": 149,
     "category": "Frame",
     "description": "A blocky, 8-bit styled custom photo frame. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
     "image": "/Products/Pixel-Frame-4x4/Frame4x4.png",
@@ -75,13 +75,19 @@ export const products = [
         {
           "id": "4x4-size",
           "name": "4x4 Size",
-          "price": 249,
+          "price": 149,
           "isDefault": true
+        },
+        {
+          "id": "4x4-with-stand-size",
+          "name": "4x4 with stand Size",
+          "price": 169,
+          "isDefault": false
         },
         {
           "id": "4x6-size",
           "name": "4x6 Size",
-          "price": 349,
+          "price": 179,
           "isDefault": false
         }
       ]
@@ -90,10 +96,10 @@ export const products = [
   {
     "id": "pixelated-keychain",
     "slug": "pixelated-keychain",
-    "name": "Arcade Name Keychain",
-    "price": 99,
+    "name": "pixelated Custom Spotify QR & Name Keychain",
+    "price": 129,
     "category": "Keychain",
-    "description": "A custom dual-layered laser-cut acrylic keychain styled like a retro arcade name badge. Your name is engraved in a blocky 8-bit gaming font.",
+    "description": "A custom dual-layered laser-cut acrylic keychain  with custom pixelated styled image, name and spotify qr. Your name is engraved in a blocky 8-bit gaming font.",
     "image": "/Products/Pixel-cutom-keychain/Keychain.png",
     "images": [
       "/Products/Pixel-cutom-keychain/Keychain.png"
@@ -104,8 +110,8 @@ export const products = [
     "sku": "pixelated-keychain",
     "stock": -1,
     "weight": 0,
-    "meta_title": "Arcade Name Keychain",
-    "meta_description": "A custom dual-layered laser-cut acrylic keychain styled like a retro arcade name badge. Your name is engraved in a blocky 8-bit gaming font.",
+    "meta_title": "pixelated Custom Spotify QR & Name Keychain",
+    "meta_description": "A custom dual-layered laser-cut acrylic keychain  with custom pixelated styled image, name and spotify qr. Your name is engraved in a blocky 8-bit gaming f",
     "instagram_url": "",
     "specifications": [
       {
@@ -140,13 +146,13 @@ export const products = [
     "id": "double-side-qr-keychain",
     "slug": "double-side-qr-keychain",
     "name": "Double-Sided Scan Me QR Code Keychain",
-    "price": 149,
+    "price": 99,
     "category": "Keychain",
     "description": "A dual-sided custom keychain featuring your Instagram/Facebook page or payment UPI QR code on one side, and a custom design or text on the other. Extremely handy for creators and business owners!",
-    "image": "/Products/Double-side-qr-keychain/Back.png",
+    "image": "/Products/Double-side-qr-keychain/Front.png",
     "images": [
-      "/Products/Double-side-qr-keychain/Back.png",
-      "/Products/Double-side-qr-keychain/Front.png"
+      "/Products/Double-side-qr-keychain/Front.png",
+      "/Products/Double-side-qr-keychain/Back.png"
     ],
     "recommended": false,
     "collection": "",
@@ -232,51 +238,34 @@ export const products = [
     ]
   },
   {
-    "id": "hollow-knight-figurine-keychain",
-    "slug": "hollow-knight-figurine-keychain",
-    "name": "Hollow Knight Figurine Keychain",
-    "price": 149,
+    "id": "hollow-knight-keychain",
+    "slug": "hollow-knight-keychain",
+    "name": "Hollow Knight Keychain",
+    "price": 129,
     "category": "Keychain",
-    "description": "A stunning 3D Hollow Knight figurine keychain. Perfect for collectors and hollow knight fans who want a high-quality figurine charm by their side.",
+    "description": "A beautiful handcrafted hollow knight keychain.",
     "image": "/Products/Hollow-knight-keychain/Hollow knight.png",
     "images": [
-      "/Products/Hollow-knight-keychain/Hollow knight.png"
+      "/Products/Hollow-knight-keychain/Hollow knight.png",
+      "/Products/Hollow-knight-keychain/Hollow Knight 2.png"
     ],
     "recommended": false,
     "collection": "",
-    "tags": [],
-    "sku": "hollow-knight-figurine-keychain",
+    "tags": [
+      "keychains"
+    ],
+    "sku": "hollow-knight-keychain",
     "stock": -1,
     "weight": 0,
-    "meta_title": "Hollow Knight Figurine Keychain",
-    "meta_description": "A stunning 3D Hollow Knight figurine keychain. Perfect for collectors and hollow knight fans who want a high-quality figurine charm by their side.",
-    "instagram_url": "",
-    "specifications": [
-      {
-        "name": "Material",
-        "value": "Premium Resinated Mold"
-      },
-      {
-        "name": "Type",
-        "value": "3D Figurine Charm"
-      },
-      {
-        "name": "Origin",
-        "value": "India"
-      }
-    ],
-    "faqs": [
-      {
-        "q": "What is the height of the figure?",
-        "a": "The Hollow Knight figurine charm stands approximately 2 inches tall."
-      }
-    ]
+    "meta_title": "Hollow Knight Keychain",
+    "meta_description": "A beautiful handcrafted hollow knight keychain.",
+    "instagram_url": ""
   },
   {
     "id": "plushie-keychain",
     "slug": "plushie-keychain",
-    "name": "Cute Handcrafted Plushie Keychain",
-    "price": 199,
+    "name": "Cute Handcrafted Jellyfish Plushie Keychain",
+    "price": 99,
     "category": "Keychain",
     "description": "An incredibly soft, hand-stitched mini plushie keychain. Choose your favorite animal buddy and add a personalized custom label tag!",
     "image": "/Products/Plushie-keychain/Plushie_keychain.png",
@@ -289,7 +278,7 @@ export const products = [
     "sku": "plushie-keychain",
     "stock": -1,
     "weight": 0,
-    "meta_title": "Cute Handcrafted Plushie Keychain",
+    "meta_title": "Cute Handcrafted Jellyfish Plushie Keychain",
     "meta_description": "An incredibly soft, hand-stitched mini plushie keychain. Choose your favorite animal buddy and add a personalized custom label tag!",
     "instagram_url": "",
     "specifications": [
@@ -318,97 +307,11 @@ export const products = [
     ]
   },
   {
-    "id": "shinchan-action-keychain",
-    "slug": "shinchan-action-keychain",
-    "name": "Shinchan Custom Keychain (Action Pose)",
-    "price": 119,
-    "category": "Keychain",
-    "description": "A funny and adorable Shinchan custom keychain in his iconic Action Mask superhero suit! Perfect for 90s kids and anime fans.",
-    "image": "/Products/Shinchan-Messi-Keychain/image 1.png",
-    "images": [
-      "/Products/Shinchan-Messi-Keychain/image 1.png"
-    ],
-    "recommended": false,
-    "collection": "",
-    "tags": [],
-    "sku": "shinchan-action-keychain",
-    "stock": -1,
-    "weight": 0,
-    "meta_title": "Shinchan Custom Keychain (Action Pose)",
-    "meta_description": "A funny and adorable Shinchan custom keychain in his iconic Action Mask superhero suit! Perfect for 90s kids and anime fans.",
-    "instagram_url": "",
-    "specifications": [
-      {
-        "name": "Material",
-        "value": "Acrylic"
-      },
-      {
-        "name": "Size",
-        "value": "2.5 Inches"
-      },
-      {
-        "name": "Thickness",
-        "value": "3 mm"
-      },
-      {
-        "name": "Origin",
-        "value": "India"
-      }
-    ],
-    "faqs": [
-      {
-        "q": "Is the color scratch proof?",
-        "a": "Yes, the Shinchan graphic is encased between double layers of protective clear acrylic, rendering it scratch proof!"
-      }
-    ]
-  },
-  {
-    "id": "strawberry-keychain",
-    "slug": "strawberry-keychain",
-    "name": "Sweet Strawberry Custom Keychain",
-    "price": 99,
-    "category": "Keychain",
-    "description": "A sweet, summery custom keychain shaped like a strawberry. Add custom initials to the little metal leaf charm for a personal touch!",
-    "image": "/Products/Strawberry-Bee-Keychain/strawberry_keychain.png",
-    "images": [
-      "/Products/Strawberry-Bee-Keychain/strawberry_keychain.png"
-    ],
-    "recommended": false,
-    "collection": "",
-    "tags": [],
-    "sku": "strawberry-keychain",
-    "stock": -1,
-    "weight": 0,
-    "meta_title": "Sweet Strawberry Custom Keychain",
-    "meta_description": "A sweet, summery custom keychain shaped like a strawberry. Add custom initials to the little metal leaf charm for a personal touch!",
-    "instagram_url": "",
-    "specifications": [
-      {
-        "name": "Material",
-        "value": "Premium Resinated Acrylic & Alloy"
-      },
-      {
-        "name": "Weight",
-        "value": "15 g"
-      },
-      {
-        "name": "Net Quantity",
-        "value": "1"
-      }
-    ],
-    "faqs": [
-      {
-        "q": "Can I choose standard gold/silver metal?",
-        "a": "Yes, during WhatsApp confirmation you can specify your preference for gold-plated or silver-plated rings and charms!"
-      }
-    ]
-  },
-  {
     "id": "101-why-i-love-you",
     "slug": "101-why-i-love-you",
     "name": "101 Why I Love You",
-    "price": 99,
-    "category": "Unique Gifts",
+    "price": 159,
+    "category": "Hamper",
     "description": "A beautiful handcrafted 101 why i love you.",
     "image": "/Products/101-Why-I-Love-You/image1.png",
     "images": [
@@ -430,8 +333,8 @@ export const products = [
     "id": "ceramic-bubble-cup-saucer",
     "slug": "ceramic-bubble-cup-saucer",
     "name": "Ceramic Bubble Cup Saucer",
-    "price": 99,
-    "category": "Unique Gifts",
+    "price": 219,
+    "category": "Mug",
     "description": "A beautiful handcrafted ceramic bubble cup saucer.",
     "image": "/Products/Ceramic-Bubble-Cup-Saucer/ceramic cup with sausage set.png",
     "images": [
@@ -453,14 +356,14 @@ export const products = [
     "id": "ceramic-coffee-mug-bow",
     "slug": "ceramic-coffee-mug-bow",
     "name": "Ceramic Coffee Mug Bow",
-    "price": 99,
-    "category": "Unique Gifts",
+    "price": 209,
+    "category": "recommend",
     "description": "A beautiful handcrafted ceramic coffee mug bow.",
     "image": "/Products/Ceramic-Coffee-Mug-Bow/bow mug.png",
     "images": [
       "/Products/Ceramic-Coffee-Mug-Bow/bow mug.png"
     ],
-    "recommended": false,
+    "recommended": true,
     "collection": "",
     "tags": [
       "gifts"
@@ -476,7 +379,7 @@ export const products = [
     "id": "ceramic-heart-mug",
     "slug": "ceramic-heart-mug",
     "name": "Ceramic Heart Mug",
-    "price": 99,
+    "price": 249,
     "category": "Mug",
     "description": "A beautiful handcrafted ceramic heart mug.",
     "image": "/Products/Ceramic-Heart-Mug/heart mug.png",
@@ -498,8 +401,8 @@ export const products = [
   {
     "id": "collage-3d-cutout-frame",
     "slug": "collage-3d-cutout-frame",
-    "name": "Collage 3D Cutout Frame",
-    "price": 99,
+    "name": "Custom Collage 3D Cutout Frame",
+    "price": 139,
     "category": "Frame",
     "description": "A beautiful handcrafted collage 3d cutout frame.",
     "image": "/Products/Collage-3D-Cutout-Frame/image.png",
@@ -545,7 +448,7 @@ export const products = [
     "id": "customized-8-photo-frame",
     "slug": "customized-8-photo-frame",
     "name": "Customized 8 Photo Frame",
-    "price": 99,
+    "price": 129,
     "category": "Frame",
     "description": "A beautiful handcrafted customized 8 photo frame.",
     "image": "/Products/Customized-8-Photo-Frame/image.png",
@@ -568,8 +471,8 @@ export const products = [
     "id": "diy-pearl-necklace-set",
     "slug": "diy-pearl-necklace-set",
     "name": "DIY Pearl Necklace Set",
-    "price": 99,
-    "category": "Unique Gifts",
+    "price": 189,
+    "category": "Hamper",
     "description": "A beautiful handcrafted diy pearl necklace set.",
     "image": "/Products/DIY-Pearl-Necklace-Set/image.png",
     "images": [
@@ -580,7 +483,7 @@ export const products = [
     "tags": [
       "gifts"
     ],
-    "sku": "diy-pearl-necklace-set",
+    "sku": "DIY-pearl-necklace-set",
     "stock": -1,
     "weight": 0,
     "meta_title": "DIY Pearl Necklace Set",
@@ -591,7 +494,7 @@ export const products = [
     "id": "duck-themed-mug",
     "slug": "duck-themed-mug",
     "name": "Duck Themed Mug",
-    "price": 99,
+    "price": 189,
     "category": "Mug",
     "description": "A beautiful handcrafted duck themed mug.",
     "image": "/Products/Duck-Themed-Mug/image.png",
@@ -613,9 +516,9 @@ export const products = [
   {
     "id": "gift-box-combo",
     "slug": "gift-box-combo",
-    "name": "Gift Box Combo",
-    "price": 99,
-    "category": "Unique Gifts",
+    "name": "Girl Suprise Hamper",
+    "price": 209,
+    "category": "Hamper",
     "description": "A beautiful handcrafted gift box combo.",
     "image": "/Products/Gift-Box-Combo/image.png",
     "images": [
@@ -634,35 +537,11 @@ export const products = [
     "instagram_url": ""
   },
   {
-    "id": "hollow-knight-keychain",
-    "slug": "hollow-knight-keychain",
-    "name": "Hollow Knight Keychain",
-    "price": 99,
-    "category": "Keychain",
-    "description": "A beautiful handcrafted hollow knight keychain.",
-    "image": "/Products/Hollow-knight-keychain/Hollow knight.png",
-    "images": [
-      "/Products/Hollow-knight-keychain/Hollow knight.png",
-      "/Products/Hollow-knight-keychain/Hollow Knight 2.png"
-    ],
-    "recommended": false,
-    "collection": "",
-    "tags": [
-      "keychains"
-    ],
-    "sku": "hollow-knight-keychain",
-    "stock": -1,
-    "weight": 0,
-    "meta_title": "Hollow Knight Keychain",
-    "meta_description": "A beautiful handcrafted hollow knight keychain.",
-    "instagram_url": ""
-  },
-  {
     "id": "pixel-frame-4x4-stand",
     "slug": "pixel-frame-4x4-stand",
     "name": "Pixel Frame 4x4 Stand",
-    "price": 99,
-    "category": "Unique Gifts",
+    "price": 199,
+    "category": "frame",
     "description": "A beautiful handcrafted pixel frame 4x4 stand.",
     "image": "/Products/Pixel-Frame-4x4-Stand/image.png",
     "images": [
@@ -683,8 +562,8 @@ export const products = [
   {
     "id": "shinchan-messi-keychain",
     "slug": "shinchan-messi-keychain",
-    "name": "Shinchan Messi Keychain",
-    "price": 99,
+    "name": "Shinchan Messi Figuring Keychain",
+    "price": 109,
     "category": "Keychain",
     "description": "A beautiful handcrafted shinchan messi keychain.",
     "image": "/Products/Shinchan-Messi-Keychain/image 1.png",
@@ -708,7 +587,7 @@ export const products = [
     "id": "strawberry-bee-keychain",
     "slug": "strawberry-bee-keychain",
     "name": "Strawberry Bee Keychain",
-    "price": 99,
+    "price": 129,
     "category": "Keychain",
     "description": "A beautiful handcrafted strawberry bee keychain.",
     "image": "/Products/Strawberry-Bee-Keychain/strawberry_keychain.png",
@@ -731,7 +610,7 @@ export const products = [
     "id": "trendy-cutout-5-photo-frame",
     "slug": "trendy-cutout-5-photo-frame",
     "name": "Trendy Cutout 5 Photo Frame",
-    "price": 99,
+    "price": 149,
     "category": "Frame",
     "description": "A beautiful handcrafted trendy cutout 5 photo frame.",
     "image": "/Products/Trendy-Cutout-5-Photo-Frame/image.png",
