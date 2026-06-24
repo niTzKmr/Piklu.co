@@ -4,10 +4,14 @@ import { useState } from 'react';
 const MERCHANT_PHONE = '916204314594'; 
 
 export default function CheckoutDrawer({ isOpen, onClose, cart, onUpdateQty, onRemoveItem }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    contact: '',
-    address: ''
+  const [formData, setFormData] = useState(() => {
+    try {
+      const savedDetails = localStorage.getItem('piklu_customer_details');
+      return savedDetails ? JSON.parse(savedDetails) : { name: '', contact: '', address: '' };
+    } catch (e) {
+      console.error('Failed to load shipping details from localStorage', e);
+      return { name: '', contact: '', address: '' };
+    }
   });
   const [errors, setErrors] = useState({});
 
@@ -48,6 +52,12 @@ export default function CheckoutDrawer({ isOpen, onClose, cart, onUpdateQty, onR
   const handleCheckout = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+
+    try {
+      localStorage.setItem('piklu_customer_details', JSON.stringify(formData));
+    } catch (err) {
+      console.error('Failed to save shipping details to localStorage', err);
+    }
 
     // Build the checkout message matching the exact format requested
     let messageText = `👋 *Hi Piklu.co! I'd like to place an order.*\n\n`;

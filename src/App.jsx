@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -12,10 +12,22 @@ import { products } from './data/products';
 import pikluMascot from './assets/Piklu.png';
 
 export default function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    try {
+      const savedCart = localStorage.getItem('piklu_cart');
+      return savedCart ? JSON.parse(savedCart) : [];
+    } catch (e) {
+      console.error('Failed to load cart from localStorage', e);
+      return [];
+    }
+  });
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('Recommended');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem('piklu_cart', JSON.stringify(cart));
+  }, [cart]);
 
   const handleViewDetails = (product) => {
     navigate(`/product/${product.slug || product.id}`);
