@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import mascotSeal from '../assets/Piklu.png';
 import pixelatedFrame4x6 from '../assets/pixelated-frame-4x6.png';
 
-export default function ProductDetailModal({ product, isOpen, onClose, onAddToCart, allProducts }) {
+export default function ProductDetailModal({ product, isOpen, onClose, onAddToCart, allProducts, cartCount, onCartClick, onSelectProduct }) {
   const [customValues, setCustomValues] = useState({});
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
@@ -101,9 +101,13 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
   }
 
   const handleSelectRecommendation = (newProd) => {
-    setActiveProduct(newProd);
-    setActiveSlide(0);
-    document.getElementById('modal-overlay-viewport')?.scrollTo({ top: 0, behavior: 'smooth' });
+    if (onSelectProduct) {
+      onSelectProduct(newProd);
+    } else {
+      setActiveProduct(newProd);
+      setActiveSlide(0);
+      document.getElementById('modal-overlay-viewport')?.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -115,7 +119,16 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
             <span>← Back to Collection</span>
           </button>
           
-          <div className="nav-bar-logo">
+          <div className="nav-bar-logo" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            {onCartClick && (
+              <button 
+                onClick={onCartClick} 
+                className="neo-btn neo-btn-pink cart-toggle-btn"
+                style={{ fontSize: '0.85rem', padding: '0.4rem 0.8rem' }}
+              >
+                <span>🛒 Cart ({cartCount})</span>
+              </button>
+            )}
             <span className="logo-text">Piklu<span className="logo-dot">.co</span></span>
           </div>
         </div>

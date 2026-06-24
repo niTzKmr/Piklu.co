@@ -2,6 +2,7 @@
 export const products = [
   {
     "id": "pixelated-frame",
+    "slug": "pixelated-frame",
     "name": "Retro Pixel Custom Frame",
     "price": 249,
     "category": "Frame",
@@ -77,6 +78,7 @@ export const products = [
   },
   {
     "id": "pixelated-keychain",
+    "slug": "pixelated-keychain",
     "name": "Arcade Name Keychain",
     "price": 99,
     "category": "Keychain",
@@ -115,6 +117,7 @@ export const products = [
   },
   {
     "id": "double-side-qr-keychain",
+    "slug": "double-side-qr-keychain",
     "name": "Double-Sided Scan Me QR Code Keychain",
     "price": 149,
     "category": "Keychain",
@@ -153,6 +156,7 @@ export const products = [
   },
   {
     "id": "hollow-knight-acrylic-keychain",
+    "slug": "hollow-knight-acrylic-keychain",
     "name": "Hollow Knight Acrylic Keychain",
     "price": 129,
     "category": "Keychain",
@@ -187,6 +191,7 @@ export const products = [
   },
   {
     "id": "hollow-knight-figurine-keychain",
+    "slug": "hollow-knight-figurine-keychain",
     "name": "Hollow Knight Figurine Keychain",
     "price": 149,
     "category": "Keychain",
@@ -217,6 +222,7 @@ export const products = [
   },
   {
     "id": "plushie-keychain",
+    "slug": "plushie-keychain",
     "name": "Cute Handcrafted Plushie Keychain",
     "price": 199,
     "category": "Keychain",
@@ -251,6 +257,7 @@ export const products = [
   },
   {
     "id": "shinchan-action-keychain",
+    "slug": "shinchan-action-keychain",
     "name": "Shinchan Custom Keychain (Action Pose)",
     "price": 119,
     "category": "Keychain",
@@ -285,6 +292,7 @@ export const products = [
   },
   {
     "id": "strawberry-keychain",
+    "slug": "strawberry-keychain",
     "name": "Sweet Strawberry Custom Keychain",
     "price": 99,
     "category": "Keychain",

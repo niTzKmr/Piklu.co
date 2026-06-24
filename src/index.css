@@ -235,7 +235,7 @@ h6 {
   height: 100vh;
   background: rgba(30, 30, 30, 0.4);
   backdrop-filter: blur(4px);
-  z-index: 1000;
+  z-index: 1100;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -255,7 +255,7 @@ h6 {
   height: 100vh;
   background: var(--bg-cream);
   border-left: var(--border-thick);
-  z-index: 1001;
+  z-index: 1101;
   box-shadow: -8px 0px 0px var(--text-dark);
   display: flex;
   flex-direction: column;

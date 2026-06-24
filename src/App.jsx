@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProductCatalog from './components/ProductCatalog';
 import CheckoutDrawer from './components/CheckoutDrawer';
-import ProductDetailModal from './components/ProductDetailModal';
 import PixelatedShowcase from './components/PixelatedShowcase';
+import ProductPage from './components/ProductPage';
+import ProductNotFound from './components/ProductNotFound';
 import { products } from './data/products';
 
 import pikluMascot from './assets/Piklu.png';
@@ -12,8 +14,12 @@ import pikluMascot from './assets/Piklu.png';
 export default function App() {
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeCategory, setActiveCategory] = useState('Recommended');
+  const navigate = useNavigate();
+
+  const handleViewDetails = (product) => {
+    navigate(`/product/${product.slug || product.id}`);
+  };
 
   // Add an item to the cart
   const handleAddToCart = (product, customizationText) => {
@@ -82,87 +88,104 @@ export default function App() {
         onCartClick={() => setIsCartOpen(true)} 
       />
 
-      {/* 2. Hero Section */}
-      <Hero onSelectCategory={(category) => {
-        setActiveCategory(category);
-        document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
-      }} />
+      <Routes>
+        <Route path="/" element={
+          <>
+            {/* 2. Hero Section */}
+            <Hero onSelectCategory={(category) => {
+              setActiveCategory(category);
+              document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
+            }} />
 
-      {/* Special Pixelated Collection Showcase */}
-      <PixelatedShowcase 
-        products={products}
-        onViewDetails={(prod) => setSelectedProduct(prod)}
-      />
+            {/* Special Pixelated Collection Showcase */}
+            <PixelatedShowcase 
+              products={products}
+              onViewDetails={handleViewDetails}
+            />
 
-      {/* 3. Product Catalog Grid */}
-      <ProductCatalog 
-        products={products} 
-        onAddToCart={handleAddToCart} 
-        onViewDetails={(prod) => setSelectedProduct(prod)}
-        activeCategory={activeCategory}
-        setActiveCategory={setActiveCategory}
-      />
+            {/* 3. Product Catalog Grid */}
+            <ProductCatalog 
+              products={products} 
+              onAddToCart={handleAddToCart} 
+              onViewDetails={handleViewDetails}
+              activeCategory={activeCategory}
+              setActiveCategory={setActiveCategory}
+            />
 
-      {/* 4. Brand Story Section ("Our Story") */}
-      <section className="story-section section-yellow" id="story">
-        <div className="container story-grid">
-          <div className="story-visual animate-float">
-            <div className="story-sticker neo-card">
-              <img src={pikluMascot} alt="Piklu Mascot Mascot" className="story-img" />
-              <div className="sticker-tag">100% Unique</div>
-            </div>
-          </div>
-          
-          <div className="story-content">
-            <h2 className="story-title">Crafting Smiles Since 2024 🧸</h2>
-            <p className="story-desc">
-              Piklu.co started with a simple belief: <strong>gifts should mean something</strong>. No more boring corporate mugs or generic greeting cards. We specialize in adding a pinch of playfulness and customization to high-quality hampers and handmade accessories.
-            </p>
-            <p className="story-desc">
-              Every single hamper is carefully hand-packed, and every keychain is engraved with extreme precision in our studio. We work directly with you to craft the perfect surprise, communicating through WhatsApp at each step to ensure your gift looks exactly how you imagined it!
-            </p>
-            
-            <div className="story-stats">
-              <div className="stat-card neo-card">
-                <h4>5000+</h4>
-                <p>Hampers Delivered</p>
+            {/* 4. Brand Story Section ("Our Story") */}
+            <section className="story-section section-yellow" id="story">
+              <div className="container story-grid">
+                <div className="story-visual animate-float">
+                  <div className="story-sticker neo-card">
+                    <img src={pikluMascot} alt="Piklu Mascot Mascot" className="story-img" />
+                    <div className="sticker-tag">100% Unique</div>
+                  </div>
+                </div>
+                
+                <div className="story-content">
+                  <h2 className="story-title">Crafting Smiles Since 2024 🧸</h2>
+                  <p className="story-desc">
+                    Piklu.co started with a simple belief: <strong>gifts should mean something</strong>. No more boring corporate mugs or generic greeting cards. We specialize in adding a pinch of playfulness and customization to high-quality hampers and handmade accessories.
+                  </p>
+                  <p className="story-desc">
+                    Every single hamper is carefully hand-packed, and every keychain is engraved with extreme precision in our studio. We work directly with you to craft the perfect surprise, communicating through WhatsApp at each step to ensure your gift looks exactly how you imagined it!
+                  </p>
+                  
+                  <div className="story-stats">
+                    <div className="stat-card neo-card">
+                      <h4>5000+</h4>
+                      <p>Hampers Delivered</p>
+                    </div>
+                    <div className="stat-card neo-card">
+                      <h4>100%</h4>
+                      <p>Happy Reactions</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="stat-card neo-card">
-                <h4>100%</h4>
-                <p>Happy Reactions</p>
+            </section>
+
+            {/* 5. FAQs / Brand Values Section */}
+            <section className="faq-section" id="faq">
+              <div className="container">
+                <h2 className="section-heading text-center">Frequently Asked Questions</h2>
+                <div className="faq-grid">
+                  <div className="faq-item neo-card">
+                    <h4>📦 How does checkout work?</h4>
+                    <p>When you click checkout, we compile your order and customer details into a customized WhatsApp template. You will be redirected to WhatsApp to chat with us directly, finalize customization proofs, and share your payment confirmation!</p>
+                  </div>
+                  
+                  <div className="faq-item neo-card">
+                    <h4>🎨 Can I customize the hamper contents?</h4>
+                    <p>Yes, absolutely! Since checkout leads directly to our WhatsApp chat, you can ask us to add, remove, or swap items. We love making your hampers feel truly custom.</p>
+                  </div>
+
+                  <div className="faq-item neo-card">
+                    <h4>⏰ How long does delivery take?</h4>
+                    <p>Custom keychains and mugs take 2–3 business days to design and craft. Curated hampers are dispatched within 24 hours. Transit takes 3–5 business days across India.</p>
+                  </div>
+
+                  <div className="faq-item neo-card">
+                    <h4>💳 What are the payment methods?</h4>
+                    <p>We accept UPI, Google Pay, PhonePe, Paytm, and bank transfers. We will share our payment credentials and QR codes during our WhatsApp conversation!</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </section>
+          </>
+        } />
 
-      {/* 5. FAQs / Brand Values Section */}
-      <section className="faq-section" id="faq">
-        <div className="container">
-          <h2 className="section-heading text-center">Frequently Asked Questions</h2>
-          <div className="faq-grid">
-            <div className="faq-item neo-card">
-              <h4>📦 How does checkout work?</h4>
-              <p>When you click checkout, we compile your order and customer details into a customized WhatsApp template. You will be redirected to WhatsApp to chat with us directly, finalize customization proofs, and share your payment confirmation!</p>
-            </div>
-            
-            <div className="faq-item neo-card">
-              <h4>🎨 Can I customize the hamper contents?</h4>
-              <p>Yes, absolutely! Since checkout leads directly to our WhatsApp chat, you can ask us to add, remove, or swap items. We love making your hampers feel truly custom.</p>
-            </div>
+        <Route path="/product/:slug" element={
+          <ProductPage 
+            products={products}
+            onAddToCart={handleAddToCart}
+            cartCount={getCartCount()}
+            onCartClick={() => setIsCartOpen(true)}
+          />
+        } />
 
-            <div className="faq-item neo-card">
-              <h4>⏰ How long does delivery take?</h4>
-              <p>Custom keychains and mugs take 2–3 business days to design and craft. Curated hampers are dispatched within 24 hours. Transit takes 3–5 business days across India.</p>
-            </div>
-
-            <div className="faq-item neo-card">
-              <h4>💳 What are the payment methods?</h4>
-              <p>We accept UPI, Google Pay, PhonePe, Paytm, and bank transfers. We will share our payment credentials and QR codes during our WhatsApp conversation!</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <Route path="*" element={<ProductNotFound />} />
+      </Routes>
 
       {/* 6. Footer */}
       <footer className="footer-section" id="contact">
@@ -200,15 +223,6 @@ export default function App() {
         cart={cart}
         onUpdateQty={handleUpdateQty}
         onRemoveItem={handleRemoveItem}
-      />
-
-      {/* 8. Product Detail Modal */}
-      <ProductDetailModal
-        product={selectedProduct}
-        isOpen={selectedProduct !== null}
-        onClose={() => setSelectedProduct(null)}
-        onAddToCart={handleAddToCart}
-        allProducts={products}
       />
 
       <style>{`

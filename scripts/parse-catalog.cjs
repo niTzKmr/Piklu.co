@@ -68,6 +68,7 @@ try {
 
     const product = {
       id: row.id || slugify(row.name),
+      slug: row.slug || row.id || slugify(row.name),
       name: row.name,
       price: parseInt(row.price || '0', 10),
       category: row.category,
