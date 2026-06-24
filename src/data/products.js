@@ -642,13 +642,15 @@ export const products = [
     ],
     "recommended": false,
     "collection": "pixelated",
-    "tags": [],
-    "sku": "frames",
-    "stock": null,
-    "weight": -1,
-    "meta_title": "0",
-    "meta_description": "Retro Pixel Custom Frame 6x4",
-    "instagram_url": "A blocky",
+    "tags": [
+      "frames"
+    ],
+    "sku": "pixel-frame-6x4",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Retro Pixel Custom Frame 6x4",
+    "meta_description": "A blocky, 8-bit styled custom photo frame in a larger 6x4 (4x6) size.",
+    "instagram_url": "",
     "specifications": [
       {
         "name": "Color",
