@@ -284,40 +284,6 @@ export const products = [
     ]
   },
   {
-    "id": "shinchan-pajamas-keychain",
-    "name": "Shinchan Custom Keychain (Pajamas Pose)",
-    "price": 119,
-    "category": "Keychain",
-    "description": "A lazy, sleeping Shinchan custom keychain wearing his classic green-and-white pajama set. Super cute and detailed.",
-    "image": "/Products/Keychain/Shinchan/image 2.png",
-    "recommended": false,
-    "collection": "",
-    "specifications": [
-      {
-        "name": "Material",
-        "value": "Acrylic"
-      },
-      {
-        "name": "Size",
-        "value": "2.5 Inches"
-      },
-      {
-        "name": "Thickness",
-        "value": "3 mm"
-      },
-      {
-        "name": "Origin",
-        "value": "India"
-      }
-    ],
-    "faqs": [
-      {
-        "q": "Is the color scratch proof?",
-        "a": "Yes, the Shinchan graphic is encased between double layers of protective clear acrylic, rendering it scratch proof!"
-      }
-    ]
-  },
-  {
     "id": "strawberry-keychain",
     "name": "Sweet Strawberry Custom Keychain",
     "price": 99,
