@@ -6,7 +6,7 @@ export default function ProductCatalog({ products, onAddToCart, onViewDetails, a
   const [inputValue, setInputValue] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const categories = ['Recommended', 'Frame', 'Hamper', 'Keychain', 'Mug', 'Bracelet'];
+  const categories = ['Recommended', 'Frame', 'Hamper', 'Keychain', 'Mug'];
 
   // Initialize Fuse.js instance
   const fuse = useMemo(() => new Fuse(products, {

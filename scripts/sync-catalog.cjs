@@ -168,9 +168,6 @@ try {
       } else if (itemLower.endsWith('-mug')) {
         category = 'Mug';
         tag = 'mugs';
-      } else if (itemLower.endsWith('-bracelet')) {
-        category = 'Bracelet';
-        tag = 'bracelets';
       }
 
       // Format human-readable title name from folder name

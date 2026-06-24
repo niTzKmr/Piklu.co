@@ -5,8 +5,7 @@ const shuffleItems = [
   { text: 'Customize a Keychain 🔑', category: 'Keychain' },
   { text: 'Customize a Frame 🖼️', category: 'Frame' },
   { text: 'Customize a Hamper 🎁', category: 'Hamper' },
-  { text: 'Customize a Mug ☕', category: 'Mug' },
-  { text: 'Customize a Bracelet 📿', category: 'Bracelet' }
+  { text: 'Customize a Mug ☕', category: 'Mug' }
 ];
 
 export default function Hero({ onSelectCategory }) {
