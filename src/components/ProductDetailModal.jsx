@@ -13,9 +13,24 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
   if (!isOpen || !activeProduct) return null;
 
   // Get base images for the product (fall back to activeProduct.image)
-  const baseImages = activeProduct.images && activeProduct.images.length > 0
-    ? activeProduct.images
+  let baseImages = activeProduct.images && activeProduct.images.length > 0
+    ? [...activeProduct.images]
     : [activeProduct.image];
+
+  // Map variety IDs to their respective image URLs
+  const varietyImageMap = {
+    '4x4-size': '/Products/Pixel-Frame-4x4/Frame4x4.png',
+    '4x4-with-stand-size': '/Products/Pixel-Frame-4x4-Stand/image.png',
+    '4x6-size': '/Products/Pixel-Frame-6x4/Frame4x6.png'
+  };
+
+  // For the pixelated frame, make sure all three images are in baseImages so they can be viewed in the carousel
+  if (activeProduct.id === 'pixelated-frame') {
+    const standImg = '/Products/Pixel-Frame-4x4-Stand/image.png';
+    if (!baseImages.includes(standImg)) {
+      baseImages.push(standImg);
+    }
+  }
 
   // Prepend selected variety image if available and not already in slides
   const activeImages = [...baseImages];
@@ -23,7 +38,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
     if (!activeImages.includes(selectedVariety.image)) {
       activeImages.unshift(selectedVariety.image);
     }
-  } else if (activeProduct.id === 'pixelated-frame' && selectedVariety && selectedVariety.id === '4x6') {
+  } else if (activeProduct.id === 'pixelated-frame' && selectedVariety && (selectedVariety.id === '4x6' || selectedVariety.id === '4x6-size')) {
     // Backward compatibility for existing hardcoded frame image swap
     if (!activeImages.includes(pixelatedFrame4x6)) {
       activeImages.unshift(pixelatedFrame4x6);
@@ -233,7 +248,16 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                   {activeProduct.varieties.options.map((opt) => (
                     <button 
                       key={opt.id}
-                      onClick={() => setSelectedVariety(opt)}
+                      onClick={() => {
+                        setSelectedVariety(opt);
+                        const targetImage = opt.image || varietyImageMap[opt.id];
+                        if (targetImage) {
+                          const slideIdx = slides.findIndex(s => s.image === targetImage);
+                          if (slideIdx !== -1) {
+                            setActiveSlide(slideIdx);
+                          }
+                        }
+                      }}
                       className={`variety-btn neo-btn ${selectedVariety?.id === opt.id ? 'active-variety' : 'neo-btn-pink'}`}
                       style={{ flex: 'unset' }}
                     >
