@@ -71,7 +71,8 @@ export default function ProductCard({ product, onAddToCart, onViewDetails }) {
         .product-image {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
+          background-color: var(--bg-cream);
           transition: transform 0.5s ease;
         }
 

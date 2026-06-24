@@ -63,31 +63,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
     setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  const handleInputChange = (fieldId, val) => {
-    setCustomValues(prev => ({ ...prev, [fieldId]: val }));
-    if (errors[fieldId]) {
-      setErrors(prev => ({ ...prev, [fieldId]: '' }));
-    }
-  };
-
   const handleAdd = () => {
-    // Check required fields
-    const newErrors = {};
-    if (activeProduct.customFields) {
-      activeProduct.customFields.forEach(field => {
-        if (field.required && (!customValues[field.id] || !customValues[field.id].trim())) {
-          newErrors[field.id] = `${field.label} is required`;
-        }
-      });
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      // Scroll to custom fields
-      return;
-    }
-
-    setErrors({});
     let parts = [];
     let finalProduct = { ...activeProduct };
 
@@ -97,28 +73,11 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
       finalProduct.name = `${activeProduct.name} (${selectedVariety.name})`;
     }
 
-    if (activeProduct.customFields) {
-      activeProduct.customFields.forEach(field => {
-        if (field.type !== 'note') {
-          const val = customValues[field.id];
-          if (val && val.trim() !== '') {
-            parts.push(`${field.label}: "${val.trim()}"`);
-          }
-        }
-      });
-    }
+    parts.push("Details on WhatsApp");
 
     const finalCustomText = parts.join(' ');
     onAddToCart(finalProduct, finalCustomText);
     
-    // Reset inputs
-    const resetValues = {};
-    if (activeProduct.customFields) {
-      activeProduct.customFields.forEach(field => {
-        resetValues[field.id] = '';
-      });
-    }
-    setCustomValues(resetValues);
     setIsAdded(true);
     setTimeout(() => {
       setIsAdded(false);
@@ -231,73 +190,15 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
               </div>
             )}
 
-            {/* Dynamic Customization Fields */}
-            {activeProduct.customFields && activeProduct.customFields.length > 0 && (
-              <div className="modal-customization-section neo-card">
-                <h4 style={{ fontSize: '1rem', marginBottom: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  Customize your Gift 💡
-                </h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                  {activeProduct.customFields.map((field) => {
-                    if (field.type === 'note') {
-                      return (
-                        <div key={field.id} className="field-group" style={{ backgroundColor: 'var(--bg-cream)', padding: '0.75rem 1rem', border: '1px dashed var(--bg-dark)', borderRadius: '12px' }}>
-                          <label className="modal-custom-label" style={{ marginBottom: '4px', fontSize: '0.8rem', color: 'var(--bg-orange)' }}>
-                            {field.label}
-                          </label>
-                          <p style={{ fontSize: '0.85rem', color: '#555', fontWeight: 600 }}>{field.placeholder}</p>
-                        </div>
-                      );
-                    }
-                    return (
-                      <div key={field.id} className="field-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                        <label className="modal-custom-label" htmlFor={`custom-input-${field.id}`} style={{ marginBottom: 0 }}>
-                          {field.label} {field.required ? <span style={{ color: 'var(--bg-orange)' }}>*</span> : <span className="optional-text">(Optional)</span>}
-                        </label>
-                        {field.type === 'textarea' ? (
-                          <textarea
-                            id={`custom-input-${field.id}`}
-                            className={`neo-input ${errors[field.id] ? 'input-error' : ''}`}
-                            placeholder={field.placeholder}
-                            value={customValues[field.id] || ''}
-                            onChange={(e) => handleInputChange(field.id, e.target.value)}
-                            rows={3}
-                            style={{ resize: 'vertical', minHeight: '80px' }}
-                          />
-                        ) : field.type === 'select' ? (
-                          <select
-                            id={`custom-input-${field.id}`}
-                            className={`neo-input ${errors[field.id] ? 'input-error' : ''}`}
-                            value={customValues[field.id] || ''}
-                            onChange={(e) => handleInputChange(field.id, e.target.value)}
-                            style={{ cursor: 'pointer', height: '46px' }}
-                          >
-                            <option value="">-- Choose Option --</option>
-                            {field.options.map(opt => (
-                              <option key={opt} value={opt}>{opt}</option>
-                            ))}
-                          </select>
-                        ) : (
-                          <input
-                            id={`custom-input-${field.id}`}
-                            type="text"
-                            className={`neo-input ${errors[field.id] ? 'input-error' : ''}`}
-                            placeholder={field.placeholder}
-                            value={customValues[field.id] || ''}
-                            onChange={(e) => handleInputChange(field.id, e.target.value)}
-                          />
-                        )}
-                        {errors[field.id] && (
-                          <span style={{ fontSize: '0.75rem', color: 'var(--bg-orange)', fontWeight: 700 }}>
-                            {errors[field.id]}
-                          </span>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+            {/* Customization Details Banner */}
+            <div className="modal-customization-section neo-card" style={{ backgroundColor: 'var(--bg-yellow)', border: 'var(--border-thick)' }}>
+              <h4 style={{ fontSize: '1.05rem', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                🎨 Customization Info
+              </h4>
+              <p style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-dark)', lineHeight: '1.4' }}>
+                No customization details needed here! You will share your custom names, text, links, or photos directly with us on WhatsApp after checking out.
+              </p>
+            </div>
 
             {/* Dynamic Specifications */}
             {activeProduct.specifications && activeProduct.specifications.length > 0 && (
@@ -477,7 +378,8 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
         .slide-image {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
+          background-color: var(--bg-cream);
         }
 
         .macro-zoom .slide-image {

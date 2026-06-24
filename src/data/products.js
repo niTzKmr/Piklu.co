@@ -29,10 +29,6 @@ export const products = [
         { id: '4x6', name: '4x6 Size', price: 349 }
       ]
     },
-    customFields: [
-      { id: 'engraving', label: 'Name/Text to engrave', type: 'text', placeholder: 'E.g., PLAYER 1 / HERO', required: false },
-      { id: 'photoNote', label: 'Photo Upload Instructions', type: 'note', placeholder: 'Send your high-res photo to us on WhatsApp after checkout!' }
-    ],
     specifications: [
       { name: 'Color', value: 'White' },
       { name: 'Product Length', value: '8 Inch' },
@@ -58,17 +54,6 @@ export const products = [
     image: pixelatedKeychain,
     recommended: true,
     collection: 'pixelated',
-    varieties: {
-      label: 'Select Finish',
-      options: [
-        { id: 'glossy', name: 'Glossy Neon Acrylic', price: 99, isDefault: true },
-        { id: 'frosted', name: 'Frosted Matte Acrylic', price: 119 },
-        { id: 'wood', name: 'Classic Birch Wood', price: 129 }
-      ]
-    },
-    customFields: [
-      { id: 'engraving', label: 'Name to engrave (Max 8 letters)', type: 'text', placeholder: 'E.g., PIKLU', required: true }
-    ],
     specifications: [
       { name: 'Material', value: 'Acrylic / Premium Wood' },
       { name: 'Thickness', value: '3 mm' },
@@ -87,17 +72,6 @@ export const products = [
     category: 'Keychain',
     description: 'A dual-sided custom keychain featuring your Instagram/Facebook page or payment UPI QR code on one side, and a custom design or text on the other. Extremely handy for creators and business owners!',
     image: qrFront,
-    varieties: {
-      label: 'Acrylic Finish',
-      options: [
-        { id: 'glossy', name: 'Glossy Black & Neon', price: 149, isDefault: true, image: qrFront },
-        { id: 'frosted', name: 'Frosted Translucent', price: 169, image: qrFront }
-      ]
-    },
-    customFields: [
-      { id: 'qrLink', label: 'UPI ID or Social Link (for QR)', type: 'text', placeholder: 'E.g., instagram.com/yourusername or upiid@okaxis', required: true },
-      { id: 'titleText', label: 'Title / Custom Text on Back', type: 'text', placeholder: 'E.g., SCAN ME / PAY HERE', required: false }
-    ],
     specifications: [
       { name: 'Material', value: 'Dual-Layer Acrylic' },
       { name: 'Thickness', value: '3 mm' },
@@ -110,23 +84,12 @@ export const products = [
     ]
   },
   {
-    id: 'hollow-knight-keychain',
-    name: 'Hollow Knight Custom Keychain',
+    id: 'hollow-knight-acrylic-keychain',
+    name: 'Hollow Knight Acrylic Keychain',
     price: 129,
     category: 'Keychain',
     description: 'Add a touch of Hallownest to your daily life with this beautiful laser-cut custom Hollow Knight keychain. Engrave your name or gamer tag on the back!',
     image: hkKnight,
-    varieties: {
-      label: 'Choose Character',
-      options: [
-        { id: 'knight', name: 'The Knight', price: 129, isDefault: true, image: hkKnight },
-        { id: 'hornet', name: 'Hornet', price: 129, image: hkHornet },
-        { id: 'quirrel', name: 'Quirrel', price: 139, image: hkQuirrel }
-      ]
-    },
-    customFields: [
-      { id: 'engraving', label: 'Name or Gamer Tag to engrave on back', type: 'text', placeholder: 'E.g., GHOST / PLAYER 1', required: false }
-    ],
     specifications: [
       { name: 'Material', value: 'Laser-Cut Acrylic' },
       { name: 'Thickness', value: '3.5 mm' },
@@ -138,23 +101,28 @@ export const products = [
     ]
   },
   {
+    id: 'hollow-knight-figurine-keychain',
+    name: 'Hollow Knight Figurine Keychain',
+    price: 149,
+    category: 'Keychain',
+    description: 'A stunning 3D Hollow Knight figurine keychain. Perfect for collectors and hollow knight fans who want a high-quality figurine charm by their side.',
+    image: hkHornet,
+    specifications: [
+      { name: 'Material', value: 'Premium Resinated Mold' },
+      { name: 'Type', value: '3D Figurine Charm' },
+      { name: 'Origin', value: 'India' }
+    ],
+    faqs: [
+      { q: 'What is the height of the figure?', a: 'The Hollow Knight figurine charm stands approximately 2 inches tall.' }
+    ]
+  },
+  {
     id: 'plushie-keychain',
     name: 'Cute Handcrafted Plushie Keychain',
     price: 199,
     category: 'Keychain',
     description: 'An incredibly soft, hand-stitched mini plushie keychain. Choose your favorite animal buddy and add a personalized custom label tag!',
     image: plushieKeychain,
-    varieties: {
-      label: 'Choose Plushie Animal',
-      options: [
-        { id: 'teddy', name: 'Teddy Bear', price: 199, isDefault: true },
-        { id: 'bunny', name: 'Cute Bunny', price: 199 },
-        { id: 'chick', name: 'Lil Chick', price: 189 }
-      ]
-    },
-    customFields: [
-      { id: 'tagText', label: 'Tag Initials/Name (Max 5 letters)', type: 'text', placeholder: 'E.g., LOVE / A & B', required: true }
-    ],
     specifications: [
       { name: 'Material', value: 'Premium Soft Velvet Cotton' },
       { name: 'Size', value: '3.5 Inch Height' },
@@ -166,22 +134,29 @@ export const products = [
     ]
   },
   {
-    id: 'shinchan-keychain',
-    name: 'Shinchan Nohara Custom Keychain',
+    id: 'shinchan-action-keychain',
+    name: 'Shinchan Custom Keychain (Action Pose)',
     price: 119,
     category: 'Keychain',
-    description: 'A funny and adorable Shinchan custom keychain. Perfect for 90s kids and anime fans. Engrave your favorite dialogue or nickname on the back!',
+    description: 'A funny and adorable Shinchan custom keychain in his iconic Action Mask superhero suit! Perfect for 90s kids and anime fans.',
     image: shinchanAction,
-    varieties: {
-      label: 'Choose Pose',
-      options: [
-        { id: 'action', name: 'Action Mask Shinchan', price: 119, isDefault: true, image: shinchanAction },
-        { id: 'sleepy', name: 'Sleepy Pajamas Shinchan', price: 119, image: shinchanSleepy }
-      ]
-    },
-    customFields: [
-      { id: 'engraving', label: 'Dialogue/Name to engrave on back', type: 'text', placeholder: 'E.g., SHINCHAN', required: false }
+    specifications: [
+      { name: 'Material', value: 'Acrylic' },
+      { name: 'Size', value: '2.5 Inches' },
+      { name: 'Thickness', value: '3 mm' },
+      { name: 'Origin', value: 'India' }
     ],
+    faqs: [
+      { q: 'Is the color scratch proof?', a: 'Yes, the Shinchan graphic is encased between double layers of protective clear acrylic, rendering it scratch proof!' }
+    ]
+  },
+  {
+    id: 'shinchan-pajamas-keychain',
+    name: 'Shinchan Custom Keychain (Pajamas Pose)',
+    price: 119,
+    category: 'Keychain',
+    description: 'A lazy, sleeping Shinchan custom keychain wearing his classic green-and-white pajama set. Super cute and detailed.',
+    image: shinchanSleepy,
     specifications: [
       { name: 'Material', value: 'Acrylic' },
       { name: 'Size', value: '2.5 Inches' },
@@ -199,9 +174,6 @@ export const products = [
     category: 'Keychain',
     description: 'A sweet, summery custom keychain shaped like a strawberry. Add custom initials to the little metal leaf charm for a personal touch!',
     image: strawberryKeychain,
-    customFields: [
-      { id: 'charmInitials', label: 'Initials to engrave on charm', type: 'text', placeholder: 'E.g., S.K.', required: true }
-    ],
     specifications: [
       { name: 'Material', value: 'Premium Resinated Acrylic & Alloy' },
       { name: 'Weight', value: '15 g' },
@@ -212,4 +184,3 @@ export const products = [
     ]
   }
 ];
-
