@@ -56,7 +56,7 @@ try {
 
   for (let idx = 1; idx < lines.length; idx++) {
     const cells = parseCSVLine(lines[idx]);
-    if (cells.length < headers.length) {
+    if (cells.length < 5) {
       // Skip empty or malformed lines
       continue;
     }
@@ -66,6 +66,9 @@ try {
       row[header] = cells[i] || '';
     });
 
+    // Parse Image list (separated by |)
+    const imageList = row.image ? row.image.split('|').map(img => img.trim()) : [];
+
     const product = {
       id: row.id || slugify(row.name),
       slug: row.slug || row.id || slugify(row.name),
@@ -73,9 +76,19 @@ try {
       price: parseInt(row.price || '0', 10),
       category: row.category,
       description: row.description,
-      image: row.image,
+      image: imageList[0] || '',
+      images: imageList,
       recommended: row.recommended ? row.recommended.toLowerCase() === 'true' : false,
-      collection: row.collection || ''
+      collection: row.collection || '',
+      
+      // New Schema Fields
+      tags: row.tags ? row.tags.split(',').map(t => t.trim()).filter(t => t !== '') : [],
+      sku: row.sku || row.id || slugify(row.name),
+      stock: row.stock ? parseInt(row.stock, 10) : -1,
+      weight: row.weight ? parseInt(row.weight, 10) : 0,
+      meta_title: row.meta_title || row.name,
+      meta_description: row.meta_description || row.description?.slice(0, 155),
+      instagram_url: row.instagram_url || ''
     };
 
     // Parse Specifications (Format: Key: Value | Key2: Value2)

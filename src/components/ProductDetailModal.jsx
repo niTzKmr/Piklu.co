@@ -51,12 +51,43 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
     return activeProduct.image;
   };
 
+  // Get base images for the product (fall back to activeProduct.image)
+  const baseImages = activeProduct.images && activeProduct.images.length > 0
+    ? activeProduct.images
+    : [activeProduct.image];
+
+  // Prepend selected variety image if available and not already in slides
+  const activeImages = [...baseImages];
+  if (selectedVariety && selectedVariety.image) {
+    if (!activeImages.includes(selectedVariety.image)) {
+      activeImages.unshift(selectedVariety.image);
+    }
+  } else if (activeProduct.id === 'pixelated-frame' && selectedVariety && selectedVariety.id === '4x6') {
+    // Backward compatibility for existing hardcoded frame image swap
+    if (!activeImages.includes(pixelatedFrame4x6)) {
+      activeImages.unshift(pixelatedFrame4x6);
+    }
+  }
+
   // Build carousel slides dynamically
-  const slides = [
-    { type: 'main', image: getProductImage(), label: 'Product View' },
-    { type: 'detail', image: getProductImage(), label: 'Detail Zoom', zoom: true },
-    { type: 'brand', image: mascotSeal, label: 'Handcrafted Seal' }
-  ];
+  const slides = activeImages.map((img, index) => ({
+    type: `gallery-${index}`,
+    image: img,
+    label: index === 0 ? 'Product View' : `Gallery View ${index + 1}`
+  }));
+
+  // Append Mascot Seal as the final branding slide
+  slides.push({ type: 'brand', image: mascotSeal, label: 'Handcrafted Seal' });
+
+  // Pre-lazy-load adjacent slides (active, next, previous with wrap-around check)
+  const shouldRenderSlide = (idx) => {
+    const diff = Math.abs(idx - activeSlide);
+    return (
+      diff <= 1 ||
+      (activeSlide === 0 && idx === slides.length - 1) ||
+      (activeSlide === slides.length - 1 && idx === 0)
+    );
+  };
 
   const handleNextSlide = () => {
     setActiveSlide((prev) => (prev + 1) % slides.length);
@@ -144,12 +175,14 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                     className={`carousel-slide ${index === activeSlide ? 'active' : ''}`}
                   >
                     <div className={`slide-img-container ${slide.zoom ? 'macro-zoom' : ''}`}>
-                      <img 
-                        src={slide.image} 
-                        alt={slide.label} 
-                        className={`slide-image ${slideLoaded[index] ? 'loaded' : ''}`} 
-                        onLoad={() => setSlideLoaded(prev => ({ ...prev, [index]: true }))}
-                      />
+                      {shouldRenderSlide(index) && (
+                        <img 
+                          src={slide.image} 
+                          alt={slide.label} 
+                          className={`slide-image ${slideLoaded[index] ? 'loaded' : ''}`} 
+                          onLoad={() => setSlideLoaded(prev => ({ ...prev, [index]: true }))}
+                        />
+                      )}
                     </div>
                     <span className="slide-label neo-badge">{slide.label}</span>
                   </div>
@@ -175,6 +208,28 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                 ))}
               </div>
             </div>
+
+            {/* Thumbnail Navigation Row */}
+            <div className="gallery-thumbnails">
+              {slides.map((slide, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    setActiveSlide(idx);
+                    setSlideLoaded(prev => ({ ...prev, [idx]: true }));
+                  }}
+                  className={`thumbnail-btn neo-card ${idx === activeSlide ? 'active-thumbnail' : ''}`}
+                  type="button"
+                >
+                  <img 
+                    src={slide.image} 
+                    alt={slide.label} 
+                    className="thumbnail-img" 
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Right Column: Detailed Product Info */}
@@ -191,6 +246,27 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
               <h4>About this Gift 🎁</h4>
               <p className="modal-product-desc">{activeProduct.description}</p>
             </div>
+
+            {/* Instagram reel / visual proof linkage */}
+            {activeProduct.instagram_url && (
+              <div className="modal-instagram-card neo-card" style={{ backgroundColor: 'var(--bg-teal)', border: 'var(--border-thick)' }}>
+                <h4 style={{ fontSize: '1.05rem', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  📸 Seen on Instagram!
+                </h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.4', marginBottom: '0.75rem' }}>
+                  Check out this product's styling reels and customer videos on our Instagram page!
+                </p>
+                <a 
+                  href={activeProduct.instagram_url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="neo-btn neo-btn-dark"
+                  style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem', padding: '0.5rem' }}
+                >
+                  <span>Watch Video Reel 🎥</span>
+                </a>
+              </div>
+            )}
 
             {/* Dynamic Variety Selection */}
             {activeProduct.varieties && (
@@ -250,11 +326,27 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
               </div>
             )}
 
+            {activeProduct.stock > 0 && activeProduct.stock <= 5 && (
+              <div style={{ color: 'var(--bg-orange)', fontWeight: 700, fontSize: '0.9rem', textAlign: 'center', marginBottom: '0.5rem' }}>
+                ⚠️ Low Stock! Only {activeProduct.stock} left in stock.
+              </div>
+            )}
+
             <button 
               onClick={handleAdd}
-              className={`neo-btn w-full modal-add-btn ${isAdded ? 'neo-btn-pink' : 'neo-btn-dark'}`}
+              disabled={activeProduct.stock === 0}
+              className={`neo-btn w-full modal-add-btn ${activeProduct.stock === 0 ? 'neo-btn-disabled' : isAdded ? 'neo-btn-pink' : 'neo-btn-dark'}`}
+              style={{
+                cursor: activeProduct.stock === 0 ? 'not-allowed' : 'pointer',
+                opacity: activeProduct.stock === 0 ? 0.6 : 1
+              }}
             >
-              {isAdded ? 'Successfully Added to Cart! 🥳' : 'Add to Cart 🛒'}
+              {activeProduct.stock === 0 
+                ? 'Out of Stock 😢' 
+                : isAdded 
+                  ? 'Successfully Added to Cart! 🥳' 
+                  : 'Add to Cart 🛒'
+              }
             </button>
           </div>
 
@@ -281,6 +373,47 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
       </div>
 
       <style>{`
+        /* Dynamic Gallery Thumbnails */
+        .gallery-thumbnails {
+          display: flex;
+          gap: 0.75rem;
+          margin-top: 1rem;
+          overflow-x: auto;
+          padding-bottom: 0.5rem;
+          scrollbar-width: thin;
+        }
+
+        .thumbnail-btn {
+          width: 60px;
+          height: 60px;
+          flex-shrink: 0;
+          padding: 0;
+          cursor: pointer;
+          border-radius: 8px;
+          border: var(--border-medium);
+          box-shadow: 2px 2px 0px var(--text-dark);
+          background-color: #ffffff;
+          overflow: hidden;
+          transition: var(--transition-smooth);
+        }
+
+        .thumbnail-btn:hover {
+          transform: translate(-1px, -1px);
+          box-shadow: 3px 3px 0px var(--text-dark);
+        }
+
+        .active-thumbnail {
+          border-color: var(--bg-orange) !important;
+          box-shadow: 2px 2px 0px var(--bg-orange) !important;
+          transform: scale(1.05);
+        }
+
+        .thumbnail-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
         .modal-backdrop-overlay {
           position: fixed;
           top: 0;

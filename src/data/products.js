@@ -8,8 +8,18 @@ export const products = [
     "category": "Frame",
     "description": "A blocky, 8-bit styled custom photo frame. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
     "image": "/Products/Pixellated collection/Frame/Frame4x4.png",
+    "images": [
+      "/Products/Pixellated collection/Frame/Frame4x4.png"
+    ],
     "recommended": true,
     "collection": "pixelated",
+    "tags": [],
+    "sku": "pixelated-frame",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Retro Pixel Custom Frame",
+    "meta_description": "A blocky, 8-bit styled custom photo frame. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
+    "instagram_url": "",
     "specifications": [
       {
         "name": "Color",
@@ -84,8 +94,18 @@ export const products = [
     "category": "Keychain",
     "description": "A custom dual-layered laser-cut acrylic keychain styled like a retro arcade name badge. Your name is engraved in a blocky 8-bit gaming font.",
     "image": "/Products/Pixellated collection/Keychain/Keychain.png",
+    "images": [
+      "/Products/Pixellated collection/Keychain/Keychain.png"
+    ],
     "recommended": true,
     "collection": "pixelated",
+    "tags": [],
+    "sku": "pixelated-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Arcade Name Keychain",
+    "meta_description": "A custom dual-layered laser-cut acrylic keychain styled like a retro arcade name badge. Your name is engraved in a blocky 8-bit gaming font.",
+    "instagram_url": "",
     "specifications": [
       {
         "name": "Material",
@@ -123,8 +143,18 @@ export const products = [
     "category": "Keychain",
     "description": "A dual-sided custom keychain featuring your Instagram/Facebook page or payment UPI QR code on one side, and a custom design or text on the other. Extremely handy for creators and business owners!",
     "image": "/Products/Keychain/Double Side QR/Front.png",
+    "images": [
+      "/Products/Keychain/Double Side QR/Front.png"
+    ],
     "recommended": false,
     "collection": "",
+    "tags": [],
+    "sku": "double-side-qr-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Double-Sided Scan Me QR Code Keychain",
+    "meta_description": "A dual-sided custom keychain featuring your Instagram/Facebook page or payment UPI QR code on one side, and a custom design or text on the other. Extremely",
+    "instagram_url": "",
     "specifications": [
       {
         "name": "Material",
@@ -162,8 +192,18 @@ export const products = [
     "category": "Keychain",
     "description": "Add a touch of Hallownest to your daily life with this beautiful laser-cut custom Hollow Knight keychain. Engrave your name or gamer tag on the back!",
     "image": "/Products/Keychain/Hollow Knight/aclylic_hollow knight.png",
+    "images": [
+      "/Products/Keychain/Hollow Knight/aclylic_hollow knight.png"
+    ],
     "recommended": false,
     "collection": "",
+    "tags": [],
+    "sku": "hollow-knight-acrylic-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Hollow Knight Acrylic Keychain",
+    "meta_description": "Add a touch of Hallownest to your daily life with this beautiful laser-cut custom Hollow Knight keychain. Engrave your name or gamer tag on the back!",
+    "instagram_url": "",
     "specifications": [
       {
         "name": "Material",
@@ -197,8 +237,18 @@ export const products = [
     "category": "Keychain",
     "description": "A stunning 3D Hollow Knight figurine keychain. Perfect for collectors and hollow knight fans who want a high-quality figurine charm by their side.",
     "image": "/Products/Keychain/Hollow Knight/Hollow knight.png",
+    "images": [
+      "/Products/Keychain/Hollow Knight/Hollow knight.png"
+    ],
     "recommended": false,
     "collection": "",
+    "tags": [],
+    "sku": "hollow-knight-figurine-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Hollow Knight Figurine Keychain",
+    "meta_description": "A stunning 3D Hollow Knight figurine keychain. Perfect for collectors and hollow knight fans who want a high-quality figurine charm by their side.",
+    "instagram_url": "",
     "specifications": [
       {
         "name": "Material",
@@ -228,8 +278,18 @@ export const products = [
     "category": "Keychain",
     "description": "An incredibly soft, hand-stitched mini plushie keychain. Choose your favorite animal buddy and add a personalized custom label tag!",
     "image": "/Products/Keychain/Plushie Keychain/Plushie_keychain.png",
+    "images": [
+      "/Products/Keychain/Plushie Keychain/Plushie_keychain.png"
+    ],
     "recommended": false,
     "collection": "",
+    "tags": [],
+    "sku": "plushie-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Cute Handcrafted Plushie Keychain",
+    "meta_description": "An incredibly soft, hand-stitched mini plushie keychain. Choose your favorite animal buddy and add a personalized custom label tag!",
+    "instagram_url": "",
     "specifications": [
       {
         "name": "Material",
@@ -263,8 +323,18 @@ export const products = [
     "category": "Keychain",
     "description": "A funny and adorable Shinchan custom keychain in his iconic Action Mask superhero suit! Perfect for 90s kids and anime fans.",
     "image": "/Products/Keychain/Shinchan/image 1.png",
+    "images": [
+      "/Products/Keychain/Shinchan/image 1.png"
+    ],
     "recommended": false,
     "collection": "",
+    "tags": [],
+    "sku": "shinchan-action-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Shinchan Custom Keychain (Action Pose)",
+    "meta_description": "A funny and adorable Shinchan custom keychain in his iconic Action Mask superhero suit! Perfect for 90s kids and anime fans.",
+    "instagram_url": "",
     "specifications": [
       {
         "name": "Material",
@@ -298,8 +368,18 @@ export const products = [
     "category": "Keychain",
     "description": "A sweet, summery custom keychain shaped like a strawberry. Add custom initials to the little metal leaf charm for a personal touch!",
     "image": "/Products/Keychain/Strawberry/strawberry_keychain.png",
+    "images": [
+      "/Products/Keychain/Strawberry/strawberry_keychain.png"
+    ],
     "recommended": false,
     "collection": "",
+    "tags": [],
+    "sku": "strawberry-keychain",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "Sweet Strawberry Custom Keychain",
+    "meta_description": "A sweet, summery custom keychain shaped like a strawberry. Add custom initials to the little metal leaf charm for a personal touch!",
+    "instagram_url": "",
     "specifications": [
       {
         "name": "Material",
