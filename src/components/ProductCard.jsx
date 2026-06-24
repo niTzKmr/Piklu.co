@@ -1,6 +1,30 @@
 import React, { useState } from 'react';
 
-export default function ProductCard({ product, onAddToCart, onViewDetails }) {
+function HighlightText({ text, query }) {
+  if (!query || !query.trim()) return <span>{text}</span>;
+  
+  const terms = query.trim().split(/\s+/).filter(Boolean);
+  if (terms.length === 0) return <span>{text}</span>;
+  
+  const escapedTerms = terms.map(term => term.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|');
+  const regex = new RegExp(`(${escapedTerms})`, 'gi');
+  
+  const parts = text.split(regex);
+  
+  return (
+    <span>
+      {parts.map((part, index) => 
+        regex.test(part) ? (
+          <mark key={index} className="search-highlight">{part}</mark>
+        ) : (
+          part
+        )
+      )}
+    </span>
+  );
+}
+
+export default function ProductCard({ product, onAddToCart, onViewDetails, searchQuery }) {
   const [loaded, setLoaded] = useState(false);
   const [customText, setCustomText] = useState('');
   const [isAdded, setIsAdded] = useState(false);
@@ -36,7 +60,9 @@ export default function ProductCard({ product, onAddToCart, onViewDetails }) {
       
       <div className="product-body">
         <div className="product-header">
-          <h3 className="product-title">{product.name}</h3>
+          <h3 className="product-title">
+            <HighlightText text={product.name} query={searchQuery} />
+          </h3>
           <span className="product-price">₹{product.price}</span>
         </div>
         
@@ -52,6 +78,14 @@ export default function ProductCard({ product, onAddToCart, onViewDetails }) {
       </div>
 
       <style>{`
+        .search-highlight {
+          background-color: var(--bg-yellow);
+          color: var(--text-dark);
+          padding: 0 2px;
+          border-radius: 4px;
+          font-weight: 700;
+        }
+
         .product-card {
           display: flex;
           flex-direction: column;

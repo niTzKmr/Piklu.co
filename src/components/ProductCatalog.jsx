@@ -1,13 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Fuse from 'fuse.js';
 import ProductCard from './ProductCard';
 
 export default function ProductCatalog({ products, onAddToCart, onViewDetails, activeCategory, setActiveCategory }) {
+  const [inputValue, setInputValue] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const categories = ['Recommended', 'Frame', 'Hamper', 'Keychain', 'Mug', 'Bracelet'];
 
+  // Initialize Fuse.js instance
+  const fuse = new Fuse(products, {
+    keys: [
+      { name: 'name', weight: 1.5 },
+      { name: 'category', weight: 1.0 },
+      { name: 'tags', weight: 1.2 },
+      { name: 'description', weight: 0.8 },
+      { name: 'specifications.name', weight: 0.5 },
+      { name: 'specifications.value', weight: 0.5 }
+    ],
+    threshold: 0.4,
+    ignoreLocation: true
+  });
+
+  // Debounce search input value (250ms delay)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearchQuery(inputValue);
+    }, 250);
+    return () => clearTimeout(timer);
+  }, [inputValue]);
+
+  // First apply search if search query is active
+  const searchedProducts = searchQuery.trim() !== ''
+    ? fuse.search(searchQuery).map(result => result.item)
+    : products;
+
+  // Then apply category filtering
   const filteredProducts = activeCategory === 'Recommended'
-    ? (products.some(p => p.recommended) ? products.filter(p => p.recommended) : products)
-    : products.filter(p => p.category === activeCategory);
+    ? (searchQuery.trim() !== '' 
+        ? searchedProducts 
+        : (products.some(p => p.recommended) ? products.filter(p => p.recommended) : products))
+    : searchedProducts.filter(p => p.category === activeCategory);
 
   return (
     <section className="catalog-section" id="catalog">
@@ -15,6 +48,27 @@ export default function ProductCatalog({ products, onAddToCart, onViewDetails, a
         <div className="catalog-header">
           <h2 className="catalog-section-title">Explore Our Collection</h2>
           <p className="catalog-subtitle">Pick something cute, personalize it, and send a smile!</p>
+        </div>
+
+        {/* Search Bar */}
+        <div className="search-bar-container neo-card">
+          <span className="search-icon">🔍</span>
+          <input
+            type="text"
+            placeholder="Search keychains, frames, hampers, tags..."
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            className="search-input"
+          />
+          {inputValue && (
+            <button 
+              onClick={() => setInputValue('')} 
+              className="clear-search-btn"
+              aria-label="Clear search"
+            >
+              ❌
+            </button>
+          )}
         </div>
 
         {/* Category Filters */}
@@ -40,19 +94,91 @@ export default function ProductCatalog({ products, onAddToCart, onViewDetails, a
               product={product}
               onAddToCart={onAddToCart}
               onViewDetails={onViewDetails}
+              searchQuery={searchQuery}
             />
           ))}
         </div>
         
         {filteredProducts.length === 0 && (
           <div className="empty-catalog neo-card">
-            <h3>No gifts found in this category!</h3>
-            <p>Check back later or explore our other cute collections.</p>
+            {searchQuery ? (
+              <>
+                <h3>😢 No items found matching "{searchQuery}"</h3>
+                <p style={{ marginBottom: '1.5rem' }}>Try checking your spelling, using different keywords, or clear the search to browse all items.</p>
+                <button 
+                  onClick={() => { setInputValue(''); setActiveCategory('Recommended'); }} 
+                  className="neo-btn neo-btn-pink"
+                >
+                  <span>Clear Search & Filters 🔄</span>
+                </button>
+              </>
+            ) : (
+              <>
+                <h3>No gifts found in this category!</h3>
+                <p>Check back later or explore our other cute collections.</p>
+              </>
+            )}
           </div>
         )}
       </div>
 
       <style>{`
+        /* Search Bar Styles */
+        .search-bar-container {
+          display: flex;
+          align-items: center;
+          max-width: 600px;
+          margin: 0 auto 3rem auto;
+          background-color: #ffffff;
+          border: var(--border-thick);
+          border-radius: 50px;
+          padding: 0.5rem 1.5rem;
+          box-shadow: var(--shadow-btn);
+          transition: var(--transition-smooth);
+        }
+
+        .search-bar-container:focus-within {
+          transform: translate(-2px, -2px);
+          box-shadow: var(--shadow-btn-hover);
+          border-color: var(--bg-dark);
+        }
+
+        .search-icon {
+          font-size: 1.25rem;
+          margin-right: 0.75rem;
+          user-select: none;
+        }
+
+        .search-input {
+          flex: 1;
+          border: none;
+          outline: none;
+          font-family: var(--font-body);
+          font-size: 1.05rem;
+          color: var(--text-dark);
+          background: transparent;
+        }
+
+        .search-input::placeholder {
+          color: #999;
+        }
+
+        .clear-search-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 0.9rem;
+          padding: 0.25rem;
+          margin-left: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.2s ease;
+        }
+
+        .clear-search-btn:hover {
+          transform: scale(1.1);
+        }
         .catalog-section {
           padding: 6rem 0;
           background-color: var(--bg-cream);
