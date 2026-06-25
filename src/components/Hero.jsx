@@ -24,7 +24,7 @@ export default function Hero({ onSelectCategory }) {
       <div className="container hero-grid">
         <div className="hero-content">
           <h1 className="hero-title">
-            Because Your <span className="title-accent-italic">Beloved</span> Deserves the <span className="title-accent-highlight">Perfect Piklu Gift</span>
+            Because Your <span className="title-accent-italic">beloved deserves the</span> <span className="title-accent-highlight">Perfect Piklu Gift</span>
           </h1>
           <div className="hero-actions">
             <a
@@ -127,8 +127,13 @@ export default function Hero({ onSelectCategory }) {
         .title-accent-italic {
           font-family: var(--font-serif);
           font-style: italic;
-          font-weight: 600;
+          font-weight: 500;
           color: var(--bg-orange);
+          display: block;
+          font-size: 0.82em;
+          line-height: 0.95;
+          margin-top: 0.15rem;
+          margin-bottom: 0.4rem;
         }
 
         .title-accent-highlight {
