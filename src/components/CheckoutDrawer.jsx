@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // Configure the default merchant WhatsApp number here (Indian country code 91)
-const MERCHANT_PHONE = '916204314594'; 
+const MERCHANT_PHONE = '919572650573'; 
 
 export default function CheckoutDrawer({ isOpen, onClose, cart, onUpdateQty, onRemoveItem }) {
   const [formData, setFormData] = useState(() => {
