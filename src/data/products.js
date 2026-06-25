@@ -155,7 +155,7 @@ export const products = [
       "/Products/Double-side-qr-keychain/Back.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "keychain",
     "tags": [],
     "sku": "double-side-qr-keychain",
     "stock": -1,
@@ -204,7 +204,7 @@ export const products = [
       "/Products/Keychain/Hollow Knight/aclylic_hollow knight.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "key chain",
     "tags": [],
     "sku": "hollow-knight-acrylic-keychain",
     "stock": -1,
@@ -250,7 +250,7 @@ export const products = [
       "/Products/Hollow-knight-keychain/Hollow Knight 2.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "keychain",
     "tags": [
       "keychains"
     ],
@@ -307,7 +307,7 @@ export const products = [
       "/Products/Plushie-keychain/Plushie_keychain.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "keychain",
     "tags": [],
     "sku": "plushie-keychain",
     "stock": -1,
@@ -368,7 +368,7 @@ export const products = [
       "/Products/101-Why-I-Love-You/image1.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "hamper",
     "tags": [
       "gifts"
     ],
@@ -421,7 +421,7 @@ export const products = [
       "/Products/Ceramic-Bubble-Cup-Saucer/ceramic cup with sausage set.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "mugs",
     "tags": [
       "gifts"
     ],
@@ -502,7 +502,7 @@ export const products = [
       "/Products/Ceramic-Coffee-Mug-Bow/bow mug.png"
     ],
     "recommended": true,
-    "collection": "",
+    "collection": "mugs",
     "tags": [
       "gifts"
     ],
@@ -555,7 +555,7 @@ export const products = [
       "/Products/Ceramic-Heart-Mug/heart mug.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "mugs",
     "tags": [
       "mugs"
     ],
@@ -636,7 +636,7 @@ export const products = [
       "/Products/Collage-3D-Cutout-Frame/image.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "frame",
     "tags": [
       "frames"
     ],
@@ -701,7 +701,7 @@ export const products = [
       "/Products/Crochet-Sunflower-Keychain/image.jpg"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "keychain",
     "tags": [
       "keychains"
     ],
@@ -762,7 +762,7 @@ export const products = [
       "/Products/Customized-8-Photo-Frame/image.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "frame",
     "tags": [
       "frames"
     ],
@@ -831,7 +831,7 @@ export const products = [
       "/Products/DIY-Pearl-Necklace-Set/image.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "hamper",
     "tags": [
       "gifts"
     ],
@@ -884,7 +884,7 @@ export const products = [
       "/Products/Duck-Themed-Mug/image.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "mug",
     "tags": [
       "mugs"
     ],
@@ -958,59 +958,6 @@ export const products = [
     ]
   },
   {
-    "id": "gift-box-combo",
-    "slug": "gift-box-combo",
-    "name": "Girl Suprise Hamper",
-    "price": 209,
-    "category": "Hamper",
-    "description": "A beautiful handcrafted gift box combo.",
-    "image": "/Products/Gift-Box-Combo/image.png",
-    "images": [
-      "/Products/Gift-Box-Combo/image.png"
-    ],
-    "recommended": false,
-    "collection": "",
-    "tags": [
-      "gifts"
-    ],
-    "sku": "gift-box-combo",
-    "stock": -1,
-    "weight": 0,
-    "meta_title": "Gift Box Combo",
-    "meta_description": "A beautiful handcrafted gift box combo.",
-    "instagram_url": "",
-    "specifications": [
-      {
-        "name": "Type",
-        "value": "Jewelry Gift Box / Accessory Hamper"
-      },
-      {
-        "name": "Includes",
-        "value": "Assorted jewelry & cute accessories"
-      },
-      {
-        "name": "Style",
-        "value": "Cute / Aesthetic / Gift-ready"
-      },
-      {
-        "name": "Color Theme",
-        "value": "Soft neutral tones with gold & pastel accents"
-      },
-      {
-        "name": "Best For",
-        "value": "Birthday gifts, friendship gifts, festive gifting, surprise hampers"
-      },
-      {
-        "name": "Packaging",
-        "value": "Gift box presentation"
-      },
-      {
-        "name": "Net Quantity (N)",
-        "value": "1 Gift Box"
-      }
-    ]
-  },
-  {
     "id": "pixel-frame-4x4-stand",
     "slug": "pixel-frame-4x4-stand",
     "name": "Pixel Frame 4x4 Stand",
@@ -1022,7 +969,7 @@ export const products = [
       "/Products/Pixel-Frame-4x4-Stand/image.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "frame",
     "tags": [
       "gifts"
     ],
@@ -1088,7 +1035,7 @@ export const products = [
       "/Products/Shinchan-Messi-Keychain/image 2.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "keychain",
     "tags": [
       "keychains"
     ],
@@ -1149,7 +1096,7 @@ export const products = [
       "/Products/Strawberry-Bee-Keychain/strawberry_keychain.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "keychain",
     "tags": [
       "keychains"
     ],
@@ -1210,7 +1157,7 @@ export const products = [
       "/Products/Trendy-Cutout-5-Photo-Frame/image.png"
     ],
     "recommended": false,
-    "collection": "",
+    "collection": "frame",
     "tags": [
       "frames"
     ],

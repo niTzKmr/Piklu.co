@@ -835,19 +835,21 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
         .highlight-item {
           font-size: 0.9rem;
           line-height: 1.4;
-          display: flex;
-          justify-content: space-between;
           border-bottom: 1px dashed #ddd;
-          padding-bottom: 0.25rem;
+          padding: 0.35rem 0;
+          display: block;
         }
 
         .highlight-item strong {
           color: #555;
+          margin-right: 0.35rem;
+          display: inline;
         }
 
         .highlight-item span {
           color: var(--text-dark);
           font-weight: 600;
+          display: inline;
         }
 
         @media (max-width: 991px) {

@@ -20,8 +20,9 @@ async function main() {
       process.exit(1);
     }
 
-    console.log(`Fetching latest catalog from Google Sheets: ${url}`);
-    const response = await fetch(url);
+    const cacheBustedUrl = url + (url.includes('?') ? '&' : '?') + 't=' + Date.now();
+    console.log(`Fetching latest catalog from Google Sheets: ${cacheBustedUrl}`);
+    const response = await fetch(cacheBustedUrl);
 
     if (!response.ok) {
       console.error(`Error fetching spreadsheet: ${response.statusText} (${response.status})`);
