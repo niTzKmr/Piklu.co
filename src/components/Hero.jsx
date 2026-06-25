@@ -148,7 +148,6 @@ export default function Hero({ onSelectCategory }) {
           border: 3px solid var(--text-dark);
           border-radius: 4px;
           box-shadow: 4px 4px 0px var(--text-dark);
-          transform: rotate(-1.5deg);
           margin-top: 0.6rem;
         }
 
