@@ -135,17 +135,32 @@ export default function Header({ cartCount, onCartClick }) {
         }
 
         @media (max-width: 768px) {
+          .header-container {
+            padding: 0.4rem 0; /* Compact vertical padding */
+          }
+
           .nav-links {
             display: none; /* Mobile responsiveness: hide middle links */
           }
           
           .logo-text {
-            font-size: 1.5rem;
+            font-size: 1.25rem; /* More compact logo text */
+            text-shadow: 1.5px 1.5px 0px var(--bg-yellow);
           }
           
           .logo-mascot {
-            width: 38px;
-            height: 38px;
+            width: 32px; /* More compact mascot */
+            height: 32px;
+          }
+
+          .cart-toggle-btn {
+            font-size: 0.78rem; /* More compact cart font size */
+            padding: 0.45rem 0.8rem; /* More compact cart padding */
+          }
+
+          .cart-count-badge {
+            font-size: 0.7rem; /* Make the cart badge smaller */
+            padding: 0.15rem 0.4rem;
           }
         }
       `}</style>

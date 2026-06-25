@@ -30,7 +30,7 @@ export default function Hero({ onSelectCategory }) {
         <div className="cloud-deco deco-heart">💖</div>
         <div className="cloud-deco deco-sparkle">✦</div>
       </div>
-      
+
       <div className="corner-clouds right-clouds">
         <div className="cloud-bubble bubble-1"></div>
         <div className="cloud-bubble bubble-2"></div>
@@ -119,8 +119,12 @@ export default function Hero({ onSelectCategory }) {
           gap: 3rem;
           align-items: center;
           position: relative;
-          z-index: 3;
           padding-bottom: 6rem;
+        }
+
+        .hero-content {
+          position: relative;
+          z-index: 4; /* Text & buttons on top of everything */
         }
 
         .hero-badge-container {
@@ -135,7 +139,7 @@ export default function Hero({ onSelectCategory }) {
         }
 
         .hero-title {
-          font-size: 3.6rem;
+          font-size: 4.5rem; /* ~72px, 25% increase from original 3.6rem */
           line-height: 1.0;
           margin-bottom: 2rem;
           letter-spacing: -1px;
@@ -171,9 +175,10 @@ export default function Hero({ onSelectCategory }) {
           background-color: var(--bg-yellow);
           padding: 0.35em 0.7em;
           border: 3px solid var(--text-dark);
-          border-radius: 4px;
+          border-radius: 0;
           box-shadow: 4px 4px 0px var(--text-dark);
           margin-top: 0.25rem;
+          white-space: nowrap;
         }
 
         .hero-tagline {
@@ -225,6 +230,7 @@ export default function Hero({ onSelectCategory }) {
           display: flex;
           justify-content: center;
           align-items: center;
+          z-index: 1; /* Sits behind clouds and wave-container */
         }
 
         .hero-image-wrapper {
@@ -309,7 +315,7 @@ export default function Hero({ onSelectCategory }) {
           position: absolute;
           bottom: 0;
           pointer-events: none;
-          z-index: 1;
+          z-index: 2; /* Sits in front of mascot, but behind wave-container and text/buttons */
           width: 380px;
           height: 200px;
           overflow: visible;
@@ -429,18 +435,7 @@ export default function Hero({ onSelectCategory }) {
           animation-delay: 0.3s;
         }
 
-        @media (max-width: 576px) {
-          .corner-clouds {
-            width: 150px;
-            height: 100px;
-          }
-          .left-clouds .bubble-1, .right-clouds .bubble-1 { width: 80px; height: 80px; bottom: -30px; }
-          .left-clouds .bubble-2, .right-clouds .bubble-2 { width: 100px; height: 100px; bottom: -35px; left: 40px; right: 40px; }
-          .left-clouds .bubble-3, .right-clouds .bubble-3 { width: 70px; height: 70px; bottom: -20px; left: 90px; right: 90px; }
-          .left-clouds .bubble-4, .right-clouds .bubble-4 { display: none; }
-          .left-clouds .deco-heart, .right-clouds .deco-heart { bottom: 50px; left: 80px; right: 80px; font-size: 0.8rem; }
-          .left-clouds .deco-sparkle, .right-clouds .deco-sparkle { bottom: 65px; left: 40px; right: 40px; font-size: 0.9rem; }
-        }
+
 
         .wave-container {
           position: absolute;
@@ -449,7 +444,7 @@ export default function Hero({ onSelectCategory }) {
           width: 100%;
           overflow: hidden;
           line-height: 0;
-          z-index: 2;
+          z-index: 3; /* Sits on top of clouds and mascot */
         }
 
         .crt-scanlines-wave {
@@ -499,32 +494,37 @@ export default function Hero({ onSelectCategory }) {
           }
 
           .hero-title {
-            font-size: 2.8rem;
+            font-size: 3.5rem; /* ~56px, 25% increase from original 2.8rem */
           }
 
         }
 
         @media (max-width: 576px) {
           .hero-title {
-            font-size: 2.2rem;
+            font-size: 3.15rem; /* ~50px, scaled up so headers dominate buttons */
           }
 
           .title-accent-highlight {
-            font-size: 0.44em;
-            white-space: nowrap;
+            font-size: 1.25rem; /* Stays at 20px to fit on a single line */
+            border-width: 3px;
+            box-shadow: 3px 3px 0px var(--text-dark);
+            letter-spacing: -1px;
             padding: 0.35em 0.5em;
+            white-space: nowrap;
           }
 
           .hero-actions {
             flex-wrap: nowrap;
             gap: 0.5rem;
             width: 100%;
+            max-width: 320px; /* Limits button stretch on mobile viewports */
+            margin: 0 auto;
             justify-content: center;
           }
 
           .hero-cta, .hero-secondary-btn {
-            font-size: 0.74rem;
-            padding: 0.75rem 0.5rem;
+            font-size: 0.72rem; /* Compact text size */
+            padding: 0.6rem 0.5rem; /* Compact padding */
             min-width: 0;
             flex: 1;
             white-space: nowrap;
@@ -542,6 +542,46 @@ export default function Hero({ onSelectCategory }) {
           
           .floating-bubble-2 {
             right: -20px;
+          }
+
+          /* Corner Clouds (Puffier & in front of visual) */
+          .corner-clouds {
+            width: 220px;
+            height: 140px;
+          }
+          .left-clouds .bubble-1, .right-clouds .bubble-1 {
+            width: 110px;
+            height: 110px;
+            bottom: -45px;
+          }
+          .left-clouds .bubble-2, .right-clouds .bubble-2 {
+            width: 140px;
+            height: 140px;
+            bottom: -50px;
+            left: 50px;
+            right: 50px;
+          }
+          .left-clouds .bubble-3, .right-clouds .bubble-3 {
+            width: 95px;
+            height: 95px;
+            bottom: -30px;
+            left: 110px;
+            right: 110px;
+          }
+          .left-clouds .bubble-4, .right-clouds .bubble-4 {
+            display: none;
+          }
+          .left-clouds .deco-heart, .right-clouds .deco-heart {
+            bottom: 75px;
+            left: 110px;
+            right: 110px;
+            font-size: 1.0rem;
+          }
+          .left-clouds .deco-sparkle, .right-clouds .deco-sparkle {
+            bottom: 95px;
+            left: 55px;
+            right: 55px;
+            font-size: 1.1rem;
           }
         }
       `}</style>

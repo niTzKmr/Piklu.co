@@ -135,7 +135,7 @@ export default function App() {
                 </div>
                 
                 <div className="story-content">
-                  <h2 className="story-title">Crafting Smiles Since 2025 🧸</h2>
+                  <h2 className="story-title">Crafting Smiles Since 2025</h2>
                   <p className="story-desc">
                     Piklu.co started with a simple belief: <strong>gifts should mean something</strong>. No more boring corporate mugs or generic greeting cards. We specialize in adding a pinch of playfulness and customization to high-quality hampers and handmade accessories.
                   </p>
