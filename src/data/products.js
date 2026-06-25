@@ -3,14 +3,13 @@ export const products = [
   {
     "id": "pixelated-frame",
     "slug": "pixelated-frame",
-    "name": "Retro Pixel Custom Frame",
+    "name": "Retro Pixel Custom Frame 4x4",
     "price": 149,
     "category": "Frame",
-    "description": "A blocky, 8-bit styled custom photo frame. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
+    "description": "A blocky, 8-bit styled custom photo frame in a compact 4x4 size. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
     "image": "/Products/Pixel-Frame-4x4/Frame4x4.png",
     "images": [
-      "/Products/Pixel-Frame-4x4/Frame4x4.png",
-      "/Products/Pixel-Frame-6x4/Frame4x6.png"
+      "/Products/Pixel-Frame-4x4/Frame4x4.png"
     ],
     "recommended": true,
     "collection": "pixelated",
@@ -18,9 +17,9 @@ export const products = [
     "sku": "pixelated-frame",
     "stock": -1,
     "weight": 0,
-    "meta_title": "Retro Pixel Custom Frame",
-    "meta_description": "A blocky, 8-bit styled custom photo frame. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
-    "instagram_url": "",
+    "meta_title": "pixelated-frame",
+    "meta_description": "-1",
+    "instagram_url": "0",
     "specifications": [
       {
         "name": "Color",
@@ -68,30 +67,7 @@ export const products = [
         "q": "How do I send my photo?",
         "a": "After checkout, you will be redirected to WhatsApp. Send your high-res photo to us directly in the chat, and we will send you a digital mockup for approval before printing!"
       }
-    ],
-    "varieties": {
-      "label": "Select Size",
-      "options": [
-        {
-          "id": "4x4-size",
-          "name": "4x4 Size",
-          "price": 149,
-          "isDefault": true
-        },
-        {
-          "id": "4x4-with-stand-size",
-          "name": "4x4 with stand Size",
-          "price": 169,
-          "isDefault": false
-        },
-        {
-          "id": "4x6-size",
-          "name": "4x6 Size",
-          "price": 179,
-          "isDefault": false
-        }
-      ]
-    }
+    ]
   },
   {
     "id": "pixelated-keychain",
@@ -960,25 +936,23 @@ export const products = [
   {
     "id": "pixel-frame-4x4-stand",
     "slug": "pixel-frame-4x4-stand",
-    "name": "Pixel Frame 4x4 Stand",
-    "price": 199,
-    "category": "frame",
-    "description": "A beautiful handcrafted pixel frame 4x4 stand.",
+    "name": "Retro Pixel Custom Frame 4x4 with Stand",
+    "price": 169,
+    "category": "Frame",
+    "description": "A blocky, 8-bit styled custom photo frame in a compact 4x4 size, complete with a plastic stand for tabletop display. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
     "image": "/Products/Pixel-Frame-4x4-Stand/image.png",
     "images": [
       "/Products/Pixel-Frame-4x4-Stand/image.png"
     ],
     "recommended": false,
-    "collection": "frame",
-    "tags": [
-      "gifts"
-    ],
+    "collection": "pixelated",
+    "tags": [],
     "sku": "pixel-frame-4x4-stand",
     "stock": -1,
     "weight": 0,
-    "meta_title": "Pixel Frame 4x4 Stand",
-    "meta_description": "A beautiful handcrafted pixel frame 4x4 stand.",
-    "instagram_url": "",
+    "meta_title": "pixel-frame-4x4-stand",
+    "meta_description": "-1",
+    "instagram_url": "0",
     "specifications": [
       {
         "name": "Color",
@@ -1019,6 +993,12 @@ export const products = [
       {
         "name": "Net Quantity (N)",
         "value": "1"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How do I send my photo?",
+        "a": "After checkout, you will be redirected to WhatsApp. Send your high-res photo to us directly in the chat, and we will send you a digital mockup for approval before printing!"
       }
     ]
   },
@@ -1207,6 +1187,75 @@ export const products = [
       {
         "name": "Country of Origin",
         "value": "India"
+      }
+    ]
+  },
+  {
+    "id": "pixel-frame-6x4",
+    "slug": "pixel-frame-6x4",
+    "name": "Retro Pixel Custom Frame 6x4",
+    "price": 179,
+    "category": "Frame",
+    "description": "A blocky, 8-bit styled custom photo frame in a larger 6x4 (4x6) size. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
+    "image": "/Products/Pixel-Frame-6x4/Frame4x6.png",
+    "images": [
+      "/Products/Pixel-Frame-6x4/Frame4x6.png"
+    ],
+    "recommended": false,
+    "collection": "pixelated",
+    "tags": [],
+    "sku": "pixel-frame-6x4",
+    "stock": -1,
+    "weight": 0,
+    "meta_title": "pixel-frame-6x4",
+    "meta_description": "-1",
+    "instagram_url": "0",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "White"
+      },
+      {
+        "name": "Product Length",
+        "value": "10 Inch"
+      },
+      {
+        "name": "Product Breadth",
+        "value": "0.5 Inch"
+      },
+      {
+        "name": "Product Height",
+        "value": "14 Inch"
+      },
+      {
+        "name": "Weight",
+        "value": "120 g"
+      },
+      {
+        "name": "Material",
+        "value": "Plastic"
+      },
+      {
+        "name": "Type",
+        "value": "Digital Photo Frame"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Photo Frames"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How do I send my photo?",
+        "a": "After checkout, you will be redirected to WhatsApp. Send your high-res photo to us directly in the chat, and we will send you a digital mockup for approval before printing!"
       }
     ]
   }

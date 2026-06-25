@@ -155,7 +155,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           </div>
         </div>
 
-        <div className="modal-grid">
+        <div className="modal-grid" key={activeProduct.id}>
           {/* Left Column: Huge Carousel */}
           <div className="modal-visual-column">
             <div className="carousel-container neo-card">
@@ -265,9 +265,9 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                 <label className="modal-custom-label">Select Size / Option</label>
                 <div className="variety-buttons" style={{ flexWrap: 'wrap', gap: '0.75rem' }}>
                   {[
-                    { id: '4x4-size', name: '4x4 Size', prodId: 'pixelated-frame' },
-                    { id: '4x4-with-stand-size', name: '4x4 with stand Size', prodId: 'pixel-frame-4x4-stand' },
-                    { id: '4x6-size', name: '4x6 Size', prodId: 'pixel-frame-6x4' }
+                    { id: '4x4-size', name: '4x4 Frame', prodId: 'pixelated-frame' },
+                    { id: '4x4-with-stand-size', name: 'with stand', prodId: 'pixel-frame-4x4-stand' },
+                    { id: '4x6-size', name: '4x6 Frame', prodId: 'pixel-frame-6x4' }
                   ].map((opt) => {
                     const optProduct = allProducts.find(p => p.id === opt.prodId);
                     if (!optProduct) return null;
@@ -507,6 +507,12 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           display: grid;
           grid-template-columns: 1.1fr 0.9fr;
           gap: 3rem;
+          animation: gridFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes gridFadeIn {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
         }
 
         /* Large Carousel Styles */
