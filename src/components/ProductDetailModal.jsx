@@ -1,11 +1,36 @@
 import { useState, useEffect } from 'react';
 import mascotSeal from '../assets/Piklu.png';
 
+// Persist variety selection in session storage
+const getPersistedVariety = (productId, varieties) => {
+  try {
+    const key = `selected-variety-${productId}`;
+    const cachedId = sessionStorage.getItem(key);
+    if (cachedId && varieties?.options) {
+      return varieties.options.find(opt => opt.id === cachedId) || null;
+    }
+  } catch (e) {}
+  return null;
+};
+
+const persistVariety = (productId, varietyId) => {
+  try {
+    const key = `selected-variety-${productId}`;
+    if (varietyId) {
+      sessionStorage.setItem(key, varietyId);
+    } else {
+      sessionStorage.removeItem(key);
+    }
+  } catch (e) {}
+};
+
 export default function ProductDetailModal({ product, isOpen, onClose, onAddToCart, allProducts, cartCount, onCartClick, onSelectProduct }) {
   const defaultVariety = product?.varieties?.options?.find(opt => opt.isDefault) || product?.varieties?.options?.[0] || null;
+  const initialVariety = getPersistedVariety(product?.id, product?.varieties) || defaultVariety;
+
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
-  const [selectedVariety, setSelectedVariety] = useState(defaultVariety);
+  const [selectedVariety, setSelectedVariety] = useState(initialVariety);
   const [slideLoaded, setSlideLoaded] = useState({});
   const activeProduct = product;
   
@@ -16,9 +41,23 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
   const [prevProductId, setPrevProductId] = useState(product?.id);
   if (product?.id !== prevProductId) {
     setPrevProductId(product?.id);
-    setActiveSlide(0);
+    
+    // Determine image slides length of the new product to check slide index validity
+    const newBaseImages = product.images && product.images.length > 0 ? product.images : [product.image];
+    let newSlidesCount = newBaseImages.length + 1; // Base + Brand
+    const persistedVar = getPersistedVariety(product?.id, product?.varieties);
+    const resolvedVar = persistedVar || (product?.varieties?.options?.find(opt => opt.isDefault) || product?.varieties?.options?.[0] || null);
+    if (resolvedVar && resolvedVar.image) {
+      newSlidesCount += 1;
+    }
+    
+    // Preserve slide index if valid for the new product, else reset to 0
+    if (activeSlide >= newSlidesCount) {
+      setActiveSlide(0);
+    }
+    
     setSlideLoaded({});
-    setSelectedVariety(defaultVariety);
+    setSelectedVariety(resolvedVar);
   }
 
   // Preload carousel images and sibling pixelated frame images for instant switching
@@ -92,6 +131,22 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
     setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+  // Keyboard navigation for active slide controls and Esc close support
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') {
+        handlePrevSlide();
+      } else if (e.key === 'ArrowRight') {
+        handleNextSlide();
+      } else if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, slides.length, activeSlide]);
+
   const handleAdd = () => {
     let parts = [];
     let finalProduct = { ...activeProduct };
@@ -155,7 +210,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           </div>
         </div>
 
-        <div className="modal-grid" key={activeProduct.id}>
+        <div className="modal-grid">
           {/* Left Column: Huge Carousel */}
           <div className="modal-visual-column">
             <div className="carousel-container neo-card">
@@ -224,7 +279,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           </div>
 
           {/* Right Column: Detailed Product Info */}
-          <div className="modal-info-column">
+          <div className="modal-info-column" key={activeProduct.id}>
             <div className="modal-product-header">
               <span className="modal-category-badge neo-badge">{activeProduct.category}</span>
               <h1 className="modal-product-title">{activeProduct.name}</h1>
@@ -243,7 +298,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
             {isPixelatedFrame ? (
               <div className="modal-variety-section neo-card">
                 <label className="modal-custom-label">Select Size / Option</label>
-                <div className="variety-buttons">
+                <div className="variety-buttons" role="radiogroup" aria-label="Select Size or Option">
                   {[
                     { id: '4x4-size', name: '4x4 Frame', prodId: 'pixelated-frame' },
                     { id: '4x4-with-stand-size', name: 'with stand', prodId: 'pixel-frame-4x4-stand' },
@@ -255,6 +310,8 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                     return (
                       <button 
                         key={opt.id}
+                        role="radio"
+                        aria-checked={isActive}
                         onClick={() => {
                           if (onSelectProduct) {
                             onSelectProduct(optProduct);
@@ -271,12 +328,15 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
             ) : activeProduct.varieties ? (
               <div className="modal-variety-section neo-card">
                 <label className="modal-custom-label">{activeProduct.varieties.label || 'Select Option'}</label>
-                <div className="variety-buttons">
+                <div className="variety-buttons" role="radiogroup" aria-label={activeProduct.varieties.label || 'Select Option'}>
                   {activeProduct.varieties.options.map((opt) => (
                     <button 
                       key={opt.id}
+                      role="radio"
+                      aria-checked={selectedVariety?.id === opt.id}
                       onClick={() => {
                         setSelectedVariety(opt);
+                        persistVariety(activeProduct.id, opt.id);
                         if (opt.image) {
                           const slideIdx = slides.findIndex(s => s.image === opt.image);
                           if (slideIdx !== -1) {
@@ -356,27 +416,28 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
             </button>
           </div>
 
-          {/* Footer Row: Recommendations */}
-          <div className="modal-recommendations-row">
-            <h3 className="rec-heading">You might also love... 💖</h3>
-            <div className="rec-grid">
-              {recommendations.map((rec) => (
-                <div 
-                  key={rec.id}
-                  onClick={() => handleSelectRecommendation(rec)}
-                  className="neo-card rec-mini-card"
-                >
-                  <img src={rec.image} alt={rec.name} className="rec-mini-img" loading="lazy" />
-                  <div className="rec-mini-details">
-                    <h4 className="rec-mini-title">{rec.name}</h4>
-                    <span className="rec-mini-price">₹{rec.price}</span>
-                  </div>
+        </div> {/* End of modal-grid */}
+
+        {/* Footer Row: Recommendations */}
+        <div className="modal-recommendations-row">
+          <h3 className="rec-heading">You might also love... 💖</h3>
+          <div className="rec-grid">
+            {recommendations.map((rec) => (
+              <div 
+                key={rec.id}
+                onClick={() => handleSelectRecommendation(rec)}
+                className="neo-card rec-mini-card"
+              >
+                <img src={rec.image} alt={rec.name} className="rec-mini-img" loading="lazy" />
+                <div className="rec-mini-details">
+                  <h4 className="rec-mini-title">{rec.name}</h4>
+                  <span className="rec-mini-price">₹{rec.price}</span>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      </div> {/* End of modal-container */}
 
       <style>{`
         /* Dynamic Gallery Thumbnails */
@@ -400,7 +461,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           box-shadow: 2px 2px 0px var(--text-dark);
           background-color: #ffffff;
           overflow: hidden;
-          transition: var(--transition-smooth);
+          transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
 
         .thumbnail-btn:hover {
@@ -485,15 +546,8 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           display: grid;
           grid-template-columns: 1.1fr 0.9fr;
           gap: 3rem;
-          animation: gridFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes gridFadeIn {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Large Carousel Styles */
         .modal-visual-column {
           display: flex;
           flex-direction: column;
@@ -502,6 +556,19 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           align-self: flex-start;
         }
 
+        .modal-info-column {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          animation: gridFadeIn 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes gridFadeIn {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Large Carousel Styles */
         .carousel-container {
           position: relative;
           width: 100%;
@@ -527,7 +594,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           height: 100%;
           opacity: 0;
           visibility: hidden;
-          transition: opacity 0.3s ease, visibility 0.3s ease;
+          transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -550,25 +617,11 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           object-fit: contain;
           background-color: var(--bg-cream);
           opacity: 0;
-          transition: opacity 0.3s ease-out;
+          transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
 
         .slide-image.loaded {
           opacity: 1;
-        }
-
-        .macro-zoom .slide-image {
-          object-position: center;
-          transform: scale(1.4);
-        }
-
-        .slide-label {
-          position: absolute;
-          top: 16px;
-          left: 16px;
-          box-shadow: 2px 2px 0px var(--text-dark);
-          background-color: var(--bg-yellow);
-          color: var(--text-dark);
         }
 
         .carousel-control {
@@ -624,12 +677,6 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
         }
 
         /* Product Details Panel */
-        .modal-info-column {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-        }
-
         .modal-product-header {
           display: flex;
           flex-direction: column;
@@ -698,18 +745,11 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           letter-spacing: 0.5px;
         }
 
-        .modal-add-btn {
-          padding: 1.1rem;
-          font-size: 1.15rem;
-          justify-content: center;
-        }
-
         /* Recommendations */
         .modal-recommendations-row {
-          grid-column: 1 / -1;
           border-top: 2px dashed var(--bg-dark);
           padding-top: 2rem;
-          margin-top: 1.5rem;
+          margin-top: 3rem;
         }
 
         .rec-heading {
@@ -732,6 +772,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           cursor: pointer;
           box-shadow: 3px 3px 0px var(--text-dark);
           border-radius: 20px;
+          transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
 
         .rec-mini-card:hover {
@@ -793,6 +834,20 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           padding: 0.6rem 1rem;
           justify-content: center;
           white-space: nowrap;
+          transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .variety-btn:hover:not(.active-variety) {
+          transform: translate(-2px, -2px);
+          box-shadow: 4px 4px 0px var(--text-dark);
+        }
+
+        .variety-btn:focus-visible,
+        .neo-btn:focus-visible,
+        .thumbnail-btn:focus-visible,
+        .modal-add-btn:focus-visible {
+          outline: 3px solid var(--text-dark) !important;
+          outline-offset: 2px;
         }
 
         .active-variety {
@@ -842,6 +897,34 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           display: inline;
         }
 
+        .modal-add-btn {
+          padding: 1.1rem;
+          font-size: 1.15rem;
+          justify-content: center;
+          position: sticky;
+          bottom: 1.5rem;
+          z-index: 100;
+          margin-top: 1.5rem;
+          box-shadow: 4px 4px 0px var(--text-dark);
+          transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .modal-add-btn:hover:not(.neo-btn-disabled) {
+          transform: translate(-2px, -2px);
+          box-shadow: 6px 6px 0px var(--text-dark);
+        }
+
+        .modal-add-btn:active:not(.neo-btn-disabled) {
+          transform: translate(2px, 2px);
+          box-shadow: 0px 0px 0px #1E1E1E !important;
+        }
+
+        @media (max-width: 1024px) {
+          .modal-grid {
+            gap: 2rem;
+          }
+        }
+
         @media (max-width: 991px) {
           .modal-visual-column {
             position: static;
@@ -852,6 +935,10 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           }
           .carousel-container {
             height: 380px;
+          }
+          .modal-add-btn {
+            position: static;
+            margin-top: 1.5rem;
           }
         }
 
