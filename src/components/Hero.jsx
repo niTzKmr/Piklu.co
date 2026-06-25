@@ -139,11 +139,17 @@ export default function Hero({ onSelectCategory }) {
         .title-accent-highlight {
           position: relative;
           display: inline-block;
-          font-weight: 700;
+          font-family: var(--font-pixel);
+          font-size: 0.52em;
+          letter-spacing: -1px;
           color: var(--text-dark);
-          background: linear-gradient(120deg, rgba(255, 222, 77, 0.4) 0%, rgba(255, 222, 77, 0.7) 100%);
-          padding: 0.1rem 0.5rem;
-          border-radius: 6px;
+          background-color: var(--bg-yellow);
+          padding: 0.4rem 0.8rem;
+          border: 3px solid var(--text-dark);
+          border-radius: 4px;
+          box-shadow: 4px 4px 0px var(--text-dark);
+          transform: rotate(-1.5deg);
+          margin-top: 0.6rem;
         }
 
         .hero-tagline {
