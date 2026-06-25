@@ -21,10 +21,29 @@ export default function Hero({ onSelectCategory }) {
 
   return (
     <section className="hero-section">
+      {/* Puffy Corner Clouds */}
+      <div className="corner-clouds left-clouds">
+        <div className="cloud-bubble bubble-1"></div>
+        <div className="cloud-bubble bubble-2"></div>
+        <div className="cloud-bubble bubble-3"></div>
+        <div className="cloud-bubble bubble-4"></div>
+        <div className="cloud-deco deco-heart">💖</div>
+        <div className="cloud-deco deco-sparkle">✦</div>
+      </div>
+      
+      <div className="corner-clouds right-clouds">
+        <div className="cloud-bubble bubble-1"></div>
+        <div className="cloud-bubble bubble-2"></div>
+        <div className="cloud-bubble bubble-3"></div>
+        <div className="cloud-bubble bubble-4"></div>
+        <div className="cloud-deco deco-heart">💖</div>
+        <div className="cloud-deco deco-sparkle">✦</div>
+      </div>
+
       <div className="container hero-grid">
         <div className="hero-content">
           <h1 className="hero-title">
-            Because Your <span className="title-accent-italic">beloved deserves the</span> <span className="title-accent-highlight">Perfect Piklu Gift</span>
+            <span className="title-line-1">Because Your</span> <span className="title-accent-italic">beloved deserves the</span> <span className="title-accent-highlight">Perfect Piklu Gift</span>
           </h1>
           <div className="hero-actions">
             <a
@@ -100,7 +119,7 @@ export default function Hero({ onSelectCategory }) {
           gap: 3rem;
           align-items: center;
           position: relative;
-          z-index: 2;
+          z-index: 3;
           padding-bottom: 6rem;
         }
 
@@ -117,23 +136,29 @@ export default function Hero({ onSelectCategory }) {
 
         .hero-title {
           font-size: 3.6rem;
-          line-height: 1.15;
+          line-height: 1.0;
           margin-bottom: 2rem;
           letter-spacing: -1px;
           text-shadow: none;
           color: var(--text-dark);
         }
 
+        .title-line-1 {
+          font-family: pf-pixelscript, sans-serif;
+          font-style: normal;
+          font-weight: 400;
+        }
+
         .title-accent-italic {
-          font-family: var(--font-serif);
+          font-family: var(--font-serif-instrument), serif;
           font-style: italic;
-          font-weight: 500;
-          color: var(--bg-orange);
+          font-weight: 400;
+          color: #ff4d4d;
           display: block;
-          font-size: 0.82em;
+          font-size: 1.2em; /* Scaled up for narrow elegant Instrument Serif style */
           line-height: 0.95;
-          margin-top: 0.15rem;
-          margin-bottom: 0.4rem;
+          margin-top: -0.23em;
+          margin-bottom: -0.12em;
         }
 
         .title-accent-highlight {
@@ -144,11 +169,11 @@ export default function Hero({ onSelectCategory }) {
           letter-spacing: -1px;
           color: var(--text-dark);
           background-color: var(--bg-yellow);
-          padding: 0.4rem 0.8rem;
+          padding: 0.35em 0.7em;
           border: 3px solid var(--text-dark);
           border-radius: 4px;
           box-shadow: 4px 4px 0px var(--text-dark);
-          margin-top: 0.6rem;
+          margin-top: 0.25rem;
         }
 
         .hero-tagline {
@@ -279,6 +304,144 @@ export default function Hero({ onSelectCategory }) {
           z-index: -1;
         }
 
+        /* Layered Puffy Corner Clouds styling */
+        .corner-clouds {
+          position: absolute;
+          bottom: 0;
+          pointer-events: none;
+          z-index: 1;
+          width: 380px;
+          height: 200px;
+          overflow: visible;
+        }
+
+        .left-clouds {
+          left: -40px;
+        }
+
+        .right-clouds {
+          right: -40px;
+        }
+
+        .cloud-bubble {
+          position: absolute;
+          background: rgba(255, 255, 255, 0.88);
+          border-top: 4px solid #ffffff;
+          border-radius: 50%;
+          box-shadow: inset 0 -12px 24px rgba(255, 183, 197, 0.4);
+        }
+
+        /* Left clouds layout */
+        .left-clouds .bubble-1 {
+          width: 180px;
+          height: 180px;
+          bottom: -70px;
+          left: 0px;
+        }
+
+        .left-clouds .bubble-2 {
+          width: 220px;
+          height: 220px;
+          bottom: -80px;
+          left: 100px;
+        }
+
+        .left-clouds .bubble-3 {
+          width: 145px;
+          height: 145px;
+          bottom: -45px;
+          left: 240px;
+        }
+
+        .left-clouds .bubble-4 {
+          width: 100px;
+          height: 100px;
+          bottom: -20px;
+          left: 335px;
+        }
+
+        /* Right clouds layout */
+        .right-clouds .bubble-1 {
+          width: 180px;
+          height: 180px;
+          bottom: -70px;
+          right: 0px;
+        }
+
+        .right-clouds .bubble-2 {
+          width: 220px;
+          height: 220px;
+          bottom: -80px;
+          right: 100px;
+        }
+
+        .right-clouds .bubble-3 {
+          width: 145px;
+          height: 145px;
+          bottom: -45px;
+          right: 240px;
+        }
+
+        .right-clouds .bubble-4 {
+          width: 100px;
+          height: 100px;
+          bottom: -20px;
+          right: 335px;
+        }
+
+        .cloud-deco {
+          position: absolute;
+          pointer-events: none;
+          animation: float 4s ease-in-out infinite;
+        }
+
+        .left-clouds .deco-heart {
+          bottom: 110px;
+          left: 190px;
+          font-size: 1.1rem;
+          opacity: 0.85;
+          animation-delay: 0.5s;
+        }
+
+        .left-clouds .deco-sparkle {
+          bottom: 135px;
+          left: 95px;
+          color: var(--text-dark);
+          font-size: 1.3rem;
+          text-shadow: 1px 1px 0px #ffffff;
+          animation-delay: 1.2s;
+        }
+
+        .right-clouds .deco-heart {
+          bottom: 110px;
+          right: 190px;
+          font-size: 1.1rem;
+          opacity: 0.85;
+          animation-delay: 0.9s;
+        }
+
+        .right-clouds .deco-sparkle {
+          bottom: 135px;
+          right: 95px;
+          color: var(--text-dark);
+          font-size: 1.3rem;
+          text-shadow: 1px 1px 0px #ffffff;
+          animation-delay: 0.3s;
+        }
+
+        @media (max-width: 576px) {
+          .corner-clouds {
+            width: 150px;
+            height: 100px;
+          }
+          .left-clouds .bubble-1, .right-clouds .bubble-1 { width: 80px; height: 80px; bottom: -30px; }
+          .left-clouds .bubble-2, .right-clouds .bubble-2 { width: 100px; height: 100px; bottom: -35px; left: 40px; right: 40px; }
+          .left-clouds .bubble-3, .right-clouds .bubble-3 { width: 70px; height: 70px; bottom: -20px; left: 90px; right: 90px; }
+          .left-clouds .bubble-4, .right-clouds .bubble-4 { display: none; }
+          .left-clouds .deco-heart, .right-clouds .deco-heart { bottom: 50px; left: 80px; right: 80px; font-size: 0.8rem; }
+          .left-clouds .deco-sparkle, .right-clouds .deco-sparkle { bottom: 65px; left: 40px; right: 40px; font-size: 0.9rem; }
+        }
+
         .wave-container {
           position: absolute;
           bottom: -2px;
@@ -286,6 +449,7 @@ export default function Hero({ onSelectCategory }) {
           width: 100%;
           overflow: hidden;
           line-height: 0;
+          z-index: 2;
         }
 
         .crt-scanlines-wave {
@@ -337,12 +501,14 @@ export default function Hero({ onSelectCategory }) {
           .hero-title {
             font-size: 2.8rem;
           }
+
         }
 
         @media (max-width: 576px) {
           .hero-title {
             font-size: 2.2rem;
           }
+
           
           .hero-image-wrapper {
             width: 250px;
