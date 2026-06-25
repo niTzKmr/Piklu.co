@@ -243,7 +243,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
             {isPixelatedFrame ? (
               <div className="modal-variety-section neo-card">
                 <label className="modal-custom-label">Select Size / Option</label>
-                <div className="variety-buttons" style={{ flexWrap: 'wrap', gap: '0.75rem' }}>
+                <div className="variety-buttons">
                   {[
                     { id: '4x4-size', name: '4x4 Frame', prodId: 'pixelated-frame' },
                     { id: '4x4-with-stand-size', name: 'with stand', prodId: 'pixel-frame-4x4-stand' },
@@ -261,7 +261,6 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                           }
                         }}
                         className={`variety-btn neo-btn ${isActive ? 'active-variety' : 'neo-btn-pink'}`}
-                        style={{ flex: 'unset' }}
                       >
                         <span>{opt.name} (₹{optProduct.price})</span>
                       </button>
@@ -272,7 +271,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
             ) : activeProduct.varieties ? (
               <div className="modal-variety-section neo-card">
                 <label className="modal-custom-label">{activeProduct.varieties.label || 'Select Option'}</label>
-                <div className="variety-buttons" style={{ flexWrap: 'wrap', gap: '0.75rem' }}>
+                <div className="variety-buttons">
                   {activeProduct.varieties.options.map((opt) => (
                     <button 
                       key={opt.id}
@@ -286,7 +285,6 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
                         }
                       }}
                       className={`variety-btn neo-btn ${selectedVariety?.id === opt.id ? 'active-variety' : 'neo-btn-pink'}`}
-                      style={{ flex: 'unset' }}
                     >
                       <span>{opt.name} (₹{opt.price})</span>
                     </button>
@@ -499,6 +497,9 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
         .modal-visual-column {
           display: flex;
           flex-direction: column;
+          position: sticky;
+          top: 2.5rem;
+          align-self: flex-start;
         }
 
         .carousel-container {
@@ -780,15 +781,18 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
 
         .variety-buttons {
           display: flex;
-          gap: 1rem;
+          flex-wrap: wrap;
+          gap: 0.75rem;
           margin-top: 0.5rem;
         }
 
         .variety-btn {
-          flex: 1;
+          flex: 1 1 0px;
+          min-width: 110px;
           font-size: 0.9rem;
           padding: 0.6rem 1rem;
           justify-content: center;
+          white-space: nowrap;
         }
 
         .active-variety {
@@ -839,12 +843,22 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
         }
 
         @media (max-width: 991px) {
+          .modal-visual-column {
+            position: static;
+          }
           .modal-grid {
             grid-template-columns: 1fr;
             gap: 2rem;
           }
           .carousel-container {
             height: 380px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .highlights-grid {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
           }
         }
 
