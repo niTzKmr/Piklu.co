@@ -452,7 +452,8 @@ export const products = [
     "description": "A beautiful handcrafted crochet sunflower keychain.",
     "image": "/Products/Crochet-Sunflower-Keychain/image.jpg",
     "images": [
-      "/Products/Crochet-Sunflower-Keychain/image.jpg"
+      "/Products/Crochet-Sunflower-Keychain/image.jpg",
+      "/Products/Crochet-Sunflower-Keychain/image 2.avif"
     ],
     "recommended": false,
     "collection": "keychain",
@@ -625,7 +626,8 @@ export const products = [
     "image": "/Products/Shinchan-Messi-Keychain/image 1.png",
     "images": [
       "/Products/Shinchan-Messi-Keychain/image 1.png",
-      "/Products/Shinchan-Messi-Keychain/image 2.png"
+      "/Products/Shinchan-Messi-Keychain/image 2.png",
+      "/Products/Shinchan-Messi-Keychain/image 3.jpg"
     ],
     "recommended": false,
     "collection": "keychain",
@@ -899,7 +901,8 @@ export const products = [
     "description": "A beautiful handcrafted duck themed mug.",
     "image": "/Products/Duck-Themed-Mug/image.png",
     "images": [
-      "/Products/Duck-Themed-Mug/image.png"
+      "/Products/Duck-Themed-Mug/image.png",
+      "/Products/Duck-Themed-Mug/image 2.jpg"
     ],
     "recommended": false,
     "collection": "mug",
@@ -1065,7 +1068,8 @@ export const products = [
     "description": "A beautiful handcrafted ceramic heart mug.",
     "image": "/Products/Ceramic-Heart-Mug/heart mug.png",
     "images": [
-      "/Products/Ceramic-Heart-Mug/heart mug.png"
+      "/Products/Ceramic-Heart-Mug/heart mug.png",
+      "/Products/Ceramic-Heart-Mug/image 2.jpg"
     ],
     "recommended": false,
     "collection": "mugs",
