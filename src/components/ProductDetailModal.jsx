@@ -258,8 +258,8 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
               </div>
             </div>
 
-            <div className="modal-description-card neo-card">
-              <h4>About this Gift 🎁</h4>
+            <div className="modal-description-section" style={{ padding: '0.25rem 0.5rem' }}>
+              <h4 style={{ fontSize: '1.05rem', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>About this Gift 🎁</h4>
               <p className="modal-product-desc">{activeProduct.description}</p>
             </div>
 
@@ -503,9 +503,10 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
           height: 480px;
           background-color: #ffffff;
           overflow: hidden;
-          box-shadow: var(--shadow-flat);
           border: var(--border-thick);
           border-radius: 24px;
+          box-shadow: none !important;
+          transform: none !important;
         }
 
         .carousel-slides-wrapper {
@@ -770,8 +771,9 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
         .modal-variety-section {
           padding: 1.25rem;
           background-color: #ffffff;
-          box-shadow: 3px 3px 0px var(--text-dark);
           border-radius: 16px;
+          box-shadow: none !important;
+          transform: none !important;
         }
 
         .variety-buttons {
@@ -800,8 +802,16 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
         .modal-highlights-card {
           padding: 1.25rem;
           background-color: #ffffff;
-          box-shadow: 3px 3px 0px var(--text-dark);
           border-radius: 16px;
+          box-shadow: none !important;
+          transform: none !important;
+        }
+
+        .modal-variety-section:hover,
+        .modal-highlights-card:hover,
+        .carousel-container:hover {
+          transform: none !important;
+          box-shadow: none !important;
         }
 
         .modal-highlights-card h4 {
