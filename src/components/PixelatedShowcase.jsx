@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export default function PixelatedShowcase({ products, onViewDetails }) {
   const [loadedImages, setLoadedImages] = useState({});
-  const pixelatedItems = products.filter(p => p.collection === 'pixelated');
+  const pixelatedItems = products.filter(p => p.id === 'pixelated-frame' || p.id === 'pixelated-keychain');
   if (pixelatedItems.length === 0) return null;
 
   return (
