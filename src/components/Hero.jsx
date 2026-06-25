@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import heroMascot from '../assets/Piklu.jpg';
 
 const shuffleItems = [
-  { text: 'Customize a Keychain 🔑', category: 'Keychain' },
-  { text: 'Customize a Frame 🖼️', category: 'Frame' },
-  { text: 'Customize a Hamper 🎁', category: 'Hamper' },
+  { text: 'Custom Keychain 🔑', category: 'Keychain' },
+  { text: 'Custom Frame 🖼️', category: 'Frame' },
+  { text: 'Custom Hamper 🎁', category: 'Hamper' },
 ];
 
 export default function Hero({ onSelectCategory }) {
@@ -509,6 +509,27 @@ export default function Hero({ onSelectCategory }) {
             font-size: 2.2rem;
           }
 
+          .title-accent-highlight {
+            font-size: 0.44em;
+            white-space: nowrap;
+            padding: 0.35em 0.5em;
+          }
+
+          .hero-actions {
+            flex-wrap: nowrap;
+            gap: 0.5rem;
+            width: 100%;
+            justify-content: center;
+          }
+
+          .hero-cta, .hero-secondary-btn {
+            font-size: 0.74rem;
+            padding: 0.75rem 0.5rem;
+            min-width: 0;
+            flex: 1;
+            white-space: nowrap;
+            justify-content: center;
+          }
           
           .hero-image-wrapper {
             width: 250px;
