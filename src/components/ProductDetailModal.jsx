@@ -137,18 +137,24 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
       <div className="modal-container">
         {/* Navigation Bar / Back button */}
         <div className="modal-nav-bar">
-          <button className="neo-btn neo-btn-pink back-to-shop-btn" onClick={onClose}>
-            <span>← Back to Collection</span>
+          <button className="neo-btn neo-btn-pink back-to-shop-btn" onClick={onClose} aria-label="Back to collection">
+            <svg className="back-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span className="back-text-desktop">Back to Collection</span>
           </button>
           
-          <div className="nav-bar-logo" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className="nav-bar-logo">
             {onCartClick && (
               <button 
                 onClick={onCartClick} 
                 className="neo-btn neo-btn-pink cart-toggle-btn"
-                style={{ fontSize: '0.85rem', padding: '0.4rem 0.8rem' }}
+                aria-label="View cart"
               >
-                <span>🛒 Cart ({cartCount})</span>
+                <span className="cart-icon">🛒</span>
+                <span className="cart-text-desktop">Cart</span>
+                <span className="cart-count">({cartCount})</span>
               </button>
             )}
             <span className="logo-text">Piklu<span className="logo-dot">.co</span></span>
@@ -456,11 +462,36 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
         .back-to-shop-btn {
           font-size: 0.95rem;
           padding: 0.6rem 1.2rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .back-icon {
+          display: inline-block;
+          flex-shrink: 0;
         }
 
         .nav-bar-logo {
           display: flex;
           align-items: center;
+          gap: 1rem;
+        }
+
+        .cart-toggle-btn {
+          font-size: 0.9rem;
+          padding: 0.5rem 1rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+        }
+
+        .cart-icon {
+          display: inline-block;
+        }
+
+        .cart-count {
+          font-weight: 700;
         }
 
         .logo-text {
@@ -868,6 +899,63 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
         }
 
         @media (max-width: 768px) {
+          .back-text-desktop,
+          .cart-text-desktop {
+            display: none;
+          }
+          .back-to-shop-btn {
+            width: 38px;
+            height: 38px;
+            padding: 0 !important;
+            border-radius: 10px;
+            box-shadow: 2px 2px 0px var(--text-dark) !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+          .back-to-shop-btn:hover {
+            transform: translate(-1px, -1px) !important;
+            box-shadow: 3px 3px 0px var(--text-dark) !important;
+          }
+          .back-to-shop-btn:active {
+            transform: translate(1px, 1px) !important;
+            box-shadow: 1px 1px 0px var(--text-dark) !important;
+          }
+          
+          .back-icon {
+            width: 18px;
+            height: 18px;
+          }
+
+          .cart-toggle-btn {
+            height: 38px;
+            padding: 0 0.5rem !important;
+            font-size: 0.85rem;
+            gap: 0.25rem;
+            border-radius: 10px;
+            box-shadow: 2px 2px 0px var(--text-dark) !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+          .cart-toggle-btn:hover {
+            transform: translate(-1px, -1px) !important;
+            box-shadow: 3px 3px 0px var(--text-dark) !important;
+          }
+          .cart-toggle-btn:active {
+            transform: translate(1px, 1px) !important;
+            box-shadow: 1px 1px 0px var(--text-dark) !important;
+          }
+
+          .nav-bar-logo {
+            gap: 0.5rem;
+          }
+          .logo-text {
+            font-size: 1.25rem;
+          }
+
           .carousel-container {
             height: 300px;
           }
