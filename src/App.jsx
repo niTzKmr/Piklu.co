@@ -478,6 +478,34 @@ export default function App() {
             text-align: center;
           }
         }
+
+        @media (max-width: 480px) {
+          .section-heading {
+            font-size: 1.85rem;
+            margin-bottom: 2rem;
+          }
+
+          .story-title {
+            font-size: 1.85rem;
+          }
+
+          .story-sticker {
+            width: min(280px, 75vw);
+            height: min(280px, 75vw);
+          }
+
+          .story-stats {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          }
+
+          .stat-card {
+            width: 100%;
+            max-width: 240px;
+            padding: 1rem;
+          }
+        }
       `}</style>
     </div>
   );

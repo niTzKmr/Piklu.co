@@ -164,6 +164,20 @@ export default function PixelatedShowcase({ products, onViewDetails }) {
             font-size: 1.25rem;
           }
         }
+
+        @media (max-width: 320px) {
+          .pixel-btn-neon {
+            font-size: clamp(0.5rem, 3vw, 0.7rem);
+            padding: 0.6rem 0.8rem;
+            border-width: 3px;
+            box-shadow: 3px 3px 0px #39FF14;
+          }
+          
+          .pixel-section .container {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+          }
+        }
       `}</style>
     </section>
   );

@@ -163,6 +163,33 @@ export default function Header({ cartCount, onCartClick }) {
             padding: 0.15rem 0.4rem;
           }
         }
+
+        @media (max-width: 320px) {
+          .header-bar.container {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+          }
+          
+          .logo-text {
+            font-size: 1.05rem;
+          }
+          
+          .logo-mascot {
+            width: 28px;
+            height: 28px;
+          }
+          
+          .logo-area {
+            gap: 0.4rem;
+          }
+
+          .cart-toggle-btn {
+            font-size: 0.7rem;
+            padding: 0.4rem 0.6rem;
+            border-width: 2px;
+            box-shadow: 2px 2px 0px #1E1E1E;
+          }
+        }
       `}</style>
     </header>
   );

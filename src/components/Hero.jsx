@@ -501,11 +501,11 @@ export default function Hero({ onSelectCategory }) {
 
         @media (max-width: 576px) {
           .hero-title {
-            font-size: 3.15rem; /* ~50px, scaled up so headers dominate buttons */
+            font-size: clamp(2.15rem, 8.5vw, 3.15rem); /* Fluid scaling down to 2.15rem */
           }
 
           .title-accent-highlight {
-            font-size: 1.25rem; /* Stays at 20px to fit on a single line */
+            font-size: clamp(0.85rem, 4vw, 1.25rem); /* Fluid scaling down to 0.85rem */
             border-width: 3px;
             box-shadow: 3px 3px 0px var(--text-dark);
             letter-spacing: -1px;
@@ -582,6 +582,63 @@ export default function Hero({ onSelectCategory }) {
             left: 55px;
             right: 55px;
             font-size: 1.1rem;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .hero-title {
+            font-size: clamp(1.6rem, 8vw, 2.15rem);
+          }
+          
+          .title-accent-highlight {
+            font-size: clamp(0.6rem, 3.5vw, 0.85rem);
+            border-width: 2px;
+            box-shadow: 2px 2px 0px var(--text-dark);
+            padding: 0.35em 0.5em;
+          }
+
+          .hero-actions {
+            flex-wrap: wrap;
+            max-width: min(260px, 90vw);
+            gap: 0.6rem;
+          }
+
+          .hero-cta, .hero-secondary-btn {
+            flex: 1 1 100%;
+            font-size: 0.8rem;
+            padding: 0.65rem 0.9rem;
+          }
+
+          .hero-image-wrapper {
+            width: min(200px, 65vw);
+            height: min(200px, 65vw);
+          }
+
+          .floating-bubble-1 {
+            left: -10px;
+            font-size: clamp(0.65rem, 2.5vw, 0.75rem);
+            padding: 0.35rem 0.7rem;
+          }
+
+          .floating-bubble-2 {
+            right: -10px;
+            font-size: clamp(0.65rem, 2.5vw, 0.75rem);
+            padding: 0.35rem 0.7rem;
+          }
+        }
+
+        @media (max-width: 320px) {
+          .hero-section .container {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+          }
+          
+          .floating-bubble-1 {
+            left: -5px;
+          }
+          
+          .floating-bubble-2 {
+            right: -5px;
           }
         }
       `}</style>
