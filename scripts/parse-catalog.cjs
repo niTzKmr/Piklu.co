@@ -36,6 +36,17 @@ function slugify(text) {
     .replace(/(^-|-$)/g, '');
 }
 
+function normalizeSpecifications(str) {
+  if (!str) return '';
+  return str
+    .replace(/\s+l\s*(?=[A-Z0-9][\w\s\(\)-]{1,29}:)/g, ' | ')
+    .replace(/\s*[\/|]\s*(?=[A-Z0-9][\w\s\(\)-]{1,29}:)/g, ' | ');
+}
+
+function cleanValue(val) {
+  return val.trim().replace(/[\s|/]+$/, '').replace(/\s+l$/, '').trim();
+}
+
 try {
   if (!fs.existsSync(csvPath)) {
     console.error(`Error: catalog.csv not found at ${csvPath}`);
@@ -91,12 +102,13 @@ try {
       instagram_url: row.instagram_url || ''
     };
 
-    // Parse Specifications (Format: Key: Value | Key2: Value2)
+    // Parse Specifications (Format: Key: Value | Key2: Value2 or using other separators like 'l' or '/')
     if (row.specifications && row.specifications.trim() !== '') {
-      product.specifications = row.specifications.split('|').map(specStr => {
+      const normalizedSpecs = normalizeSpecifications(row.specifications);
+      product.specifications = normalizedSpecs.split('|').map(specStr => {
         const parts = specStr.split(':');
         const name = parts[0] ? parts[0].trim() : '';
-        const value = parts.slice(1).join(':') ? parts.slice(1).join(':').trim() : '';
+        const value = parts.slice(1).join(':') ? cleanValue(parts.slice(1).join(':')) : '';
         return { name, value };
       }).filter(s => s.name !== '');
     }

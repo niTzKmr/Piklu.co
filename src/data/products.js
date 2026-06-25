@@ -259,7 +259,41 @@ export const products = [
     "weight": 0,
     "meta_title": "Hollow Knight Keychain",
     "meta_description": "A beautiful handcrafted hollow knight keychain.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "White, Black, Navy Blue"
+      },
+      {
+        "name": "Material",
+        "value": "3D Printed Plastic Type: Character Keychain"
+      },
+      {
+        "name": "Style",
+        "value": "Gaming / Cute / Collectible"
+      },
+      {
+        "name": "Closure Type",
+        "value": "Key Ring"
+      },
+      {
+        "name": "Product Length",
+        "value": "Approx. 2–3 inch"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      },
+      {
+        "name": "Generic Name",
+        "value": "3D Printed Keychain"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India"
+      }
+    ]
   },
   {
     "id": "plushie-keychain",
@@ -283,20 +317,36 @@ export const products = [
     "instagram_url": "",
     "specifications": [
       {
+        "name": "Color",
+        "value": "Pink / Blue"
+      },
+      {
         "name": "Material",
-        "value": "Premium Soft Velvet Cotton"
+        "value": "Crochet Yarn, Metal Ring"
       },
       {
-        "name": "Size",
-        "value": "3.5 Inch Height"
+        "name": "Type",
+        "value": "Keychain"
       },
       {
-        "name": "Weight",
-        "value": "25 g"
+        "name": "Style",
+        "value": "Handmade / Cute Aesthetic"
       },
       {
-        "name": "Net Quantity",
-        "value": "1"
+        "name": "Product Length",
+        "value": "Approx. 2–3 inch"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1 Pair / 2 Pieces"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Crochet Keychain"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India /Variant / Selection Text /Choose your color combo /Pink + Blue Pair"
       }
     ],
     "faqs": [
@@ -327,7 +377,37 @@ export const products = [
     "weight": 0,
     "meta_title": "101 Why I Love You",
     "meta_description": "A beautiful handcrafted 101 why i love you.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Type",
+        "value": "Message Jar / Love Note Gift"
+      },
+      {
+        "name": "Theme",
+        "value": "101 Reasons Why I Love You"
+      },
+      {
+        "name": "Color",
+        "value": "White, Red & Gold"
+      },
+      {
+        "name": "Style",
+        "value": "Romantic / Cute / Keepsake Gift"
+      },
+      {
+        "name": "Best For",
+        "value": "Anniversary, birthday, Valentine’s Day, surprise gifts"
+      },
+      {
+        "name": "Packaging",
+        "value": "Decorative jar with ribbon"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      }
+    ]
   },
   {
     "id": "ceramic-bubble-cup-saucer",
@@ -350,7 +430,65 @@ export const products = [
     "weight": 0,
     "meta_title": "Ceramic Bubble Cup Saucer",
     "meta_description": "A beautiful handcrafted ceramic bubble cup saucer.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Material",
+        "value": "Ceramic"
+      },
+      {
+        "name": "Type",
+        "value": "Coffee Mug / Cup & Saucer Set"
+      },
+      {
+        "name": "Color",
+        "value": "Pink"
+      },
+      {
+        "name": "Capacity",
+        "value": "200 ml"
+      },
+      {
+        "name": "Product Length",
+        "value": "10 cm"
+      },
+      {
+        "name": "Product Breadth",
+        "value": "10 cm"
+      },
+      {
+        "name": "Product Height",
+        "value": "12 cm"
+      },
+      {
+        "name": "Packaging Length",
+        "value": "12 cm"
+      },
+      {
+        "name": "Packaging Breadth",
+        "value": "10 cm"
+      },
+      {
+        "name": "Packaging Height",
+        "value": "15 cm"
+      },
+      {
+        "name": "Packaging Weight",
+        "value": "0.7 kg"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "Pack of 1"
+      },
+      {
+        "name": "Add Ons",
+        "value": "No Add Ons"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India"
+      }
+    ]
   },
   {
     "id": "ceramic-coffee-mug-bow",
@@ -373,7 +511,37 @@ export const products = [
     "weight": 0,
     "meta_title": "Ceramic Coffee Mug Bow",
     "meta_description": "A beautiful handcrafted ceramic coffee mug bow.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Material",
+        "value": "Ceramic"
+      },
+      {
+        "name": "Type",
+        "value": "Coffee Mug"
+      },
+      {
+        "name": "Design",
+        "value": "Bow Print with 3D Bow Handle Detail"
+      },
+      {
+        "name": "Color",
+        "value": "White & Pink"
+      },
+      {
+        "name": "Style",
+        "value": "Cute / Girly / Aesthetic Mug"
+      },
+      {
+        "name": "Best For",
+        "value": "Coffee, tea, gifting, desk décor, bedside mug"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      }
+    ]
   },
   {
     "id": "ceramic-heart-mug",
@@ -396,7 +564,65 @@ export const products = [
     "weight": 0,
     "meta_title": "Ceramic Heart Mug",
     "meta_description": "A beautiful handcrafted ceramic heart mug.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "Red / Cream"
+      },
+      {
+        "name": "Material",
+        "value": "Ceramic"
+      },
+      {
+        "name": "Type",
+        "value": "Coffee Mug"
+      },
+      {
+        "name": "Capacity",
+        "value": "300 ml"
+      },
+      {
+        "name": "Product Length",
+        "value": "15 cm"
+      },
+      {
+        "name": "Product Breadth",
+        "value": "12 cm"
+      },
+      {
+        "name": "Product Height",
+        "value": "15 cm"
+      },
+      {
+        "name": "Product Weight",
+        "value": "0.4 kg"
+      },
+      {
+        "name": "Packaging Length",
+        "value": "15 cm"
+      },
+      {
+        "name": "Packaging Breadth",
+        "value": "12 cm"
+      },
+      {
+        "name": "Packaging Height",
+        "value": "15 cm"
+      },
+      {
+        "name": "Packaging Weight",
+        "value": "0.4 kg"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "Pack of 1"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Cups, Mugs & Saucers"
+      }
+    ]
   },
   {
     "id": "collage-3d-cutout-frame",
@@ -419,7 +645,49 @@ export const products = [
     "weight": 0,
     "meta_title": "Collage 3D Cutout Frame",
     "meta_description": "A beautiful handcrafted collage 3d cutout frame.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "Black"
+      },
+      {
+        "name": "Material",
+        "value": "Handicraft"
+      },
+      {
+        "name": "Product Length",
+        "value": "10 inch"
+      },
+      {
+        "name": "Product Breadth",
+        "value": "0.5 inch"
+      },
+      {
+        "name": "Product Height",
+        "value": "12 inch"
+      },
+      {
+        "name": "Weight",
+        "value": "0.3 kg"
+      },
+      {
+        "name": "Type",
+        "value": "Digital Photo Frame"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Photo Frames"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India"
+      }
+    ]
   },
   {
     "id": "crochet-sunflower-keychain",
@@ -442,7 +710,45 @@ export const products = [
     "weight": 0,
     "meta_title": "Crochet Sunflower Keychain",
     "meta_description": "A beautiful handcrafted crochet sunflower keychain.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "Yellow, Brown, Green, White"
+      },
+      {
+        "name": "Material",
+        "value": "Crochet Yarn, Faux Pearls, Metal Ring"
+      },
+      {
+        "name": "Type",
+        "value": "Handmade Keychain"
+      },
+      {
+        "name": "Style",
+        "value": "Floral / Cute / Aesthetic"
+      },
+      {
+        "name": "Closure Type",
+        "value": "Key Ring with Hook"
+      },
+      {
+        "name": "Product Length",
+        "value": "Approx. 4–5 inch"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Crochet Keychain"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India"
+      }
+    ]
   },
   {
     "id": "customized-8-photo-frame",
@@ -465,7 +771,53 @@ export const products = [
     "weight": 0,
     "meta_title": "Customized 8 Photo Frame",
     "meta_description": "A beautiful handcrafted customized 8 photo frame.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "Black"
+      },
+      {
+        "name": "Material",
+        "value": "Wooden"
+      },
+      {
+        "name": "Product Length",
+        "value": "9 inch"
+      },
+      {
+        "name": "Product Breadth",
+        "value": "0.5 inch"
+      },
+      {
+        "name": "Product Height",
+        "value": "13 inch"
+      },
+      {
+        "name": "Weight",
+        "value": "0.3 kg"
+      },
+      {
+        "name": "Type",
+        "value": "Digital Photo Frame"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Photo Frames"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India lVariant / Selection Text"
+      },
+      {
+        "name": "Style",
+        "value": "Customized 8–12 Photo Birthday Collage Frame"
+      }
+    ]
   },
   {
     "id": "diy-pearl-necklace-set",
@@ -488,7 +840,37 @@ export const products = [
     "weight": 0,
     "meta_title": "DIY Pearl Necklace Set",
     "meta_description": "A beautiful handcrafted diy pearl necklace set.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Type",
+        "value": "Necklace Gift Kit / Pearl Reveal Gift Box"
+      },
+      {
+        "name": "Includes",
+        "value": "Pearl reveal kit + necklace pendant + gift box"
+      },
+      {
+        "name": "Theme",
+        "value": "Wish Pearl / Love Pearl"
+      },
+      {
+        "name": "Color",
+        "value": "Purple gift box with silver-toned necklace"
+      },
+      {
+        "name": "Style",
+        "value": "Romantic / Surprise / Keepsake Gift"
+      },
+      {
+        "name": "Best For",
+        "value": "Birthday, anniversary, Valentine’s Day, proposal gift, surprise gift"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1 Gift Set"
+      }
+    ]
   },
   {
     "id": "duck-themed-mug",
@@ -511,7 +893,69 @@ export const products = [
     "weight": 0,
     "meta_title": "Duck Themed Mug",
     "meta_description": "A beautiful handcrafted duck themed mug.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "White"
+      },
+      {
+        "name": "Material",
+        "value": "Ceramic"
+      },
+      {
+        "name": "Type",
+        "value": "Coffee Mug"
+      },
+      {
+        "name": "Product Length",
+        "value": "8 cm"
+      },
+      {
+        "name": "Product Breadth",
+        "value": "8 cm"
+      },
+      {
+        "name": "Product Height",
+        "value": "8 cm"
+      },
+      {
+        "name": "Product Weight",
+        "value": "0.3 kg"
+      },
+      {
+        "name": "Packaging Length",
+        "value": "8 cm"
+      },
+      {
+        "name": "Packaging Breadth",
+        "value": "8 cm"
+      },
+      {
+        "name": "Packaging Height",
+        "value": "6 cm"
+      },
+      {
+        "name": "Packaging Weight",
+        "value": "0.3 kg"
+      },
+      {
+        "name": "Capacity",
+        "value": "2.5 ml (double-check this once—this capacity looks incorrect in the listing)"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "Pack of 1"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Cups, Mugs & Saucers"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India"
+      }
+    ]
   },
   {
     "id": "gift-box-combo",
@@ -534,7 +978,37 @@ export const products = [
     "weight": 0,
     "meta_title": "Gift Box Combo",
     "meta_description": "A beautiful handcrafted gift box combo.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Type",
+        "value": "Jewelry Gift Box / Accessory Hamper"
+      },
+      {
+        "name": "Includes",
+        "value": "Assorted jewelry & cute accessories"
+      },
+      {
+        "name": "Style",
+        "value": "Cute / Aesthetic / Gift-ready"
+      },
+      {
+        "name": "Color Theme",
+        "value": "Soft neutral tones with gold & pastel accents"
+      },
+      {
+        "name": "Best For",
+        "value": "Birthday gifts, friendship gifts, festive gifting, surprise hampers"
+      },
+      {
+        "name": "Packaging",
+        "value": "Gift box presentation"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1 Gift Box"
+      }
+    ]
   },
   {
     "id": "pixel-frame-4x4-stand",
@@ -557,7 +1031,49 @@ export const products = [
     "weight": 0,
     "meta_title": "Pixel Frame 4x4 Stand",
     "meta_description": "A beautiful handcrafted pixel frame 4x4 stand.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "White"
+      },
+      {
+        "name": "Product Length",
+        "value": "8 Inch"
+      },
+      {
+        "name": "Product Breadth",
+        "value": "0.5 Inch"
+      },
+      {
+        "name": "Product Height",
+        "value": "12 Inch"
+      },
+      {
+        "name": "Weight",
+        "value": "100 g"
+      },
+      {
+        "name": "Material",
+        "value": "Plastic"
+      },
+      {
+        "name": "Type",
+        "value": "Digital Photo Frame"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Photo Frames"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      }
+    ]
   },
   {
     "id": "shinchan-messi-keychain",
@@ -581,7 +1097,45 @@ export const products = [
     "weight": 0,
     "meta_title": "Shinchan Messi Keychain",
     "meta_description": "A beautiful handcrafted shinchan messi keychain.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "Multicolor"
+      },
+      {
+        "name": "Material",
+        "value": "PU"
+      },
+      {
+        "name": "Type",
+        "value": "Cartoon Keychain"
+      },
+      {
+        "name": "Shape",
+        "value": "Oblong / Character Charm"
+      },
+      {
+        "name": "Style",
+        "value": "Cute / Anime / Football Theme"
+      },
+      {
+        "name": "Product Dimension Unit",
+        "value": "cm"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Keychains"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India"
+      }
+    ]
   },
   {
     "id": "strawberry-bee-keychain",
@@ -604,7 +1158,45 @@ export const products = [
     "weight": 0,
     "meta_title": "Strawberry Bee Keychain",
     "meta_description": "A beautiful handcrafted strawberry bee keychain.",
-    "instagram_url": ""
+    "instagram_url": "",
+    "specifications": [
+      {
+        "name": "Color",
+        "value": "Red, Gold, White, Yellow"
+      },
+      {
+        "name": "Material",
+        "value": "Alloy Metal, Resin / Enamel"
+      },
+      {
+        "name": "Type",
+        "value": "Charm Keychain"
+      },
+      {
+        "name": "Style",
+        "value": "Cute / Aesthetic / Floral"
+      },
+      {
+        "name": "Closure Type",
+        "value": "Heart Clasp Hook"
+      },
+      {
+        "name": "Product Length",
+        "value": "Approx. 3–4 inch"
+      },
+      {
+        "name": "Net Quantity (N)",
+        "value": "1"
+      },
+      {
+        "name": "Generic Name",
+        "value": "Decorative Keychain"
+      },
+      {
+        "name": "Country of Origin",
+        "value": "India"
+      }
+    ]
   },
   {
     "id": "trendy-cutout-5-photo-frame",
@@ -627,54 +1219,31 @@ export const products = [
     "weight": 0,
     "meta_title": "Trendy Cutout 5 Photo Frame",
     "meta_description": "A beautiful handcrafted trendy cutout 5 photo frame.",
-    "instagram_url": ""
-  },
-  {
-    "id": "pixel-frame-6x4",
-    "slug": "pixel-frame-6x4",
-    "name": "Retro Pixel Custom Frame 6x4",
-    "price": 179,
-    "category": "Frame",
-    "description": "A blocky, 8-bit styled custom photo frame in a larger 6x4 (4x6) size. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
-    "image": "/Products/Pixel-Frame-6x4/Frame4x6.png",
-    "images": [
-      "/Products/Pixel-Frame-6x4/Frame4x6.png"
-    ],
-    "recommended": false,
-    "collection": "",
-    "tags": [
-      "frames"
-    ],
-    "sku": "pixel-frame-6x4",
-    "stock": -1,
-    "weight": 0,
-    "meta_title": "Retro Pixel Custom Frame 6x4",
-    "meta_description": "A blocky, 8-bit styled custom photo frame in a larger 6x4 (4x6) size.",
     "instagram_url": "",
     "specifications": [
       {
         "name": "Color",
-        "value": "White"
-      },
-      {
-        "name": "Product Length",
-        "value": "10 Inch"
-      },
-      {
-        "name": "Product Breadth",
-        "value": "0.5 Inch"
-      },
-      {
-        "name": "Product Height",
-        "value": "14 Inch"
-      },
-      {
-        "name": "Weight",
-        "value": "120 g"
+        "value": "Black"
       },
       {
         "name": "Material",
-        "value": "Plastic"
+        "value": "Wooden"
+      },
+      {
+        "name": "Product Length",
+        "value": "9 inch"
+      },
+      {
+        "name": "Product Breadth",
+        "value": "0.5 inch"
+      },
+      {
+        "name": "Product Height",
+        "value": "12 inch"
+      },
+      {
+        "name": "Weight",
+        "value": "0.2 kg"
       },
       {
         "name": "Type",
@@ -685,18 +1254,12 @@ export const products = [
         "value": "Photo Frames"
       },
       {
-        "name": "Country of Origin",
-        "value": "India"
-      },
-      {
         "name": "Net Quantity (N)",
         "value": "1"
-      }
-    ],
-    "faqs": [
+      },
       {
-        "q": "How do I send my photo?",
-        "a": "After checkout, you will be redirected to WhatsApp. Send your high-res photo to us directly in the chat, and we will send you a digital mockup for approval before printing!"
+        "name": "Country of Origin",
+        "value": "India"
       }
     ]
   }
