@@ -5,7 +5,6 @@ const shuffleItems = [
   { text: 'Customize a Keychain 🔑', category: 'Keychain' },
   { text: 'Customize a Frame 🖼️', category: 'Frame' },
   { text: 'Customize a Hamper 🎁', category: 'Hamper' },
-  { text: 'Customize a Mug ☕', category: 'Mug' }
 ];
 
 export default function Hero({ onSelectCategory }) {
@@ -25,11 +24,8 @@ export default function Hero({ onSelectCategory }) {
       <div className="container hero-grid">
         <div className="hero-content">
           <h1 className="hero-title">
-            Because Your <span className="title-accent-italic">Beloved</span> Deserves the <span className="title-accent-pixel">Perfect Piklu Gift</span> ✨
+            Because Your <span className="title-accent-italic">Beloved</span> Deserves the <span className="title-accent-highlight">Perfect Piklu Gift</span>
           </h1>
-          <p className="hero-tagline">
-            Unbox happiness and share the love. From hand-crafted curated hampers to completely personalized keychains, we pack love into every single box to make your special moments absolutely unforgettable.
-          </p>
           <div className="hero-actions">
             <a
               href="#pixel-collection"
@@ -64,7 +60,7 @@ export default function Hero({ onSelectCategory }) {
               <span>💖 Curated with Love</span>
             </div>
             <div className="floating-bubble-2 neo-card">
-              <span>₹299 onwards!</span>
+              <span>₹99 onwards!</span>
             </div>
           </div>
 
@@ -120,35 +116,29 @@ export default function Hero({ onSelectCategory }) {
         }
 
         .hero-title {
-          font-size: 3.8rem;
-          line-height: 1.1;
-          margin-bottom: 1.5rem;
-          letter-spacing: -1.5px;
-          text-shadow: 3px 3px 0px #ffffff;
+          font-size: 3.6rem;
+          line-height: 1.15;
+          margin-bottom: 2rem;
+          letter-spacing: -1px;
+          text-shadow: none;
+          color: var(--text-dark);
         }
 
         .title-accent-italic {
-          font-family: var(--font-body);
+          font-family: var(--font-serif);
           font-style: italic;
-          font-weight: 700;
+          font-weight: 600;
           color: var(--bg-orange);
-          text-shadow: 2px 2px 0px #ffffff;
         }
 
-        .title-accent-pixel {
-          font-family: var(--font-pixel);
-          font-size: 0.55em;
-          color: #39FF14;
-          background-color: #2C1A47;
-          padding: 0.25rem 0.75rem;
-          border: 3px solid var(--text-dark);
-          text-shadow: 2px 2px 0px #FF007F;
+        .title-accent-highlight {
+          position: relative;
           display: inline-block;
-          vertical-align: middle;
-          margin: 0.25rem 0.5rem;
-          letter-spacing: 0px;
-          transform: rotate(-1.5deg);
-          line-height: 1.2;
+          font-weight: 700;
+          color: var(--text-dark);
+          background: linear-gradient(120deg, rgba(255, 222, 77, 0.4) 0%, rgba(255, 222, 77, 0.7) 100%);
+          padding: 0.1rem 0.5rem;
+          border-radius: 6px;
         }
 
         .hero-tagline {
