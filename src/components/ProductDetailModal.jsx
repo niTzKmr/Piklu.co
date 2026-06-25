@@ -238,26 +238,6 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
               <p className="modal-product-desc">{activeProduct.description}</p>
             </div>
 
-            {/* Instagram reel / visual proof linkage */}
-            {activeProduct.instagram_url && (
-              <div className="modal-instagram-card neo-card" style={{ backgroundColor: 'var(--bg-teal)', border: 'var(--border-thick)' }}>
-                <h4 style={{ fontSize: '1.05rem', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  📸 Seen on Instagram!
-                </h4>
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.4', marginBottom: '0.75rem' }}>
-                  Check out this product's styling reels and customer videos on our Instagram page!
-                </p>
-                <a 
-                  href={activeProduct.instagram_url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="neo-btn neo-btn-dark"
-                  style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem', padding: '0.5rem' }}
-                >
-                  <span>Watch Video Reel 🎥</span>
-                </a>
-              </div>
-            )}
 
             {/* Dynamic Variety Selection */}
             {isPixelatedFrame ? (
