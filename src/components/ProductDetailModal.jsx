@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import mascotSeal from '../assets/Piklu.png';
+import mascotSeal from '../assets/Piklu.webp';
 
 export default function ProductDetailModal({ product, isOpen, onClose, onAddToCart, allProducts, cartCount, onCartClick, onSelectProduct }) {
   const defaultVariety = product?.varieties?.options?.find(opt => opt.isDefault) || product?.varieties?.options?.[0] || null;

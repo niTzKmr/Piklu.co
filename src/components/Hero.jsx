@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import heroMascot from '../assets/Piklu.jpg';
+import heroMascot from '../assets/Piklu2.webp';
 
 const shuffleItems = [
   { text: 'Custom Keychain 🔑', category: 'Keychain' },

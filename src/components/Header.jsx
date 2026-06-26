@@ -1,4 +1,4 @@
-import logoImg from '../assets/Piklu.png';
+import logoImg from '../assets/Piklu.webp';
 
 export default function Header({ cartCount, onCartClick }) {
   return (

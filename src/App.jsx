@@ -9,7 +9,7 @@ import ProductPage from './components/ProductPage';
 import ProductNotFound from './components/ProductNotFound';
 import { products } from './data/products';
 
-import pikluMascot from './assets/Piklu.png';
+import pikluMascot from './assets/Piklu.webp';
 
 export default function App() {
   const [cart, setCart] = useState(() => {
