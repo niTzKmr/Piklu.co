@@ -7,9 +7,9 @@ export const products = [
     "price": 129,
     "category": "Frame",
     "description": "A beautiful handcrafted customized 8 photo frame.",
-    "image": "/Products/Customized-8-Photo-Frame/image.png",
+    "image": "/Products/Customized-8-Photo-Frame/image.webp",
     "images": [
-      "/Products/Customized-8-Photo-Frame/image.png"
+      "/Products/Customized-8-Photo-Frame/image.webp"
     ],
     "recommended": false,
     "collection": "frame",
@@ -76,9 +76,9 @@ export const products = [
     "price": 139,
     "category": "Frame",
     "description": "A beautiful handcrafted collage 3d cutout frame.",
-    "image": "/Products/Collage-3D-Cutout-Frame/image.png",
+    "image": "/Products/Collage-3D-Cutout-Frame/image.webp",
     "images": [
-      "/Products/Collage-3D-Cutout-Frame/image.png"
+      "/Products/Collage-3D-Cutout-Frame/image.webp"
     ],
     "recommended": false,
     "collection": "frame",
@@ -141,9 +141,9 @@ export const products = [
     "price": 149,
     "category": "Frame",
     "description": "A beautiful handcrafted trendy cutout 5 photo frame.",
-    "image": "/Products/Trendy-Cutout-5-Photo-Frame/image.png",
+    "image": "/Products/Trendy-Cutout-5-Photo-Frame/image.webp",
     "images": [
-      "/Products/Trendy-Cutout-5-Photo-Frame/image.png"
+      "/Products/Trendy-Cutout-5-Photo-Frame/image.webp"
     ],
     "recommended": false,
     "collection": "frame",
@@ -206,9 +206,9 @@ export const products = [
     "price": 149,
     "category": "Frame",
     "description": "A blocky, 8-bit styled custom photo frame in a compact 4x4 size. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
-    "image": "/Products/Pixel-Frame-4x4/Frame4x4.png",
+    "image": "/Products/Pixel-Frame-4x4/Frame4x4.webp",
     "images": [
-      "/Products/Pixel-Frame-4x4/Frame4x4.png"
+      "/Products/Pixel-Frame-4x4/Frame4x4.webp"
     ],
     "recommended": true,
     "collection": "pixelated",
@@ -275,9 +275,9 @@ export const products = [
     "price": 169,
     "category": "Frame",
     "description": "A blocky, 8-bit styled custom photo frame in a compact 4x4 size, complete with a plastic stand for tabletop display. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
-    "image": "/Products/Pixel-Frame-4x4-Stand/image.png",
+    "image": "/Products/Pixel-Frame-4x4-Stand/image.webp",
     "images": [
-      "/Products/Pixel-Frame-4x4-Stand/image.png"
+      "/Products/Pixel-Frame-4x4-Stand/image.webp"
     ],
     "recommended": false,
     "collection": "pixelated",
@@ -344,9 +344,9 @@ export const products = [
     "price": 159,
     "category": "Hamper",
     "description": "A beautiful handcrafted 101 why i love you.",
-    "image": "/Products/101-Why-I-Love-You/image1.png",
+    "image": "/Products/101-Why-I-Love-You/image1.webp",
     "images": [
-      "/Products/101-Why-I-Love-You/image1.png"
+      "/Products/101-Why-I-Love-You/image1.webp"
     ],
     "recommended": false,
     "collection": "hamper",
@@ -397,9 +397,9 @@ export const products = [
     "price": 189,
     "category": "Hamper",
     "description": "A beautiful handcrafted diy pearl necklace set.",
-    "image": "/Products/DIY-Pearl-Necklace-Set/image.png",
+    "image": "/Products/DIY-Pearl-Necklace-Set/image.webp",
     "images": [
-      "/Products/DIY-Pearl-Necklace-Set/image.png"
+      "/Products/DIY-Pearl-Necklace-Set/image.webp"
     ],
     "recommended": false,
     "collection": "hamper",
@@ -450,9 +450,9 @@ export const products = [
     "price": 99,
     "category": "Keychain",
     "description": "A beautiful handcrafted crochet sunflower keychain.",
-    "image": "/Products/Crochet-Sunflower-Keychain/image.jpg",
+    "image": "/Products/Crochet-Sunflower-Keychain/image.webp",
     "images": [
-      "/Products/Crochet-Sunflower-Keychain/image.jpg",
+      "/Products/Crochet-Sunflower-Keychain/image.webp",
       "/Products/Crochet-Sunflower-Keychain/image 2.avif"
     ],
     "recommended": false,
@@ -512,10 +512,10 @@ export const products = [
     "price": 99,
     "category": "Keychain",
     "description": "A dual-sided custom keychain featuring your Instagram/Facebook page or payment UPI QR code on one side, and a custom design or text on the other. Extremely handy for creators and business owners!",
-    "image": "/Products/Double-side-qr-keychain/Front.png",
+    "image": "/Products/Double-side-qr-keychain/Front.webp",
     "images": [
-      "/Products/Double-side-qr-keychain/Front.png",
-      "/Products/Double-side-qr-keychain/Back.png"
+      "/Products/Double-side-qr-keychain/Front.webp",
+      "/Products/Double-side-qr-keychain/Back.webp"
     ],
     "recommended": false,
     "collection": "keychain",
@@ -562,9 +562,9 @@ export const products = [
     "price": 99,
     "category": "Keychain",
     "description": "An incredibly soft, hand-stitched mini plushie keychain. Choose your favorite animal buddy and add a personalized custom label tag!",
-    "image": "/Products/Plushie-keychain/Plushie_keychain.png",
+    "image": "/Products/Plushie-keychain/Plushie_keychain.webp",
     "images": [
-      "/Products/Plushie-keychain/Plushie_keychain.png"
+      "/Products/Plushie-keychain/Plushie_keychain.webp"
     ],
     "recommended": false,
     "collection": "keychain",
@@ -623,11 +623,11 @@ export const products = [
     "price": 109,
     "category": "Keychain",
     "description": "A beautiful handcrafted shinchan messi keychain.",
-    "image": "/Products/Shinchan-Messi-Keychain/image 1.png",
+    "image": "/Products/Shinchan-Messi-Keychain/image 1.webp",
     "images": [
-      "/Products/Shinchan-Messi-Keychain/image 1.png",
-      "/Products/Shinchan-Messi-Keychain/image 2.png",
-      "/Products/Shinchan-Messi-Keychain/image 3.jpg"
+      "/Products/Shinchan-Messi-Keychain/image 1.webp",
+      "/Products/Shinchan-Messi-Keychain/image 2.webp",
+      "/Products/Shinchan-Messi-Keychain/image 3.webp"
     ],
     "recommended": false,
     "collection": "keychain",
@@ -686,10 +686,10 @@ export const products = [
     "price": 129,
     "category": "Keychain",
     "description": "A beautiful handcrafted hollow knight keychain.",
-    "image": "/Products/Hollow-knight-keychain/Hollow knight.png",
+    "image": "/Products/Hollow-knight-keychain/Hollow knight.webp",
     "images": [
-      "/Products/Hollow-knight-keychain/Hollow knight.png",
-      "/Products/Hollow-knight-keychain/Hollow Knight 2.png"
+      "/Products/Hollow-knight-keychain/Hollow knight.webp",
+      "/Products/Hollow-knight-keychain/Hollow Knight 2.webp"
     ],
     "recommended": false,
     "collection": "keychain",
@@ -744,9 +744,9 @@ export const products = [
     "price": 129,
     "category": "Keychain",
     "description": "A beautiful handcrafted strawberry bee keychain.",
-    "image": "/Products/Strawberry-Bee-Keychain/strawberry_keychain.png",
+    "image": "/Products/Strawberry-Bee-Keychain/strawberry_keychain.webp",
     "images": [
-      "/Products/Strawberry-Bee-Keychain/strawberry_keychain.png"
+      "/Products/Strawberry-Bee-Keychain/strawberry_keychain.webp"
     ],
     "recommended": false,
     "collection": "keychain",
@@ -805,9 +805,9 @@ export const products = [
     "price": 129,
     "category": "Keychain",
     "description": "A custom dual-layered laser-cut acrylic keychain  with custom pixelated styled image, name and spotify qr. Your name is engraved in a blocky 8-bit gaming font.",
-    "image": "/Products/Pixel-cutom-keychain/Keychain.png",
+    "image": "/Products/Pixel-cutom-keychain/Keychain.webp",
     "images": [
-      "/Products/Pixel-cutom-keychain/Keychain.png"
+      "/Products/Pixel-cutom-keychain/Keychain.webp"
     ],
     "recommended": true,
     "collection": "pixelated",
@@ -854,9 +854,9 @@ export const products = [
     "price": 129,
     "category": "Keychain",
     "description": "Add a touch of Hallownest to your daily life with this beautiful laser-cut custom Hollow Knight keychain. Engrave your name or gamer tag on the back!",
-    "image": "/Products/Keychain/Hollow Knight/aclylic_hollow knight.png",
+    "image": "/Products/Keychain/Hollow Knight/aclylic_hollow knight.webp",
     "images": [
-      "/Products/Keychain/Hollow Knight/aclylic_hollow knight.png"
+      "/Products/Keychain/Hollow Knight/aclylic_hollow knight.webp"
     ],
     "recommended": false,
     "collection": "key chain",
@@ -899,10 +899,10 @@ export const products = [
     "price": 189,
     "category": "Mug",
     "description": "A beautiful handcrafted duck themed mug.",
-    "image": "/Products/Duck-Themed-Mug/image.png",
+    "image": "/Products/Duck-Themed-Mug/image.webp",
     "images": [
-      "/Products/Duck-Themed-Mug/image.png",
-      "/Products/Duck-Themed-Mug/image 2.jpg"
+      "/Products/Duck-Themed-Mug/image.webp",
+      "/Products/Duck-Themed-Mug/image 2.webp"
     ],
     "recommended": false,
     "collection": "mug",
@@ -985,9 +985,9 @@ export const products = [
     "price": 219,
     "category": "Mug",
     "description": "A beautiful handcrafted ceramic bubble cup saucer.",
-    "image": "/Products/Ceramic-Bubble-Cup-Saucer/ceramic cup with sausage set.png",
+    "image": "/Products/Ceramic-Bubble-Cup-Saucer/ceramic cup with sausage set.webp",
     "images": [
-      "/Products/Ceramic-Bubble-Cup-Saucer/ceramic cup with sausage set.png"
+      "/Products/Ceramic-Bubble-Cup-Saucer/ceramic cup with sausage set.webp"
     ],
     "recommended": false,
     "collection": "mugs",
@@ -1066,10 +1066,10 @@ export const products = [
     "price": 249,
     "category": "Mug",
     "description": "A beautiful handcrafted ceramic heart mug.",
-    "image": "/Products/Ceramic-Heart-Mug/heart mug.png",
+    "image": "/Products/Ceramic-Heart-Mug/heart mug.webp",
     "images": [
-      "/Products/Ceramic-Heart-Mug/heart mug.png",
-      "/Products/Ceramic-Heart-Mug/image 2.jpg"
+      "/Products/Ceramic-Heart-Mug/heart mug.webp",
+      "/Products/Ceramic-Heart-Mug/image 2.webp"
     ],
     "recommended": false,
     "collection": "mugs",
@@ -1148,9 +1148,9 @@ export const products = [
     "price": 209,
     "category": "Mug",
     "description": "A beautiful handcrafted ceramic coffee mug bow.",
-    "image": "/Products/Ceramic-Coffee-Mug-Bow/bow mug.png",
+    "image": "/Products/Ceramic-Coffee-Mug-Bow/bow mug.webp",
     "images": [
-      "/Products/Ceramic-Coffee-Mug-Bow/bow mug.png"
+      "/Products/Ceramic-Coffee-Mug-Bow/bow mug.webp"
     ],
     "recommended": true,
     "collection": "mugs",
@@ -1201,9 +1201,9 @@ export const products = [
     "price": 179,
     "category": "Frame",
     "description": "A blocky, 8-bit styled custom photo frame in a larger 6x4 (4x6) size. Share a photo with us during checkout and watch us transform it into beautiful, physical pixel art!",
-    "image": "/Products/Pixel-Frame-6x4/Frame4x6.png",
+    "image": "/Products/Pixel-Frame-6x4/Frame4x6.webp",
     "images": [
-      "/Products/Pixel-Frame-6x4/Frame4x6.png"
+      "/Products/Pixel-Frame-6x4/Frame4x6.webp"
     ],
     "recommended": false,
     "collection": "pixelated",
